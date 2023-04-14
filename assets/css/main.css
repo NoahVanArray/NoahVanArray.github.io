@@ -2,9 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,900");
 
 /*
-	Escape Velocity by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Author: John Yohan J. Navarra
 */
 
 html, body, div, span, applet, object,
@@ -2002,13 +2000,13 @@ input, select, textarea {
 			}
 
 		.wrapper.style1 {
-			background: #e97770 url("images/overlay.png");
+			background: #56764D url("images/overlay.png");
 			color: #eee;
 			color: rgba(255, 255, 255, 0.75);
 		}
 
 			.wrapper.style1 .title {
-				background: #e97770 url("images/overlay.png");
+				background: #56764D url("images/overlay.png");
 				color: #fff;
 			}
 
@@ -2017,11 +2015,11 @@ input, select, textarea {
 			}
 
 		.wrapper.style2 {
-			background: #fff;
+			background: #D9DED0;
 		}
 
 			.wrapper.style2 .title {
-				background: #fff;
+				background: #D9DED0;
 				color: #484d55;
 			}
 
@@ -2061,7 +2059,8 @@ input, select, textarea {
 		justify-content: center;
 		position: relative;
 		height: 24em;
-		background: url("../../images/banner.jpg") center center;
+		background-image: url("../../images/banner.jpg");
+
 		background-size: cover;
 		padding: 0;
 	}
@@ -2087,24 +2086,26 @@ input, select, textarea {
 		text-align: center;
 		position: relative;
 		top: 1.5em;
+		padding: 20%;
+		background: rgba(204, 204, 204, .5);
 	}
 
 		#logo h1 {
 			font-weight: 900;
 			text-transform: uppercase;
-			color: #fff;
+			color: #27282E;
 			font-size: 2em;
 			letter-spacing: 0.25em;
+			
 		}
 
 		#logo p {
-			color: #eee;
-			color: rgba(255, 255, 255, 0.5);
+			color: black;
 			text-transform: uppercase;
 			margin: 1.25em 0 0 0;
 			display: block;
 			letter-spacing: 0.2em;
-			font-size: 0.9em;
+			font-size: 1em;
 		}
 
 /* Nav */
@@ -2137,7 +2138,7 @@ input, select, textarea {
 
 				#nav > ul > li > a, #nav > ul > li > span {
 					display: block;
-					color: #eee;
+					color: shark;
 					color: rgba(255, 255, 255, 0.75);
 					text-transform: uppercase;
 					text-decoration: none;
@@ -2272,7 +2273,7 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		background: #282b34 url("images/overlay.png");
+		background: #582710 url("images/overlay.png");
 		color: #eee;
 		color: rgba(255, 255, 255, 0.5);
 		padding-bottom: 6em;
@@ -2339,7 +2340,7 @@ input, select, textarea {
 			}
 
 		#footer .title {
-			background: #282b34 url("images/overlay.png");
+			background: #582710 url("images/overlay.png");
 			color: #eee;
 		}
 
