@@ -129,7 +129,7 @@ input, select, textarea {
 
 	strong, b {
 		font-weight: 700;
-		color: #484d55;
+		color: black;
 	}
 
 	blockquote {
@@ -2087,7 +2087,7 @@ input, select, textarea {
 		position: relative;
 		top: 1.5em;
 		padding: 20%;
-		background: rgba(204, 204, 204, .5);
+		background: rgba(204, 204, 204, .85);
 	}
 
 		#logo h1 {
@@ -2122,7 +2122,7 @@ input, select, textarea {
 		#nav > ul {
 			display: inline-block;
 			border-radius: 0.35em;
-			box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.25);
+			box-shadow: inset 0px 0px 1px 1px black;
 			padding: 0 1.5em 0 1.5em;
 		}
 
@@ -2138,10 +2138,10 @@ input, select, textarea {
 
 				#nav > ul > li > a, #nav > ul > li > span {
 					display: block;
-					color: rgba(50, 788, 255, 0.75);
+					color: black;
 					text-transform: uppercase;
 					text-decoration: none;
-					font-size: 0.7em;
+					font-size: 0.8em;
 					letter-spacing: 0.25em;
 					height: 5em;
 					line-height: 5em;
@@ -2154,11 +2154,11 @@ input, select, textarea {
 				}
 
 				#nav > ul > li:hover > a {
-					color: #fff;
+					color: Lightgray;
 				}
 
 				#nav > ul > li.active > a, #nav > ul > li.active > span {
-					color: #fff;
+					color: lightgray;
 				}
 
 	.dropotron {
@@ -2272,7 +2272,7 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		background: #582710 url("images/overlay.png");
+		background: #D2B48C url("images/overlay.png");
 		color: #eee;
 		color: rgba(255, 255, 255, 0.5);
 		padding-bottom: 6em;
@@ -2339,7 +2339,7 @@ input, select, textarea {
 			}
 
 		#footer .title {
-			background: #582710 url("images/overlay.png");
+			background: #D2B48C url("images/overlay.png");
 			color: #eee;
 		}
 
