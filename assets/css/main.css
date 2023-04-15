@@ -133,7 +133,7 @@ input, select, textarea {
 	}
 
 	blockquote {
-		border-left: solid 0.5em #ddd;
+		border-left: solid 0.5em #dddf;
 		padding: 1em 0 1em 2em;
 		font-style: italic;
 	}
