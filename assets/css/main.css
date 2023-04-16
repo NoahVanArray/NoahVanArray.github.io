@@ -98,8 +98,9 @@ input, select, textarea {
 	body, input, textarea, select {
 		font-family: 'Source Sans Pro', sans-serif;
 		font-weight: 400;
-		color: #919499;
+		color: #484d55;
 		font-size: 14pt;
+		font-weight: 500;
 		line-height: 1.75em;
 		letter-spacing: 0.025em;
 	}
@@ -1850,7 +1851,7 @@ input, select, textarea {
 		.feature-list h3 {
 			color: #e97770 !important;
 			margin: -0.35em 0 0.75em 0;
-			font-size: 1.15em;
+			font-size: 1.35em;
 			letter-spacing: 0.05em;
 		}
 
@@ -1997,6 +1998,10 @@ input, select, textarea {
 				width: 35px;
 				height: 38px;
 				background: url("images/shadow.png");
+			}
+
+		.wrapper.pweight {
+				font-weight: 25em;
 			}
 
 		.wrapper.style1 {
@@ -2261,8 +2266,15 @@ input, select, textarea {
 	}
 
 		#highlights .highlight h3 {
+			color: shark;
+			margin: -0.75em 0 -0.15em 0;
+			font-size: 1.15em;
+			letter-spacing: 0.05em;
+		}
+
+		#highlights .highlight h4 {
 			color: #e97770;
-			margin: 0 0 0.75em 0;
+			margin: 0 0 0.50em 0;
 			font-size: 1.15em;
 			letter-spacing: 0.05em;
 		}
@@ -2272,9 +2284,9 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		background: #D2B48C url("images/overlay.png");
+		background: #605445f5 url("images/overlay.png");
 		color: #eee;
-		color: rgba(255, 255, 255, 0.5);
+		color: rgba(233, 233, 233, 1);
 		padding-bottom: 6em;
 	}
 
@@ -2292,7 +2304,7 @@ input, select, textarea {
 		#footer form input[type="password"],
 		#footer form select,
 		#footer form textarea {
-			background: #ccc;
+			
 			box-shadow: none;
 		}
 
@@ -2339,14 +2351,14 @@ input, select, textarea {
 			}
 
 		#footer .title {
-			background: #D2B48C url("images/overlay.png");
+			background: #605445f5 url("images/overlay.png");
 			color: #eee;
 		}
 
 		#footer header.style1 {
 			padding-bottom: 6em;
 			margin-bottom: 6em;
-			border-bottom: solid 1px rgba(255, 255, 255, 0.05);
+			border-bottom: solid 1px rgba(255, 255, 255, 0.35);
 		}
 
 			#footer header.style1 h2 {
@@ -2362,7 +2374,7 @@ input, select, textarea {
 		}
 
 			#footer .feature-list section {
-				border-top-color: rgba(255, 255, 255, 0.05);
+				border-top-color: rgba(255, 255, 255, 0.35);
 			}
 
 			#footer .feature-list h3:before {
@@ -2375,15 +2387,15 @@ input, select, textarea {
 		text-align: center;
 		padding-top: 6em;
 		margin-top: 6em;
-		border-top: solid 1px rgba(255, 255, 255, 0.05);
+		border-top: solid 1px rgba(255, 255, 255, 0.35);
 	}
 
 		#copyright ul {
 			display: inline-block;
 			border-radius: 0.35em;
-			box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.05);
+			box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.35);
 			color: #aaa;
-			color: rgba(255, 255, 255, 0.25);
+			color: rgba(255, 255, 255, 0.55);
 			padding: 0.75em 2em;
 			font-size: 0.9em;
 		}
@@ -2473,7 +2485,7 @@ input, select, textarea {
 				#footer header.style1 {
 					padding-bottom: 4em;
 					margin-bottom: 4em;
-					border-bottom: solid 1px rgba(255, 255, 255, 0.05);
+					border-bottom: solid 2px rgba(255, 255, 255, 0.55);
 				}
 
 		/* Copyright */
@@ -2549,7 +2561,7 @@ input, select, textarea {
 		/* Footer */
 
 			#footer .feature-list {
-				border-top: solid 1px rgba(255, 255, 255, 0.05);
+				border-top: solid 1px rgba(255, 255, 255, 0.35);
 				padding-top: 4em;
 			}
 
