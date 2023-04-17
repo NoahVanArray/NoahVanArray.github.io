@@ -1464,7 +1464,7 @@ input, select, textarea {
 		}
 
 		header.style1 p {
-			color: #b1b4b9;
+			color: #484d55;
 			display: block;
 			margin: 1.15em 0 0 0;
 			font-size: 1.3em;
@@ -2286,13 +2286,13 @@ input, select, textarea {
 
 	#footer {
 		background: #E5D3B3 url("images/overlay.png");
-		color: #000000;
-		color: rgb(0, 0, 0);
+		color: #484d55;
+		color: rgb(72, 77, 85);
 		padding-bottom: 6em;
 	}
 
 		#footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer h6, #footer strong, #footer b, #footer a {
-			color: #000000;
+			color: #484d55;
 		}
 
 		#footer hr {
@@ -2322,7 +2322,7 @@ input, select, textarea {
 		#footer input[type="reset"],
 		#footer button,
 		#footer .button {
-			color: #000000;
+			color: #484d55;
 			box-shadow: inset 0px 0px 2px 0px rgba(255, 255, 255, 0.5);
 		}
 
@@ -2331,7 +2331,7 @@ input, select, textarea {
 			#footer input[type="reset"]:hover,
 			#footer button:hover,
 			#footer .button:hover {
-				color: #000000;
+				color: #484d55;
 				box-shadow: inset 0px 0px 2px 0px rgba(255, 255, 255, 0.65);
 			}
 
@@ -2353,7 +2353,7 @@ input, select, textarea {
 
 		#footer .title {
 			background: #E5D3B3 url("images/overlay.png");
-			color: #000000;
+			color: #484d55;
 		}
 
 		#footer header.style1 {
@@ -2363,7 +2363,7 @@ input, select, textarea {
 		}
 
 			#footer header.style1 h2 {
-				color: #000000;
+				color: #484d55;
 			}
 
 			#footer header.style1 .p {
@@ -2394,9 +2394,9 @@ input, select, textarea {
 		#copyright ul {
 			display: inline-block;
 			border-radius: 0.35em;
-			box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.35);
-			color: #aaa;
-			color: rgba(255, 255, 255, 0.55);
+			box-shadow: inset 0px 0px 1px 1px rgba(72, 77, 85, 2);
+			color: #484d55;
+			color: rgba(72, 77, 85, 2);
 			padding: 0.75em 2em;
 			font-size: 0.9em;
 		}
