@@ -2284,8 +2284,8 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		background: #605445f5 url("images/overlay.png");
-		color: #eee;
+		background: #CB8765 url("images/overlay.png");
+		color: #000000;
 		color: rgba(233, 233, 233, 1);
 		padding-bottom: 6em;
 	}
@@ -2351,8 +2351,8 @@ input, select, textarea {
 			}
 
 		#footer .title {
-			background: #605445f5 url("images/overlay.png");
-			color: #eee;
+			background: #CB8765 url("images/overlay.png");
+			color: #000000;
 		}
 
 		#footer header.style1 {
