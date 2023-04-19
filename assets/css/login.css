@@ -15,7 +15,9 @@ body {
   background: floralwhite;
 }
 
-header {
+/*LOGO*/
+
+.top {
   position: absolute;
   top: 20px;
   width: 100%;
@@ -23,15 +25,18 @@ header {
   background: transparent; 
   display: flex;
   justify-content: space-between;
-  z-index: 99;
 }
 
-header img {
+.top img {
   height: 175px;
 }
 
+/*TITLE*/
+
 .title {
   display: inline;
+  float: right;
+  right: ;
 }
 
 .title h1{
@@ -39,7 +44,7 @@ header img {
   position: relative;
   text-align: justify;
   top: 10em;
-  left: 2.5em;
+  left: ;
   width: 100%;
   height: 10%;
 }
@@ -49,10 +54,13 @@ header img {
   position: absolute;
   font-weight: 100;
   font-size: 80%;
-  padding-top: 12.5px;
+  padding-top: 12px;
 }
 
+/*WRAPPER*/
+
 .wrapper {
+  float: left;
   position: relative;
   width: 35%;
   height: 100vh;
@@ -98,6 +106,9 @@ header img {
   content-visibility: visible;
   transform: translateX(0);
 }
+
+
+/*FORM BOX*/
 
 .form-box h2 {
   font-size: 2em;
