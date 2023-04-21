@@ -1894,7 +1894,7 @@ input, select, textarea {
 
 		.feature-list h3 {
 			color: #e97770 !important;
-			margin: -0.35em 0 0.75em 0;
+			margin: -1.35em 0 0.15em -5px;
 			font-size: 1.35em;
 			letter-spacing: 0.05em;
 		}
@@ -1942,6 +1942,10 @@ input, select, textarea {
 			font-weight: 400;
 		}
 
+		.icon img {
+			margin-right: 8px;
+		}
+
 		.icon:before {
 			line-height: inherit;
 			font-size: 1.25em;
@@ -1958,6 +1962,7 @@ input, select, textarea {
 		.icon.brands:before {
 			font-family: 'Font Awesome 5 Brands';
 		}
+
 
 /* Box */
 
