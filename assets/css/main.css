@@ -1467,12 +1467,18 @@ input, select, textarea {
 #profile-container img {
 	background-image: url(images/default.jpg);
 	background-size: cover;
-    width: 150px;
+    width: 152px;
     height: 150px;
-    margin-left: 0px;
-    margin-top: 0px;
+    margin-left: -1px;
+    margin-top: -1px;
 }
 
+/* Edit button for User Info */
+.editInfo {
+	width: 8.1px;
+	height: 35px;
+	line-height: 2.7em;
+}
 /* Section/Article */
 
 	section,
