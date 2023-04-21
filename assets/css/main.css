@@ -1437,6 +1437,42 @@ input, select, textarea {
 
 		}
 
+/* Image container for user profile */
+#imageUpload {
+    display: none;
+}
+
+#profileImage {
+    cursor: pointer;
+}
+
+#profile-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    margin-top: -157px;
+    margin-left: 31px;
+    margin-bottom: 7px;
+}
+
+#profile-container img[src="#"] {
+	display: none;
+}
+
+#profile-container img {
+	background-image: url(images/default.jpg);
+	background-size: cover;
+    width: 150px;
+    height: 150px;
+    margin-left: 0px;
+    margin-top: 0px;
+}
+
 /* Section/Article */
 
 	section,
@@ -1583,6 +1619,7 @@ input, select, textarea {
 	form ::-moz-focus-inner {
 		border: 0;
 	}
+
 
 /* Image */
 
