@@ -3,6 +3,7 @@
 <!--
 	Author: 
 	Front-End: John Yohan J. Navarra
+	Back-End: Angelo Kurt B. Rosal
 -->
 
 <!--
@@ -13,6 +14,21 @@
 -->
 
 <html>
+
+	<?php
+	
+		// Login Check
+	
+		session_start();
+		$_SESSION["userEmail"] = "test";
+		if (!isset($_SESSION["userEmail"])) {
+			echo '<script type="text/javascript">
+				window.location = "http://awardspaace.net"
+			</script>';
+		}
+		
+	?>
+	
 	<head>
 		<title>Yverdon Book Management System</title>
 		<meta charset="utf-8" />
@@ -24,9 +40,9 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
 		<link rel="manifest" href="images/favicon_io/site.webmanifest">
-
 	</head>
-	<body class="left-sidebar is-preload">
+	
+	<body class="left-sidebar is-preload" onload="loginCheck()">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -43,14 +59,14 @@
 							<ul>
 								<li class="current"><a href="home.html"><strong>Home</strong></a></li>
 								<li>
-									<a href="books.html"><strong>Books</strong></a>
+									<a href="#"><strong>Books</strong></a>
 									<ul>
-										<li><a href="#">Non-fiction</a></li>
-										<li><a href="#">Education</a></li>
-										<li><a href="#">Fiction</a></li>
-										<li><a href="#">Literature</a></li>
-										<li><a href="#">Entertainments</a></li>
-										<li><a href="#">Philosophy</a></li>
+										<li><a href="#" id="cNF">Non-fiction</a></li>
+										<li><a href="#" id="cE">Education</a></li>
+										<li><a href="#" id="cF">Fiction</a></li>
+										<li><a href="#" id="cL">Literature</a></li>
+										<li><a href="#" id="cE">Entertainment</a></li>
+										<li><a href="#" id="cP">Philosophy</a></li>
 									</ul>
 								</li>
 								<li><a href="userProfile.html"><strong>User Profile</strong></a></li>
@@ -79,7 +95,7 @@
 												<li>
 													<article class="box post-excerpt">
 														<a href="#" class="image left"><img src="images/nonfic.png" alt="" /></a>
-														<h3><a href="#">Non-fiction</a></h3>
+														<h3><a href="#" >Non-fiction</a></h3>
 														<p>Based on factual information and real events, providing readers with an opportunity to learn and expand their knowledge on various topics.</p>
 													</article>
 												</li>
@@ -128,73 +144,60 @@
 								
 								<!-- Search Bar -->
 									<form style="margin-bottom: 50px;" action="">
-										<input type="text" placeholder="Search Here" onfocus="showSuggest()" onblur="hideSuggest()" name="search" id="detail" onkeyup="showSearch(this.value)">
+										<input type="text" placeholder="Search Here" name="search" id="search" onkeyup="showSearch(this.value)">
 									</form>
 
 								<!-- Content -->
 									<div id="content">
-									
-										<!-- Debug -->
-										<p id="suggest">
-											Suggestions: <span id="txtHint"></span>
-										</p>
 
-										<div class="row gtr-150">
-											<div class="col-4 col-12-small">
-												<section class="box">
-													<a href="#" class="image featured"><img src="images/pic06.jpg" alt="" /></a>
-													<header>
-														<h2>Title: Text here</h2>
-													</header>
-													<a href="#" class="button style1">More</a>
-												</section>
-											</div>
-											<div class="col-4 col-12-small">
-												<section class="box">
-													<a href="#" class="image featured"><img src="images/pic06.jpg" alt="" /></a>
-													<header>
-														<h2>Title: Text here</h2>
-													</header>
-													<a href="#" class="button style1">More</a>
-												</section>
-											</div>
-											<div class="col-4 col-12-small">
-												<section class="box">
-													<a href="#" class="image featured"><img src="images/pic06.jpg" alt="" /></a>
-													<header>
-														<h2>Title: Text here</h2>
-													</header>
-													<a href="#" class="button style1">More</a>
-												</section>
-											</div>
-											<div class="col-4 col-12-small">
-												<section class="box">
-													<a href="#" class="image featured"><img src="images/pic06.jpg" alt="" /></a>
-													<header>
-														<h2>Title: Text here</h2>
-													</header>
-													<a href="#" class="button style1">More</a>
-												</section>
-											</div>
-											<div class="col-4 col-12-small">
-												<section class="box">
-													<a href="#" class="image featured"><img src="images/pic06.jpg" alt="" /></a>
-													<header>
-														<h2>Title: Text here</h2>
-													</header>
-													<a href="#" class="button style1">More</a>
-												</section>
-											</div>
-											<div class="col-4 col-12-small">
-												<section class="box">
-													<a href="#" class="image featured"><img src="images/pic06.jpg" alt="" /></a>
-													<header>
-														<h2>Title: Text here</h2>
-													</header>
-													<a href="#" class="button style1">More</a>
-												</section>
-											</div>
+										<div class="row gtr-150" id="txtHint">
+											<?php
+
+												// Default Books Display
+
+												// Array with names
+												$a = array();
+												$conn = mysqli_connect("localhost", "root", "", "ydpbms");
+												if ($conn -> connect_error) {
+													die("Connection failed:". $conn -> connect_error);
+												}
+												
+												$sql = "select name from books";
+												$result = $conn -> query($sql);
+												if ($result -> num_rows > 0) {
+													while ($row = $result -> fetch_assoc()) {
+														$a[] = $row["name"]; // $row must have a specified identifier to avoid nested array/system error
+													}
+												} else {
+													exit;
+												}
+
+												$hint = "";
+
+												// get all books
+												foreach($a as $name) {
+													$stmt = $conn->prepare("select * from books where name = ?");
+													$stmt->bind_param("s", $name);
+													$stmt->execute();
+													$stmt_result = $stmt->get_result();
+													$row2 = $stmt_result->fetch_assoc();
+													$info = '<div class="col-4 col-12-small">
+															<section class="box">
+																<a href="#" class="image featured"><img src="images/pic06.jpg" alt="image" /></a>
+																<header>
+																	<h2>Title: '.$row2["name"].'</h2>
+																</header>
+																<a href="#" class="button style1">More</a>
+															</section>
+														</div>';
+													echo $info;
+												}
+												
+												$conn -> close();
+												
+											?>
 										</div>
+											
 									</div>
 
 							</div>
