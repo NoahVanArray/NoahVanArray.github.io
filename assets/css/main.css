@@ -22,7 +22,8 @@ section, summary, time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;}
+	vertical-align: baseline;
+}
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -1468,7 +1469,7 @@ input, select, textarea {
 	background-image: url(images/default.jpg);
 	background-size: cover;
     width: 152px;
-    height: 150px;
+    height: 152px;
     margin-left: -1px;
     margin-top: -1px;
 }
@@ -1634,7 +1635,7 @@ input, select, textarea {
 	}
 
 		.image img {
-			border: solid #fff 5px;
+			border: solid #fff 10px;
 			display: block;
 			width: 100%;
 		}
@@ -1725,7 +1726,7 @@ input, select, textarea {
 			input[type="reset"].style1:hover,
 			button.style1:hover,
 			.button.style1:hover {
-				background-color: #f98780;
+				background-color: #529b5b;
 			}
 
 			input[type="button"].style1:active,
@@ -3045,3 +3046,5 @@ input, select, textarea {
 						}
 
 	}
+
+	
