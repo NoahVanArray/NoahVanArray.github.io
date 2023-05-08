@@ -22,7 +22,8 @@ section, summary, time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;}
+	vertical-align: baseline;
+}
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -672,7 +673,7 @@ input, select, textarea {
 				}
 
 					.row.gtr-150 > * {
-						padding: 75px 0 0 75px;
+						padding: 50px 0 0 75px;
 					}
 
 					.row.gtr-150.gtr-uniform {
@@ -1447,8 +1448,8 @@ input, select, textarea {
 }
 
 #profile-container {
-    width: 150px;
-    height: 150px;
+    width: 9rem;
+    height: 9rem;
     overflow: hidden;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -1468,8 +1469,8 @@ input, select, textarea {
 	background-image: url(images/default.jpg);
 	background-size: cover;
     width: 152px;
-    height: 150px;
-    margin-left: -1px;
+    height: 152px;
+    margin-left: -4px;
     margin-top: -1px;
 }
 
@@ -1634,6 +1635,7 @@ input, select, textarea {
 	}
 
 		.image img {
+			border: solid #fff 10px;
 			display: block;
 			width: 100%;
 		}
@@ -1715,7 +1717,7 @@ input, select, textarea {
 		input[type="reset"].style1,
 		button.style1,
 		.button.style1 {
-			background: #e97770 url("images/overlay.png");
+			background: #56764D url("images/overlay.png");
 			color: #fff;
 		}
 
@@ -1724,7 +1726,7 @@ input, select, textarea {
 			input[type="reset"].style1:hover,
 			button.style1:hover,
 			.button.style1:hover {
-				background-color: #f98780;
+				background-color: #529b5b;
 			}
 
 			input[type="button"].style1:active,
@@ -2370,7 +2372,7 @@ input, select, textarea {
 		#footer input[type="reset"],
 		#footer button,
 		#footer .button {
-			color: #484d55;
+			color: #fff;
 			box-shadow: inset 0px 0px 2px 0px rgba(255, 255, 255, 0.5);
 		}
 
@@ -2454,7 +2456,6 @@ input, select, textarea {
 				margin-left: 1em;
 				padding-left: 1em;
 				border-left: solid 1px #333;
-				border-left-color: rgba(255, 255, 255, 0.05);
 			}
 
 				#copyright ul li:first-child {
@@ -3045,3 +3046,5 @@ input, select, textarea {
 						}
 
 	}
+
+	
