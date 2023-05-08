@@ -1448,8 +1448,8 @@ input, select, textarea {
 }
 
 #profile-container {
-    width: 150px;
-    height: 150px;
+    width: 9rem;
+    height: 9rem;
     overflow: hidden;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -1470,7 +1470,7 @@ input, select, textarea {
 	background-size: cover;
     width: 152px;
     height: 152px;
-    margin-left: -1px;
+    margin-left: -4px;
     margin-top: -1px;
 }
 
