@@ -20,10 +20,10 @@
 		<link rel="stylesheet" href="../assets/css/main.css" />
 
 		<!--The icon beside the title on the website's tab on the browser, change directory accordingly.-->
-		<link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
-		<link rel="manifest" href="images/favicon_io/site.webmanifest">
+		<link rel="apple-touch-icon" sizes="180x180" href="../images/favicon_io/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon_io/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon_io/favicon-16x16.png">
+		<link rel="manifest" href="../images/favicon_io/site.webmanifest">
 
 	</head>
 	<body class="left-sidebar is-preload">
@@ -80,20 +80,23 @@
 											<div class="col-4 col-12-small" style="width: 100%;">
 												
 													<section class="box" style="background-color: white; padding-bottom: 10px; height:100%">
-														<img src="../images/covers/art-of-war.jpg" alt="" class="image featured" style="margin: 15px 15px 15px 25px; width:250px; float: left; padding: 12px 0 12px 0;"/>
-														
-														<div style="font-size: 1.3em; padding-left: 1px; padding: 40px 20px 0px 20px;">
+														<img src="../images/covers/art-of-war.jpg" alt="" class="image featured" style="margin: 15px 15px 30px 25px; width:250px; float: left; padding: 12px 0 12px 0;"/>
+															
+														<ion-icon name="heart-outline" onclick="myFavorite()" id="heart" style="color: #ff5456; font-size: 24px; cursor: pointer;"></ion-icon>
+														<div style="font-size: 1.3em; padding: 40px 50px 0px 20px;">
 															<header>
-																<h2 style="margin: 0 0 -0.55em 0;">Title: The Art of War</h2>
+																<h2 style="margin: 0 0 -0.55em 0;">The Art of War</h2>
 															</header>
 															<p><strong>Author:</strong> Sun Tzu</p>
 															<p style="margin-top: -30px;"><strong>Genre:</strong> Philosophy</p>
 															<p style="margin-top: -30px;"><strong>Date Published:</strong> Published in English in 1910</p>
-															<p style="margin-top: -30px;"><strong>Description:</strong> The book contains a detailed explanation and analysis of the 5th-century BC Chinese military, from weapons, environmental conditions, and strategy to rank and discipline. Sun also stressed the importance of intelligence operatives and espionage to the war effort.</p>
+															<p style="margin-top: -30px; margin-bottom: 0;"><strong>Description:</strong> The book contains a detailed explanation and analysis of the 5th-century BC Chinese military, from weapons, environmental conditions, and strategy to rank and discipline. Sun also stressed the importance of intelligence operatives and espionage to the war effort.</p>
+															
+
 														</div>
 														
 													</section>
-												
+												<button class="style1" style="min-width: 0; width: 90px; height: 30px; line-height: 0; position: absolute; margin-top: -50px">Back</button>	
 											</div>
 
 										</div>
@@ -201,6 +204,8 @@
 			<script src="../assets/js/breakpoints.min.js"></script>
 			<script src="../assets/js/util.js"></script>
 			<script src="../assets/js/main.js"></script>
+			<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+			<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 	</body>
 </html>

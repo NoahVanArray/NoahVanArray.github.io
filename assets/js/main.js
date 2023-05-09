@@ -89,3 +89,15 @@ function showSearch(str) {
 	xmlhttp.open("GET", "backend.php?q=" + str, true);
 	xmlhttp.send();
 }
+
+// Makes favorite button (heart) clickable
+let heart = document.getElementById("heart");
+
+function myFavorite() {
+  var x = document.getElementById("heart");
+  if (heart.name === "heart-outline") {
+    heart.name = "heart";
+  } else {
+    heart.name = "heart-outline";
+  }
+}
