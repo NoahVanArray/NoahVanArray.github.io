@@ -1663,7 +1663,6 @@ input, select, textarea {
 		.image.featured {
 			display: block;
 			width: 100%;
-			margin: 0 0 2em 0;
 		}
 
 /* Button */
@@ -1996,7 +1995,7 @@ input, select, textarea {
 	}
 
 	.box.post-excerpt h3, .box.post-excerpt p {
-		margin-left: 6.5em;
+		margin-left: 7.5em;
 	}
 
 /* Wrapper */
@@ -3046,4 +3045,17 @@ input, select, textarea {
 
 	}
 
+@media (max-width: 480px) {
+	.insta1 {
+		margin: 15px 90px 30px 95px;
+	}
+
 	
+}
+
+@media (min-width: 481px) {
+	.insta1 {
+		margin: 15px 15px 30px 25px;
+	}
+
+}
