@@ -1996,7 +1996,7 @@ input, select, textarea {
 	}
 
 	.box.post-excerpt h3, .box.post-excerpt p {
-		margin-left: 5.5em;
+		margin-left: 7.5em;
 	}
 
 /* Wrapper */
@@ -3072,9 +3072,6 @@ input, select, textarea {
 	line-height: 20px;
 }
 
-.recentBtn {
-}	
-
 @media (max-width: 480px) {
 	.insta1 {
 		margin: 15px 90px 30px 95px;
@@ -3102,10 +3099,40 @@ input, select, textarea {
 }
 
 
+@media (min-width: 321px) and (max-width: 980px) {
+	.image img {
+		width: 75px;
+	}
+
+	.recentBtn {
+		margin-left: 90px;
+	}
+}
 
 
+/* favorites */
+.favorites section {
+	background-color: white; 
+	display: grid; 
+	justify-items: center; 
+	padding: 15px; 
+	width: 75%;
+}
 
+.favorites img {
+	margin-bottom: 1em;
+}
 
+.favorites .titleHeader {
+	margin: 0 0 -10px 0; 
+	color: #484d55;
+}
 
-
+.favorites a {
+	min-width: 0px; 
+	width: 100px; 
+	height: 30px; 
+	line-height: 30px; 
+	margin-bottom: 20px;
+}
 
