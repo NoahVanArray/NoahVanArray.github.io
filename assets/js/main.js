@@ -106,17 +106,39 @@ let school = document.getElementById("school");
 let acadLvl = document.getElementById("acadLvl");
 let gradeSec = document.getElementById("gradeSec");
 let email = document.getElementById("email");
-let edit = document.getElementById("textEdit");
-let save = document.getElementById("textSave");
 
 function editText() {
   name.contentEditable= "true";
-  name.style.background-color= "white";
+  school.contentEditable= "true";
+  acadLvl.contentEditable= "true";
+  gradeSec.contentEditable= "true";
+  email.contentEditable= "true";
+
+  name.style.backgroundColor= "white";
+  school.style.backgroundColor= "white";
+  acadLvl.style.backgroundColor= "white";
+  gradeSec.style.backgroundColor= "white";
+  email.style.backgroundColor= "white";  		
+  		
   if (name.textContent === "") {
     name.textContent="Type text here...";
+	school.textContent="Type text here...";
+	acadLvl.textContent="Type text here...";
+	gradeSec.textContent="Type text here...";
+	email.textContent="Type text here...";
   } 
 }
 
 function saveText() {
   name.contentEditable= "false";
+  school.contentEditable= "false";
+  acadLvl.contentEditable= "false";
+  gradeSec.contentEditable= "false";
+  email.contentEditable= "false";
+
+  name.style.backgroundColor= "transparent";
+  school.style.backgroundColor= "transparent";
+  acadLvl.style.backgroundColor= "transparent";
+  gradeSec.style.backgroundColor= "transparent";
+  email.style.backgroundColor= "transparent"; 
 }
