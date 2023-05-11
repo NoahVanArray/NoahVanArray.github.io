@@ -1484,7 +1484,7 @@ input, select, textarea {
 
 	section,
 	article {
-		margin: 0 0 4em 0;
+		margin: 0 0 2em 0;
 	}
 
 	section > :last-child,
@@ -1996,7 +1996,7 @@ input, select, textarea {
 	}
 
 	.box.post-excerpt h3, .box.post-excerpt p {
-		margin-left: 7.5em;
+		margin-left: 6.5em;
 	}
 
 /* Wrapper */
@@ -2901,12 +2901,12 @@ input, select, textarea {
 			.box.post-excerpt .image.left {
 				position: relative;
 				top: 0.25em;
-				width: 25%;
+				width: 90px;
 				margin: 0;
 			}
 
 			.box.post-excerpt h3, .box.post-excerpt p {
-				margin-left: 32.5%;
+				/*margin-left: 32.5%;*/
 			}
 
 		/* Wrapper */
@@ -3099,13 +3099,19 @@ input, select, textarea {
 }
 
 
-@media (min-width: 321px) and (max-width: 980px) {
+@media (max-width: 980px) {
 	.image img {
 		width: 75px;
 	}
 
 	.recentBtn {
 		margin-left: 90px;
+	}
+}
+
+@media (min-width: 737px) {
+	.recentBtn {
+		margin-left: 0;
 	}
 }
 

@@ -76,9 +76,7 @@
 												<h2>Welcome &lt;INSERT FIRSTNAME HERE&gt;! </h2>
 											</header>
 
-											<a href="#" class="image featured">
-												<img src="images/pic01.jpg" alt="" style="width: 100%; height: 150px; border: none; margin-bottom: 2em;" />
-											</a>
+											<img  class="image featured"src="images/pic01.jpg" alt="" style="width: 100%; height: 150px; border: none; margin-bottom: 2em;" />
 											
 											<div id="profile-container">
    												<image id="profileImage" src="http://lorempixel.com/100/100" />
@@ -86,16 +84,17 @@
 											<input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" capture>
 
 											<p><strong>Information</strong></p>
-											<p>Name: </p>
-											<p>School: </p>
-											<p>Academic Level: </p>
-											<p>Grade & Section: </p>
+											<p>Name: <span class="textHere" id="name" contenteditable="false"></span></p>
+											<p>School: <span class="textHere" id="school" contenteditable="false"></span></p>
+											<p>Academic Level: <span class="textHere" id="acadLvl" contenteditable="false"></span></p>
+											<p>Grade & Section: <span class="textHere" id="gradeSec" contenteditable="false"></span></p>
 
 											<p class="contacts"><strong>Contacts</strong></p>
-											<p>Email: </p>
+											<p>Email: <span class="textHere" id="email" contenteditable="false"></span></p>
 
 
-											<button class="editInfo style3">Edit</button>
+											<button class="editInfo style3" style="display:inline-block;" onclick="editText()" id="textEdit">Edit</button>
+											<button class="editInfo style1" style="display:inline-block;" onclick="saveText()" id="textSave">Save</button>
 
 										</article>
 

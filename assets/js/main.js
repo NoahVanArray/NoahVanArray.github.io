@@ -91,8 +91,6 @@ function showSearch(str) {
 }
 
 // Makes favorite button (heart) clickable
-let heart = document.getElementById("heart");
-
 function myFavorite() {
   var x = document.getElementById("heart");
   if (heart.name === "heart-outline") {
@@ -100,4 +98,25 @@ function myFavorite() {
   } else {
     heart.name = "heart-outline";
   }
+}
+
+// Edit and save text info for user profile
+let name = document.getElementById("name");
+let school = document.getElementById("school");
+let acadLvl = document.getElementById("acadLvl");
+let gradeSec = document.getElementById("gradeSec");
+let email = document.getElementById("email");
+let edit = document.getElementById("textEdit");
+let save = document.getElementById("textSave");
+
+function editText() {
+  name.contentEditable= "true";
+  name.style.background-color= "white";
+  if (name.textContent === "") {
+    name.textContent="Type text here...";
+  } 
+}
+
+function saveText() {
+  name.contentEditable= "false";
 }
