@@ -1663,6 +1663,7 @@ input, select, textarea {
 		.image.featured {
 			display: block;
 			width: 100%;
+			margin-bottom: 2em;
 		}
 
 /* Button */
@@ -1804,7 +1805,7 @@ input, select, textarea {
 			ul.style2 li {
 				border-top: solid 1px #eee;
 				padding: 1.5em 0 0 0;
-				margin: 1.5em 0 0 0;
+				margin: 2.5em 0 0 0;
 			}
 
 				ul.style2 li:first-child {
@@ -1995,7 +1996,7 @@ input, select, textarea {
 	}
 
 	.box.post-excerpt h3, .box.post-excerpt p {
-		margin-left: 7.5em;
+		margin-left: 5.5em;
 	}
 
 /* Wrapper */
@@ -2888,7 +2889,7 @@ input, select, textarea {
 
 			.feature-list section {
 				padding-top: 2em;
-				padding-left: 4em;
+				padding-left: 2em;
 			}
 
 			.feature-list h3:before {
@@ -3045,17 +3046,66 @@ input, select, textarea {
 
 	}
 
+
+/* books in books.html */
+.books {
+	background-color: white;
+   	display: grid;
+   	justify-items: center;
+   	padding: 15px;
+}
+
+/* recent in userProfile */
+.recent li {
+	border-top-color: transparent;
+}
+
+.recent  h3 {
+	padding-top: 8px;
+	margin-left: 6.5em;
+}
+
+.recent a {
+	min-width: 0;
+	width: 60px;
+	height: 20px;
+	line-height: 20px;
+}
+
+.recentBtn {
+}	
+
 @media (max-width: 480px) {
 	.insta1 {
 		margin: 15px 90px 30px 95px;
 	}
-
-	
 }
 
 @media (min-width: 481px) {
 	.insta1 {
 		margin: 15px 15px 30px 25px;
 	}
-
 }
+
+.userProf p {
+	margin-bottom: 5px;
+}
+
+.userProf .contacts {
+	margin-top: 25px;
+}
+
+.userProf button {
+	min-width: 0; 
+	width: 90px;
+	margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
