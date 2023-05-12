@@ -77,19 +77,6 @@ $("#imageUpload").change(function(){
     fasterPreview( this );
 });
 
-// Books.html Search Tool
-
-function showSearch(str) {
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			document.getElementById("txtHint").innerHTML = this.responseText;
-		}
-	};
-	xmlhttp.open("GET", "backend.php?q=" + str, true);
-	xmlhttp.send();
-}
-
 // Makes favorite button (heart) clickable
 function myFavorite() {
   var x = document.getElementById("heart");
