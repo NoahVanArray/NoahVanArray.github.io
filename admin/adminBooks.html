@@ -1,0 +1,452 @@
+<!DOCTYPE HTML>
+
+<!--
+	Author: 
+	Front-End: John Yohan J. Navarra
+-->
+
+<!--
+	NOTE!!
+
+	This part of the website includes the book section, specifically the categories, supposedly with a search bar for easier searching of books.
+	
+-->
+
+<html>
+	<head>
+		<title>Yverdon Book Management System</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+
+		<!--The icon beside the title on the website's tab on the browser, change directory accordingly.-->
+		<link rel="apple-touch-icon" sizes="180x180" href="../images/favicon_io/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon_io/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon_io/favicon-16x16.png">
+		<link rel="manifest" href="../images/favicon_io/site.webmanifest">
+
+	</head>
+	<body class="left-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<section id="header" class="wrapper">
+
+					<!-- Logo -->
+						<div id="logo">
+							<h1><span><a href="adminHome.html">Yverdon Book Management System</a></span></h1>
+							<p><b>The online library for Yverdon de Pestallozi School</b></p>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li class="current"><a href="adminHome.html"><strong>Home</strong></a></li>
+								<li>
+									<a href="adminBooks.html"><strong>Books</strong></a>
+									<ul>
+										<li><a href="adminBooks.html">Non-fiction</a></li>
+										<li><a href="adminBooks.html">Education</a></li>
+										<li><a href="adminBooks.html">Fiction</a></li>
+										<li><a href="adminBooks.html">Literature</a></li>
+										<li><a href="adminBooks.html">Entertainments</a></li>
+										<li><a href="adminBooks.html">Philosophy</a></li>
+									</ul>
+								</li>
+								<li><a href="adminUsers.html"><strong>Users</strong></a></li>
+								<li><a href="adminProfile.html"><strong>User Profile</strong></a></li>
+								
+								<!--Add logout link here-->
+								<li><a href=""><strong>Logout</strong></a></li>
+							</ul>
+						</nav>
+				</section>
+
+			<!-- Main -->
+				<section id="main" class="wrapper style3">
+					<div class="title">Books</div>
+					<div class="container">
+						<div class="row gtr-150">
+							<div class="col-4 col-12-medium">
+
+								<!-- Sidebar -->
+									<div id="sidebar">
+										<section class="box">
+											<header>
+												<h2>Categories</h2>
+											</header>
+											<ul class="style2">
+												<li>
+													<article class="box post-excerpt">
+														<a href="#" class="image left"><img src="../images/nonfic.png" alt="" style="border:none;"/></a>
+														<h3><a href="#">Non-fiction</a></h3>
+														<p>Based on factual information and real events, providing readers with an opportunity to learn and expand their knowledge on various topics.</p>
+													</article>
+												</li>
+												<li>
+													<article class="box post-excerpt">
+														<a href="#" class="image left"><img src="../images/edu.png" alt="" style="border:none;"/></a>
+														<h3><a href="#">Education</a></h3>
+														<p>Designed to help readers acquire new knowledge and skills, and to improve their understanding of specific subjects. </p>
+													</article>
+												</li>
+												<li>
+													<article class="box post-excerpt">
+														<a href="#" class="image left"><img src="../images/fic.png" alt="" style="border:none;"/></a>
+														<h3><a href="#">Fiction</a></h3>
+														<p>books are works of the imagination, taking readers on a journey to new worlds, introducing them to new characters and telling them stories that entertain, inspire and move.</p>
+													</article>
+												</li>
+												<li>
+													<article class="box post-excerpt">
+														<a href="#" class="image left"><img src="../images/literature.png" alt="" style="border:none;"/></a>
+														<h3><a href="#">Literature</a></h3>
+														<p>Recognized for literary value, cultural importance, and complex themes, challenging readers to think deeply and critically.</p>
+													</article>
+												</li>
+												<li>
+													<article class="box post-excerpt">
+														<a href="#" class="image left"><img src="../images/entert.png" alt="" style="border:none;"/></a>
+														<h3><a href="#">Entertainment</a></h3>
+														<p>Provides readers with enjoyment and amusement, makes them laugh or feel entertained, and offer an escape from reality.</p>
+													</article>
+												</li>
+												<li>
+													<article class="box post-excerpt">
+														<a href="#" class="image left"><img src="../images/philo.png" alt="" style="border:none;"/></a>
+														<h3><a href="#">Philosphy</a></h3>
+														<p>Explore fundamental questions about existence, reality, and values, insights into the human condition, moral and ethical dilemmas, and the nature of knowledge and truth. </p>
+													</article>
+												</li>
+											</ul>
+											<a href="#" class="button style3">Add Category</a>
+											<a href="#" class="button style3" style="width: 208px; margin-top: 20px;">Add Book</a>
+										</section>
+									</div>
+
+							</div>
+
+							<div class="col-8 col-12-medium imp-medium">
+								
+								<!-- Search Bar -->
+									<form style="margin-bottom: 50px;" action="">
+										<input type="text" placeholder="Search Here" onfocus="showSuggest()" onblur="hideSuggest()" name="search" id="detail" onkeyup="showSearch(this.value)">
+									</form>
+
+								<!-- Content -->
+									<div id="content">
+									
+										<!-- Debug -->
+										<p id="suggest">
+											Suggestions: <span id="txtHint"></span>
+										</p>
+
+										<div class="row gtr-150">
+											<div class="col-4 col-12-small">
+												<section class="box books">
+													<img src="../images/covers/art-of-war.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
+													<center>
+														<header>
+															<h2 style="margin: 0 0 -10px 0; color: #484d55;">The Art Of War</h2>
+														</header>
+														<a href="../books/art-of-war.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+													</center>
+												</section>
+											</div>
+											<div class="col-4 col-12-small">
+												<section class="box books">
+													<img src="../images/covers/leadership-&-self-deception.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
+													<center>
+														<header>
+															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Leadership & Self-Deception</h2>
+														</header>
+														<a href="../books/leadership-&-self-deception.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+													</center>
+												</section>
+											</div>
+											<div class="col-4 col-12-small">
+												<section class="box books">
+													<img src="../images/covers/metro-2033.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
+													<center>
+														<header>
+															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Metro 2033</h2>
+														</header>
+														<a href="../books/metro-2033.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+													</center>
+												</section>
+											</div>
+											<div class="col-4 col-12-small">
+												<section class="box books">
+													<img src="../images/covers/metro-2034.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
+													<center>
+														<header>
+															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Metro 2034</h2>
+														</header>
+														<a href="../books/metro-2034.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+													</center>
+												</section>
+											</div>
+											<div class="col-4 col-12-small">
+												<section class="box books">
+													<img src="../images/covers/metro-2035.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
+													<center>
+														<header>
+															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Metro 2035</h2>
+														</header>
+														<a href="../books/metro-2035.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+													</center>
+												</section>
+											</div>
+											<div class="col-4 col-12-small">
+												<section class="box books">
+													<img src="../images/covers/into-thin-air.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
+													<center>
+														<header>
+															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Into Thin Air</h2>
+														</header>
+														<a href="../books/into-thin-air.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+													</center>
+												</section>
+											</div>
+											<div class="col-4 col-12-small">
+												<section class="box books">
+													<img src="../images/covers/heart-of-darkness.png" alt="" class="image featured" style="margin-bottom: 1em;" />
+													<center>
+														<header>
+															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Heart Of Darkness</h2>
+														</header>
+														<a href="../books/heart-of-darkness.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+													</center>
+												</section>
+											</div>
+											<div class="col-4 col-12-small">
+												<section class="box books">
+													<img src="../images/covers/beyond-good-and-evil.png" alt="" class="image featured" style="margin-bottom: 1em;" />
+													<center>
+														<header>
+															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Beyond Good and Evil</h2>
+														</header>
+														<a href="../books/beyond-good-and-evil.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+													</center>
+												</section>
+											</div>
+											<div class="col-4 col-12-small">
+												<section class="box books">
+													<img src="../images/covers/between-the-world-and-me.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
+													<center>
+														<header>
+															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Between The World And Me</h2>
+														</header>
+														<a href="../books/between-the-world-and-me.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+													</center>
+												</section>
+											</div>
+											<div class="col-4 col-12-small">
+												<section class="box books">
+													<img src="../images/covers/a-brief-history-of-time.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
+													<center>
+														<header>
+															<h2 style="margin: 0 0 -10px 0; color: #484d55;">A Brief History Of Time</h2>
+														</header>
+														<a href="../books/a-brief-history-of-time.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+													</center>
+												</section>
+											</div>
+											<div class="col-4 col-12-small">
+												<section class="box books">
+													<img src="../images/covers/sapiens-a-brief-history-of-humankind.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
+													<center>
+														<header>
+															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Sapiens: A Brief History Of Humankind</h2>
+														</header>
+														<a href="../books/sapiens-a-brief-history-of-humankind.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+													</center>
+												</section>
+											</div>
+											<div class="col-4 col-12-small">
+												<section class="box books">
+													<img src="../images/covers/the-great-gatsby.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
+													<center>
+														<header>
+															<h2 style="margin: 0 0 -10px 0; color: #484d55;">The Great Gatsby</h2>
+														</header>
+														<a href="../books/the-great-gatsby.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+													</center>
+												</section>
+											</div>
+											<div class="col-4 col-12-small">
+												<section class="box books">
+													<img src="../images/covers/thinking-fast-and-slow.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
+													<center>
+														<header>
+															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Thinking Fast And Slow</h2>
+														</header>
+														<a href="../books/thinking-fast-and-slow.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+													</center>
+												</section>
+											</div>
+											<div class="col-4 col-12-small">
+												<section class="box books">
+													<img src="../images/covers/to-kill-a-mockingbird.png" alt="" class="image featured" style="margin-bottom: 1em;" />
+													<center>
+														<header>
+															<h2 style="margin: 0 0 -10px 0; color: #484d55;">To Kill A Mockingbird</h2>
+														</header>
+														<a href="../books/to-kill-a-mockingbird.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+													</center>
+												</section>
+											</div>
+											<div class="col-4 col-12-small">
+												<section class="box books">
+													<img src="../images/covers/the-sixth-extinction.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
+													<center>
+														<header>
+															<h2 style="margin: 0 0 -10px 0; color: #484d55;">The Sixth Extinction: An Unnatural History</h2>
+														</header>
+														<a href="../books/the-sixth-extinction.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+													</center>
+												</section>
+											</div>
+											<div class="col-4 col-12-small">
+												<section class="box books">
+													<img src="../images/covers/are-you-there-vodka-it's-me-chelsea.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
+													<center>
+														<header>
+															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Are You There Vodka? It's Me Chelsea</h2>
+														</header>
+														<a href="../books/are-you-there-vodka-it's-me-chelsea.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+													</center>
+												</section>
+											</div>
+											<div class="col-4 col-12-small">
+												<section class="box books">
+													<img src="../images/covers/diary-of-a-wimpy-kid.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
+													<center>
+														<header>
+															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Diary Of A Wimpy Kid</h2>
+														</header>
+														<a href="../books/diary-of-a-wimpy-kid.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+													</center>
+												</section>
+											</div>
+											<div class="col-4 col-12-small">
+												<section class="box books">
+													<img src="../images/covers/read-player-one.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
+													<center>
+														<header>
+															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Ready Player One</h2>
+														</header>
+														<a href="../books/ready-player-one.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+													</center>
+												</section>
+											</div>
+										</div>
+									</div>
+
+							</div>
+						</div>
+					</div>
+				</section>
+
+			<!-- Footer -->
+				<section id="footer" class="wrapper">
+					<div class="title">Want to know more?</div>
+					<div class="container">
+						<header class="style1">
+							<h2>Check out the library.<br> Visit us to check out those awesome books!</h2>
+
+						</header>
+						<div class="row">
+							<div class="col-6 col-12-medium">
+
+								<!-- Contact Form -->
+									<section>
+										<form method="post" action="#">
+											<div class="row gtr-50">
+												<div class="col-6 col-12-small">
+													<input type="text" name="name" id="contact-name" placeholder="Name" />
+												</div>
+												<div class="col-6 col-12-small">
+													<input type="text" name="email" id="contact-email" placeholder="Email" />
+												</div>
+												<div class="col-12">
+													<textarea name="message" id="contact-message" placeholder="Message" rows="4"></textarea>
+												</div>
+												<div class="col-12">
+													<ul class="actions">
+														<li><input type="submit" class="style1" value="Send" /></li>
+														<li><input type="reset" class="style2" value="Reset" /></li>
+													</ul>
+												</div>
+											</div>
+										</form>
+									</section>
+
+							</div>
+							<div class="col-6 col-12-medium">
+
+								<!-- Contact -->
+									<section class="feature-list small">
+										<div class="row">
+											<div class="col-6 col-12-small">
+												<section>
+													<h3 class="icon solid fa-home">Address</h3>
+													<p>
+														Official Yverdon de Pestallozi School, Inc.<br />
+														Igay Rd., Sto. Cristo, SJDM
+													</p>
+												</section>
+											</div>
+											<div class="col-6 col-12-small">
+												<section>
+													<h3 class="icon solid fa-comment">Social</h3>
+													<p>
+														<a href="#">facebook.com/1997ydpsi</a>
+													</p>
+												</section>
+											</div>
+											<div class="col-6 col-12-small">
+												<section>
+													<h3 class="icon solid fa-envelope">Email</h3>
+													<p>
+														<a href="#">ydpsedu@ymail.com</a>
+													</p>
+												</section>
+											</div>
+											<div class="col-6 col-12-small">
+												<section>
+													<h3 class="icon solid fa-phone">Phone/Mobile</h3>
+													<p>
+														(044) 307 3381<br>
+														09178504350
+													</p>
+												</section>
+											</div>
+										</div>
+									</section>
+
+							</div>
+						</div>
+						<div id="copyright">
+							<ul>
+								<li>&copy; Das Kumarades LLC. EST. 2023. All rights reserved.</li><li><a href="../about.html" style="text-decoration: none;">About us</a></li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.dropotron.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+			<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+	</body>
+</html>
+
