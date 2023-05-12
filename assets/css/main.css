@@ -3069,7 +3069,37 @@ input, select, textarea {
 .bookPage .bookImg {
 	width:250px; 
 	float: left; 
-	padding: 8.5px 20px 8.5px 20px;
+	padding: 20.5px 20px 20px 20px;
+}
+
+@media (min-width: 0px) {
+	.bookPage .bookImg {
+		margin-left:25px;
+	}
+}
+
+@media (min-width: 335px) {
+	.bookPage .bookImg {
+		margin-left:13%;
+	}
+}
+
+@media (min-width: 400px) {
+	.bookPage .bookImg {
+		margin-left:17%;
+	}
+}
+
+@media (min-width: 450px) {
+	.bookPage .bookImg {
+		margin-left:23%;
+	}
+}
+
+@media (min-width: 475px) {
+	.bookPage .bookImg {
+		margin-left:2%;
+	}
 }
 
 .bookPage .bookContent{
