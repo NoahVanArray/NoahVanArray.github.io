@@ -54,7 +54,7 @@
 							<header>
 								<h2 style="margin: 0 0 -10px 0; color: #484d55;">'.$row["name"].'</h2>
 							</header>
-							<a href="'.$row["siteUrl"].'" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+							<a href="'.$row["siteUrl"].'" class="button style1" style="margin-bottom: 20px;">More</a>
 						</center>
 					</section>
 				</div>
@@ -95,21 +95,20 @@
 		
 		$stmt->execute();
 		$stmt_result = $stmt->get_result();
-		
 		while ($row = $stmt_result->fetch_assoc()) {
-			echo '
-				<div class="col-4 col-12-small">
-					<section class="box books">
-						<img src="'.$row["imgUrl"].'" alt="" class="image featured" style="margin-bottom: 1em;" />
-						<center>
-							<header>
-								<h2 style="margin: 0 0 -10px 0; color: #484d55;">'.$row["name"].'</h2>
-							</header>
-							<a href="'.$row["siteUrl"].'" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
-						</center>
-					</section>
-				</div>
-			';
+				echo '
+					<div class="col-4 col-12-small">
+						<section class="box books">
+							<img src="'.$row["imgUrl"].'" alt="" class="image featured" style="margin-bottom: 1em;" />
+							<center>
+								<header>
+									<h2 style="margin: 0 0 -10px 0; color: #484d55;">'.$row["name"].'</h2>
+								</header>
+								<a href="'.$row["siteUrl"].'" class="button style1" style="margin-bottom: 20px;">More</a>
+							</center>
+						</section>
+					</div>
+				';
 		}
 	}
 	
