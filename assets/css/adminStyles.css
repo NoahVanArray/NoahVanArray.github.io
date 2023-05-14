@@ -1,9 +1,11 @@
 .addCategContent {
 	background: #f3f3f3 url(images/overlay.png);
-/*	display: none;*/
+	display: none;
+	position: absolute;
 }
 
 .addBookContent {
 	background: #f3f3f3 url(images/overlay.png);
 	display: none;
+	position: absolute;
 }

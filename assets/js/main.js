@@ -146,3 +146,24 @@ function adminSaveText() {
     }
   });
 }
+
+// display of addCategory and addBook in adminBooks
+function openCateg() {
+  document.getElementById("categContent").style.display = "block";
+  document.getElementById("categContent").style.position = "relative";
+}
+
+function closeCateg() {
+  document.getElementById("categContent").style.display = "none";
+  document.getElementById("categContent").style.position = "absolute";
+}
+
+function openBook() {
+  document.getElementById("bookContent").style.display = "block";
+  document.getElementById("bookContent").style.position = "relative";
+}
+
+function closeBook() {
+  document.getElementById("bookContent").style.display = "none";
+  document.getElementById("bookContent").style.position = "absolute";
+}
