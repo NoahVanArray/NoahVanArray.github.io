@@ -117,5 +117,32 @@ function saveText() {
   });
 }
 
+// Edit and save text info for admin profile
+const adminElements = [
+  { id: 'adminName', defaultText: 'Type text here...' },
+  { id: 'adminSchool', defaultText: 'Type text here...' },
+  { id: 'position', defaultText: 'Type text here...' },
+  { id: 'adminEmail', defaultText: 'Type text here...' }
+];
 
+function adminEditText() {
+  adminElements.forEach(element => {
+    const el = document.querySelector(`#${element.id}`);
+    el.contentEditable = 'true';
+    el.style.backgroundColor = 'white';
+    if (el.textContent === '') {
+      el.textContent = element.defaultText;
+    }
+  });
+}
 
+function adminSaveText() {
+  adminElements.forEach(element => {
+    const el = document.querySelector(`#${element.id}`);
+    el.contentEditable = 'false';
+    el.style.backgroundColor = 'transparent';
+    if (el.textContent === "Type text here...") {
+      el.textContent = "";
+    }
+  });
+}

@@ -2016,7 +2016,7 @@ input, select, textarea {
 	}
 
 	.box.post-excerpt h3, .box.post-excerpt p {
-		margin-left: 6.5em;
+		margin-left: 7.5em;
 	}
 
 /* Wrapper */
@@ -2887,7 +2887,7 @@ input, select, textarea {
 				width: 100%;
 				font-size: 1em;
 				max-width: 30em;
-				margin: 0 auto;
+				margin: 0;
 			}
 
 		/* Actions */

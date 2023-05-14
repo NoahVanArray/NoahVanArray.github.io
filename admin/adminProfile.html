@@ -36,7 +36,7 @@
 					<!-- Logo -->
 						<div id="logo">
 							<h1><span><a href="adminHome.html">Yverdon Book Management System</a></span></h1>
-							<p><b>The online library for Yverdon de Pestallozi School</b></p>
+							<p><b>The online book management system for Yverdon de Pestallozi School</b></p>
 						</div>
 
 					<!-- Nav -->
@@ -85,16 +85,16 @@
 											<input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" capture>
 
 											<p><strong>Information</strong></p>
-											<p>Name: <span class="textHere" id="name" contenteditable="false"></span></p>
-											<p>School: <span class="textHere" id="school" contenteditable="false"></span></p>
-											<p>Position: <span class="textHere" id="acadLvl" contenteditable="false"></span></p>
+											<p>Name: <span class="textHere" id="adminName" contenteditable="false"></span></p>
+											<p>School: <span class="textHere" id="adminSchool" contenteditable="false"></span></p>
+											<p>Position: <span class="textHere" id="position" contenteditable="false"></span></p>
 
 											<p class="contacts"><strong>Contacts</strong></p>
-											<p>Email: <span class="textHere" id="email" contenteditable="false"></span></p>
+											<p>Email: <span class="textHere" id="adminEmail" contenteditable="false"></span></p>
 
 
-											<button class="editInfo style3" style="display:inline-block;" onclick="editText()" id="textEdit">Edit</button>
-											<button class="editInfo style1" style="display:inline-block;" onclick="saveText()" id="textSave">Save</button>
+											<button class="editInfo style3" style="display:inline-block;" onclick="adminEditText()" id="textEdit">Edit</button>
+											<button class="editInfo style1" style="display:inline-block;" onclick="adminSaveText()" id="textSave">Save</button>
 
 										</article>
 
@@ -118,21 +118,21 @@
 												<li style="border-top-color: transparent;">
 													<article class="box post-excerpt">
 														<a href="#" class="image left"><img src="../images/covers/metro-2033.jpg" alt=""/></a>
-														<h3><a href="#">Title: Insert Here</a></h3>
+														<h3 style="margin-left: 6.5em;"><a href="#">Title: Insert Here</a></h3>
 														<a href="books/.html" class="button style1 recentBtn">More</a>
 													</article>
 												</li>
 												<li style="border-top-color: transparent;">
 													<article class="box post-excerpt">
 														<a href="#" class="image left"><img src="../images/covers/metro-2034.jpg" alt=""/></a>
-														<h3><a href="#">Title: Insert Here</a></h3>
+														<h3 style="margin-left: 6.5em;"><a href="#">Title: Insert Here</a></h3>
 														<a href="books/.html" class="button style1 recentBtn">More</a>
 													</article>
 												</li>
 												<li style="border-top-color: transparent;">
 													<article class="box post-excerpt">
 														<a href="#" class="image left"><img src="../images/covers/metro-2035.jpg" alt=""/></a>
-														<h3><a href="#">Title: Insert Here</a></h3>
+														<h3 style="margin-left: 6.5em;"><a href="#">Title: Insert Here</a></h3>
 														<a href="books/.html" class="button style1 recentBtn">More</a>
 													</article>
 												</li>
@@ -209,7 +209,7 @@
 													<input type="text" name="email" id="contact-email" placeholder="Email" />
 												</div>
 												<div class="col-12">
-													<textarea name="message" id="contact-message" placeholder="Message" rows="4"></textarea>
+													<textarea style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4"></textarea>
 												</div>
 												<div class="col-12">
 													<ul class="actions">

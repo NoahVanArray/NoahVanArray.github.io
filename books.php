@@ -39,7 +39,7 @@
 					<!-- Logo -->
 						<div id="logo">
 							<h1><span><a href="home.html">Yverdon Book Management System</a></span></h1>
-							<p><b>The online library for Yverdon de Pestallozi School</b></p>
+							<p><b>The online book management system for Yverdon de Pestallozi School</b></p>
 						</div>
 
 					<!-- Nav -->
@@ -235,7 +235,7 @@
 													<input type="text" name="email" id="contact-email" placeholder="Email" />
 												</div>
 												<div class="col-12">
-													<textarea name="message" id="contact-message" placeholder="Message" rows="4"></textarea>
+													<textarea style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4"></textarea>
 												</div>
 												<div class="col-12">
 													<ul class="actions">

@@ -18,6 +18,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/adminStyles.css" />
 
 		<!--The icon beside the title on the website's tab on the browser, change directory accordingly.-->
 		<link rel="apple-touch-icon" sizes="180x180" href="../images/favicon_io/apple-touch-icon.png">
@@ -35,7 +36,7 @@
 					<!-- Logo -->
 						<div id="logo">
 							<h1><span><a href="adminHome.html">Yverdon Book Management System</a></span></h1>
-							<p><b>The online library for Yverdon de Pestallozi School</b></p>
+							<p><b>The online book management system for Yverdon de Pestallozi School</b></p>
 						</div>
 
 					<!-- Nav -->
@@ -119,8 +120,44 @@
 													</article>
 												</li>
 											</ul>
-											<a href="#" class="button style3">Add Category</a>
-											<a href="#" class="button style3" style="width: 208px; margin-top: 20px;">Add Book</a>
+											<a href="#" class="button style3" style="max-width: 100%; width: 100%; position: relative; ">Add Category</a>
+											<div class="row gtr-50 addCategContent">
+												<form method="post" action="#">
+													<div class="row gtr-50" style="margin-top: 0;">
+														<div class="col-6 col-12-small">
+															<input type="text" name="name" id="contact-name" placeholder="Category" />
+														</div>
+														<div class="col-12">
+															<textarea style="max-width: 100%;" name="message" id="contact-message" placeholder="Brief Description" rows="4"></textarea>
+														</div>
+														<div class="col-12">
+															<ul class="actions">
+																<li><input type="submit" class="style1" value="Send" style="min-width: 0; width: 85px;"/></li>
+																<li><input type="reset" class="style2" value="Reset" style="min-width: 0; width: 85px;"/></li>
+															</ul>
+														</div>
+													</div>
+												</form>
+											</div>
+											<a href="#" class="button style3" style="width: 100%; margin-top: 20px;">Add Book</a>
+											<div class="row gtr-50 addBookContent">
+												<form method="post" action="#">
+													<div class="row gtr-50">
+														<div class="col-6 col-12-small">
+															<input type="text" name="name" id="contact-name" placeholder="Name" />
+														</div>
+														<div class="col-12">
+															<textarea style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4"></textarea>
+														</div>
+														<div class="col-12">
+															<ul class="actions">
+																<li><input type="submit" class="style1" value="Send" /></li>
+																<li><input type="reset" class="style2" value="Reset" /></li>
+															</ul>
+														</div>
+													</div>
+												</form>
+											</div>
 										</section>
 									</div>
 
@@ -370,7 +407,7 @@
 													<input type="text" name="email" id="contact-email" placeholder="Email" />
 												</div>
 												<div class="col-12">
-													<textarea name="message" id="contact-message" placeholder="Message" rows="4"></textarea>
+													<textarea style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4"></textarea>
 												</div>
 												<div class="col-12">
 													<ul class="actions">
