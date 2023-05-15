@@ -1,0 +1,59 @@
+.forgot-img {
+  display: block; 
+  margin-left: auto; 
+  margin-right: auto; 
+  width: 135px; 
+  margin-top: 150px;
+}
+
+.forgot-formBox {
+  width: 45%; margin-top: 13em;
+}
+
+.forgot-formBox h2 {
+  font-family: "Bebas Neue";
+  font-size: 1.4em; 
+  margin-top: -195px; 
+  margin-bottom: -13px;
+}
+
+.forgot-formBox p {
+  font-family: "Oswald";
+  font-size: 0.9em; 
+  margin-bottom: -1.5em; 
+  color: #066035;
+}
+
+.forgot-inputBox {
+  position: relative; 
+  width: 30vw; 
+  height: 50px; 
+  border-bottom: 2px solid #066035; 
+  margin: 32px 0 10px 0;
+}
+
+.forgot-button {
+  font-family: "Bebas Neue";
+  background: #066035; 
+  width: 40%; 
+  height: 2em; 
+  border: none; 
+  border-radius: 6px; 
+  outline: none;
+  cursor: pointer; 
+  color: white; 
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 500px) {
+.forgot-inputBox {
+  width: 100%;
+}  
+
+.forgot-button {
+  width: 75%;
+}
+
+}

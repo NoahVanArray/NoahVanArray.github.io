@@ -1,0 +1,775 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  justify-content: center;
+  letter-spacing: 1px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #508F71;
+  opacity: 1; /* Firefox */
+  font-family: "Bebas Neue";
+  font-size: 1rem;
+  letter-spacing: 2.5px;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #508F71;
+  font-family: "Bebas Neue";
+  font-size: 1rem;
+  letter-spacing: 2.5px;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #508F71;
+  font-family: "Bebas Neue";
+  font-size: 1rem;
+  letter-spacing: 2.5px;
+}
+
+input {
+  font-family: Oswald; 
+  letter-spacing: 1px;
+}
+
+.main {
+  top: 20%;
+  left: 45%;
+  position: absolute;
+}
+
+#img1 {
+  margin-left: -245px;
+  width: 17em;
+  position: absolute;
+}
+
+.text {
+  white-space: nowrap;
+  color: #066035;
+  font-size: 2.5em;
+  margin-top: 8px;
+  margin-left: 1em;
+  display: inline-block;
+  position: absolute;
+  text-align: left;
+  letter-spacing: 5px;
+  line-height: 35px;
+  font-family: "Bebas Neue";
+}
+
+
+
+.text2 {
+  color: #000;
+  margin-left: 1.49em;
+  margin-top: 4.8em;
+  font-size: 1.70em;
+  font-family: "Oswald";
+  letter-spacing: 5px;
+}
+
+.firstLine {
+letter-spacing: 8px;
+}
+
+.secondLine {
+letter-spacing: 9.1px;
+}
+
+.thirdLine {
+letter-spacing: 7.6px;
+}
+
+/*The button for "login"*/
+.btnLogin-popup {
+  font-family: "Bebas Neue";
+  letter-spacing: 2.5px;
+  font-size: 1.2em;
+  font-weight: 200;
+  width: 13.4em;
+  height: 1.5em;
+  margin-top: 9.9em;
+  margin-left: 2.2em;
+  position: absolute;
+  background: #066035;
+  border: 1px solid #066035;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  text-decoration: none;
+}
+}
+
+/*Just changes the color of the button on hover*/
+.btnLogin-popup:hover {
+  background: #508F71;
+  border: #508F71;
+  color: black;
+}
+
+/*The login/Registration form that can pop-up*/
+.logRegForm {
+  position: relative;
+  margin-top: 4px;
+  margin-left: 0;
+  width: 44vw;
+  height: 92vh;
+  background: rgba(255, 255, 255, .5);
+  border: 2px solid rgba(255, 255, 255, .5);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  display: flex;
+  transform: scale(0);
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: transform .3s ease, height .2s ease;
+}
+
+.seePass {
+  cursor: pointer;
+}
+
+.logRegForm.active-popup {
+  transform: scale(1);
+  transition: transform .18s ease;
+}
+
+.logRegForm.active {
+  height: 100vh;
+  margin-top: -19px;
+  margin-left: 0;
+}
+
+.logRegForm .form-box {
+  width: 35vw;
+  padding: 2vw;
+}
+
+.logRegForm .form-box.login {
+  transition: transform .18s ease;
+  transform: translateX(0);
+}
+
+.logRegForm.active .form-box.login {
+  transition: none;
+  visibility: hidden;
+  transform:  translateX(-400px);
+}
+
+.logRegForm .form-box.register {
+  position: absolute;
+  visibility: hidden;
+  transition: none;
+  transform: translateX(400px);
+}
+
+.logRegForm.active .form-box.register {
+  transition: transform .18s ease;
+  visibility: visible;
+  transform: translateX(0);
+  width: 67vw;
+}
+
+.logRegForm .icon-close {  
+  position: absolute;
+  display: flex;
+  top: 0px;
+  right: 0px;
+  width: 45px;
+  height: 45px;
+  font-size: 2em;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: white;
+  background: #066035;
+  justify-content: center;
+  align-items: center;
+  transition: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.logRegForm.active .icon-close {  
+  position: absolute;
+  display: flex;
+  top: 0px;
+  right: 0px;
+  width: 45px;
+  height: 45px;
+  font-size: 2em;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: white;
+  background: #066035;
+  justify-content: center;
+  align-items: center;
+  transition: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.form-box h2 {
+  font-family: "Oswald";
+  font-size: 2em;
+  color: #066035;
+  text-align: center;
+}
+
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid #066035;
+  margin: 15px 0;
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: #066035;
+  font-weight: 500;
+  pointer-events: none;
+  transition: .4s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+  display: none;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  font-weight: 600;
+  color: #066035;
+  padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+  position: absolute;
+  right: 8px;
+  font-size: 1.2em;
+  line-height: 57px;
+  color: #066035;
+}
+
+.remember-forgot {
+  font-family: "Oswald";
+  font-size: 0.8em; 
+  font-weight: 500;
+  color: #066035;
+  margin: 0 0 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.remember-forgot label input {
+  accent-color: #066035;
+  margin-right: 3px;
+}
+
+.remember-forgot a {
+  color: #066035;
+  margin-left: 5vw;
+  text-decoration: none;
+  text-align: right;
+}
+
+.remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  font-family: "Oswald";
+  width: 100%;
+  height: 45px;
+  background: #066035;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  font-weight: 500;
+}
+
+.login-register {
+  font-family: "Oswald";
+  font-size: .9em;
+  color: #066035;
+  text-align: center;
+  font-weight: 500;
+  margin: 25px 0 10px;
+}
+
+.login-register p a {
+  color: #066035;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-register p a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+@media (min-width: 320px) {
+
+.main {
+  top: 31%;
+  margin-left: -55px;
+}
+
+#img1 {
+  margin-left: -73.3px;
+  width: 9.3em;
+}
+
+.text {
+  margin-left: 3.95em;
+  margin-top: 1em;
+  font-size: 1.25em;
+  line-height: 19px;
+  letter-spacing: 2px;
+}
+
+.text2 {
+  margin-left: 5.8em;
+  margin-top: 4.4em;
+  font-size: 0.85em;
+  letter-spacing: 1.5px;
+  line-height: 15px;
+}
+
+.firstLine {
+  letter-spacing: 5.2px;
+}
+
+.secondLine {
+  letter-spacing: 5.6px;
+}
+
+.thirdLine {
+  letter-spacing: 4.7px;
+}
+
+.btnLogin-popup {
+  font-size: 0.7em;
+  font-weight: 200;
+  width: 11em;
+  height: 1.5em;
+  margin-top: 7.1em;
+  margin-left: 7.1em;
+}
+
+.link {
+  top: 80vh;
+  left: 0%;
+  font-size: 0.7em;
+}
+
+.logRegForm {
+  margin-top: 10px;
+  margin-left: 0;
+  width: 100vw;
+  height: 85vh;
+}
+
+.logRegForm .form-box {
+  width: 67vw;
+  padding: 0vw;
+}
+
+.btn {
+  height: 32px;
+}
+
+.logRegForm.active {
+  height: 700px;
+  margin-right: 0;
+  margin-top: 1px;
+  padding-top: 320px;
+}
+
+.form-box h2 {
+  font-size: 1.4em;
+  margin-top: 29.5px;
+}
+
+.logRegForm.active .form-box h2 {
+  margin-top: -285px;
+}
+
+}
+
+
+
+@media (min-width: 768px) {
+
+#img1 {
+  margin-left: -105px;
+  width: 12.7em;
+}
+
+.text {
+  font-size: 2.1em;
+  margin-top: 18px;
+  margin-left: 3.1em;
+  line-height: 30px;
+}
+
+.text2 {
+  margin-left: 5.6em;
+  margin-top: 5em;
+  font-size: 1.15em;
+  line-height: 20px;
+  letter-spacing: 2.6px;
+}
+
+.btnLogin-popup {
+  font-size: 0.95em;
+  font-weight: 200;
+  width: 12.2em;
+  height: 1.5em;
+  margin-top: 8.3em;
+  margin-left: 6.6em;
+}
+
+.link {
+  top: 88vh;
+  left: 0%;
+  font-size: 1em;
+}
+
+.logRegForm {
+  margin-top: 75px;
+  width: 65vw;
+  height: 517px;
+  padding-top: 100px;
+}
+
+.logRegForm .form-box {
+  width: 45vw;
+  padding: 0vw;
+}
+
+.logRegForm.active .form-box.register {
+  width: 80%;
+
+}
+
+.logRegForm.active .form-box h2 {
+    margin-top: -30px;
+}
+
+.btn {
+  height: 32px;
+}
+
+.logRegForm.active {
+  height: 605px;
+  margin-right: 0;
+  margin-top: 36.5px;
+  padding-top: 0;
+}
+
+.form-box h2 {
+  font-size: 1.4em;
+  margin-top: -177px;
+}
+
+.input-half {
+  float: left;
+  margin: 15px 0 0 0;
+  width: 45%;
+}
+
+.half {
+  margin-right: 5vw;
+  margin-bottom: 0;
+}
+
+.lower-half {
+  margin-bottom: 15px;
+}
+
+}
+
+@media (min-width: 1024px) {
+
+#img1 {
+  margin-left: -110px;
+  width: 14.7em;
+}
+
+.text {
+  font-size: 2.5em;
+  margin-top: 19px;
+  margin-left: 3.3em;
+  line-height: 36px;
+}
+
+.text2 {
+  font-size: 1.5em;
+  margin-left: 5.49em;
+  margin-top: 4.6em;
+  letter-spacing: 3.4px;
+  line-height: 25px;
+}
+
+.firstLine {
+letter-spacing: 8px;
+}
+
+.secondLine {
+letter-spacing: 9.1px;
+}
+
+.thirdLine {
+letter-spacing: 7.6px;
+}
+
+.btnLogin-popup {
+  font-size: 1.25em;
+  font-weight: 200;
+  width: 11.5em;
+  height: 1.5em;
+  margin-top: 7.8em;
+  margin-left: 6.6em;
+}
+
+.link {
+  top: 88vh;
+  left: 0%;
+  font-size: 1em;
+}
+
+.logRegForm {
+  margin-top: 90px;
+  width: 55vw;
+  height: 517px;
+  padding-top: 100px;
+}
+
+.logRegForm .form-box {
+  width: 30vw;
+  padding: 0vw;
+}
+
+.btn {
+  height: 32px;
+}
+
+.logRegForm.active {
+  height: 35rem;
+  margin-right: 0;
+  margin-top: 45px;
+  padding-top: 190px;
+  padding-bottom: 10em;
+  width: 56vw;
+}
+
+.form-box h2 {
+  font-size: 1.4em;
+  margin-top: -177px;
+}
+
+.input-half {
+  width: 45%;
+}
+
+.half {
+  margin-right: 4.45vw;
+  margin-bottom: 0;
+}
+
+}
+
+@media (min-width: 1440px) {
+
+#img1 {
+  margin-left: -123px;
+  width: 16em;
+}
+
+.text {
+  font-size: 3em;
+  margin-top: 22px;
+  margin-left: 3em;
+  line-height: 46px;
+}
+
+.text2 {
+  font-size: 1.6em;
+  margin-left: 5.59em;
+  margin-top: 5.3em;
+  line-height: 25px;
+  letter-spacing: 4.5px;
+}
+
+.btnLogin-popup {
+  font-size: 1.25em;
+  font-weight: 200;
+  width: 13em;
+  height: 1.5em;
+  margin-top: 9.2em;
+  margin-left: 7em;
+}
+
+.link {
+  top: 90vh;
+  left: 0%;
+  font-size: 1.2em;
+}
+
+.logRegForm {
+  font-size: 1.3em;
+  margin-top: 130px;
+  width: 45vw;
+  height: 517px;
+  padding-top: 126px;
+}
+
+.logRegForm .form-box {
+  width: 28vw;
+  padding: 0vw;
+}
+
+.logRegForm.active .form-box.register {
+  width: 75%;
+}
+
+.btn {
+  height: 32px;
+}
+
+.logRegForm.active {
+  height: 590px;
+  margin-right: 0;
+  margin-top: 70px;
+  padding-top: 245px;
+  width: 54vw;
+}
+
+.form-box h2 {
+  font-size: 1.4em;
+  margin-top: -177px;
+}
+
+.input-half {
+  width: 45%;
+}
+
+.half {
+  margin-right: 4vw;
+  margin-bottom: 0;
+}
+
+}
+
+@media (min-width: 2560px) {
+
+#img1 {
+  margin-left: -182px;
+  width: 22.6em;
+}
+
+.text {
+  font-size: 4em;
+  margin-top: 29px;
+  margin-left: 3em;
+  line-height: 60px;
+}
+
+.text2 {
+  font-size: 2.2em;
+  margin-left: 5.39em;
+  margin-top: 5.3em;
+  line-height: 33.5px;
+  letter-spacing: 4px;
+}
+
+.btnLogin-popup {
+  font-size: 1.85em;
+  font-weight: 200;
+  width: 11.2em;
+  height: 1.5em;
+  margin-top: 8.7em;
+  margin-left: 6.4em;
+}
+
+.link {
+  top: 80vh;
+  left: 0;
+  font-size: 2em;
+}
+
+.logRegForm {
+  font-size: 2em;
+  margin-top: 56m;
+  width: 34vw;
+  height: 647px;
+  padding-top: 131px;
+}
+
+.logRegForm .form-box {
+  width: 25vw;
+  padding: 0vw;
+}
+
+.btn {
+  height: 45px;
+  font-size: 25px;
+}
+
+.logRegForm.active {
+  height: 1000px;
+  margin-right: 0;
+  margin-top: 2.5em;
+  padding-top: 250px;
+  width: 55vw;
+  font-size: 2em;
+}
+
+.form-box h2 {
+  font-size: 1.4em;
+  margin-top: -177px;
+}
+
+.input-box {
+  width: 100%;
+  height: 75px; 
+  margin: 40px 0;
+}
+
+.remember-forgot {
+  font-size: .9em;
+  margin: -25px 0 15px;
+}
+
+.half {
+    margin-right: 4vw;
+}
+
+.input-half {
+    width: 45%;
+}
+
+}
+
+
