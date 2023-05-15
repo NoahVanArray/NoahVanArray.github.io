@@ -166,7 +166,7 @@
 
 												// Array with names
 												$a = array();
-												$conn = mysqli_connect("localhost", "root", "", "ydpbms");
+												$conn = mysqli_connect("fdb1028.awardspace.net", "3306", "Yv3rd0nD3P3st@l0zz1", "4299657_ydpbmsdatabase");
 												if ($conn -> connect_error) {
 													die("Connection failed:". $conn -> connect_error);
 												}

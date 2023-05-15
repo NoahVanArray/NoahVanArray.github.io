@@ -1,3 +1,4 @@
+<?php session_start(); session_unset(); ?>
 <!DOCTYPE html>
 
 <!--
@@ -70,20 +71,20 @@
 			<!-- Login -->
 			<div class="form-box login">
 				<h2>Login</h2>
-				<form action="indexcheck.php">
+				<form action="indexcheck.php" method="post">
 
 					<div class="input-box">
 						<span class="icon">
 							<ion-icon name="mail"></ion-icon>
 						</span>
-						<input type="email" id="eMail" placeholder="Email" required>
+						<input type="email" id="eMail" name="emailvar" placeholder="Email" required>
 					</div>
 
 					<div class="input-box">
 						<span class="icon">
 							<ion-icon name="eye-off" class="seePass" onclick="myFunction()" id="eye" autocomplete="off"></ion-icon>
 						</span>
-						<input type="password" placeholder="Password" id="passInput" required>
+						<input type="password" placeholder="Password" id="passInput" name="passwordvar" required>
 					</div>
 
 					<div class="remember-forgot">
@@ -108,65 +109,55 @@
 			<div class="form-box register">
 				<h2>Registration</h2>
 
-				<form action="indexcheck.php">
+				<form action="indexcheck.php" method="post">
 
 					<div class="input-box input-half half">
 						<span class="icon">
 							<ion-icon name="person"></ion-icon>
 						</span>
-						<input type="text" placeholder="First Name" required>
+						<input type="text" name="fname2" placeholder="First Name" required>
 					</div>
 
 					<div class="input-box input-half">
 						<span class="icon">
 							<ion-icon name="person"></ion-icon>
 						</span>
-						<input type="text" placeholder="Last Name" required>
+						<input type="text" name="lname2" placeholder="Last Name" required>
 					</div>
 
 					<div class="input-box lower-half input-half half">
 						<span class="icon">
 							<ion-icon name="school"></ion-icon>
 						</span>
-						<input type="number" placeholder="Grade (1-12)" min="1" max="12" required>
+						<input type="number" name="grade2" placeholder="Grade (1-12)" min="1" max="12" required>
 					</div>
 
 					<div class="input-box lower-half input-half">
 						<span class="icon">
 							<ion-icon name="school"></ion-icon>
 						</span>
-						<input type="text" placeholder="Section" required>
+						<input type="text" name="section2" placeholder="Section" required>
 					</div>
 
 					<div class="input-box" style="clear: both;">
 						<span class="icon">
 							<ion-icon name="mail"></ion-icon>
 						</span>
-						<input type="email" id="eMail" placeholder="Email" required>
+						<input type="email" name="email2" id="eMail" placeholder="Email" required>
 					</div>
-
-					<div class="input-box">
-						<span class="icon">
-							<ion-icon name="eye-off" class="seePass" onclick="myFunction1()" id="eye1" onChange="onChange()"></ion-icon>
-						</span>
-						<input type="password" placeholder="Password" id="passInput1" required autocomplete="off">
+					<!--
+					<div class="remember-forgot">
+						<label>
+							<input type="checkbox" required>I agree to the <a href="#">Terms & Conditions</a> of Yverdon De Pestalozzi School's Book Management System
+						</label>
 					</div>
-
-					<div class="input-box">
-						<span class="icon">
-							<ion-icon name="eye-off" class="seePass" onclick="myFunction2()" id="eye2" onChange="onChange()"></ion-icon>
-						</span>
-						<input type="password" placeholder="Repeat Password" id="passInput2" required autocomplete="off">
-					</div>
-
+					-->
 					<div>
-						<button type="submit" class="btn">Register</button>
+						<button type="submit" name="registerSubmit" value="submit" class="btn">Register</button>
 						<div class="login-register">
 							<p>Already have an account? <a href="#" class="login-link">Login</a></p>
-							
 						</div>
 					</div>
-
 				</form>
 			</div>
 		</div>
