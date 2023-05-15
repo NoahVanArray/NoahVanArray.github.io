@@ -39,7 +39,7 @@
 					<!-- Logo -->
 						<div id="logo">
 							<h1><span><a href="home.html">Yverdon Book Management System</a></span></h1>
-							<p><b>The online book management system for Yverdon de Pestallozi School</b></p>
+							<p><b>The online book management system for Yverdon de Pestalozzi School</b></p>
 						</div>
 
 					<!-- Nav -->
@@ -166,7 +166,7 @@
 
 												// Array with names
 												$a = array();
-												$conn = mysqli_connect("fdb1028.awardspace.net", "3306", "Yv3rd0nD3P3st@l0zz1", "4299657_ydpbmsdatabase");
+												$conn = mysqli_connect("fdb1028.awardspace.net", "4299657_ydpbmsdatabase", "Yv3rd0nD3P3st@l0zz1", "4299657_ydpbmsdatabase");
 												if ($conn -> connect_error) {
 													die("Connection failed:". $conn -> connect_error);
 												}
@@ -257,7 +257,7 @@
 												<section>
 													<h3 class="icon solid fa-home">Address</h3>
 													<p>
-														Official Yverdon de Pestallozi School, Inc.<br />
+														Official Yverdon de Pestalozzi School, Inc.<br />
 														Igay Rd., Sto. Cristo, SJDM
 													</p>
 												</section>
