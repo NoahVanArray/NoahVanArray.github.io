@@ -167,3 +167,20 @@ function closeBook() {
   document.getElementById("bookContent").style.display = "none";
   document.getElementById("bookContent").style.position = "absolute";
 }
+
+// display of year datepicker
+ function pickYear() {
+
+  let dateDropdown = document.getElementById('date-dropdown'); 
+       
+  let currentYear = new Date().getFullYear();    
+  let earliestYear = 1000;     
+  while (currentYear >= earliestYear) {      
+    let dateOption = document.createElement('option');          
+    dateOption.text = currentYear;      
+    dateOption.value = currentYear;        
+    dateDropdown.add(dateOption);      
+    currentYear -= 1;    
+  }
+
+}

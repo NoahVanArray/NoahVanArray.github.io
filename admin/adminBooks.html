@@ -120,35 +120,19 @@
 													</article>
 												</li>
 											</ul>
-											<a class="button style3" style="max-width: 100%; width: 100%;" onclick="openCateg()">Add Category</a>
-											<div class="row gtr-50">
-												<form method="post" action="#"  style="max-width: 100%; width: 100%;">
-													<div class="row gtr-50 addCategContent" id="categContent" style="margin-top: 0;">
-														<div class="col-6 col-12-small">
-															<input type="text" name="name" id="" placeholder="Category" />
-														</div>
-														<div class="col-12">
-															<textarea style="max-width: 100%;" name="message" id="" placeholder="Brief Description" rows="4"></textarea>
-														</div>
-														<div class="col-12">
-															<ul class="actions">
-																<li><input type="submit" class="style1" value="Save" style="min-width: 0; width: 85px;"/></li>
-																<li><input type="reset" class="style2" value="Close" style="min-width: 0; width: 85px;" onclick="closeCateg()" /></li>
-															</ul>
-														</div>
-													</div>
-												</form>
-											</div>
+											
 											<a class="button style3" style="max-width: 100%; width: 100%; margin-top: 20px;" onclick="openBook()">Add Book</a>
 											<div class="row gtr-50">
 												<form method="post" action="#" style="max-width: 100%; width: 100%;">
 													<div class="row gtr-50 addBookContent" id="bookContent" style="margin-top: 0;">
 														<div class="col-6 col-12-small">
-															<input type="text" name="" id="" placeholder="Title" />
+															<input type="text" name="" id="" placeholder="Title" style="margin-bottom: 1em;"/>
+															<input type="text" name="" id="" placeholder="Author" style="margin-bottom: 1em;" />
+															<input type="text" name="" id="" placeholder="Genre" />
 														</div>
 														<div class="col-6 col-12-small">
-															<p>Input the book cover image here: <input type="file" name="" id="" placeholder="Book Cover" accept=".jpg, .jpeg, .png." /></p>
-															<select id='date-dropdown'></select>
+															<p style="margin-bottom: 1em;">Book cover here: <input type="file" name="" id="" placeholder="Book Cover" accept=".jpg, .jpeg, .png." /></p>
+															<p>Year Published: <select id='date-dropdown' placeholder="Year Published" onclick="pickYear()" style="margin-bottom: -2em;"></select></p>
 															
 														</div>
 														<div class="col-12">
@@ -480,19 +464,6 @@
 		</div>
 
 		<!-- Scripts -->
-		<script>
-  let dateDropdown = document.getElementById('date-dropdown'); 
-       
-  let currentYear = new Date().getFullYear();    
-  let earliestYear = 1970;     
-  while (currentYear >= earliestYear) {      
-    let dateOption = document.createElement('option');          
-    dateOption.text = currentYear;      
-    dateOption.value = currentYear;        
-    dateDropdown.add(dateOption);      
-    currentYear -= 1;    
-  }
-</script>
 			<script src="../assets/js/jquery.min.js"></script>
 			<script src="../assets/js/jquery.dropotron.min.js"></script>
 			<script src="../assets/js/browser.min.js"></script>
