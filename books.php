@@ -29,6 +29,7 @@
 			var sqlPriority = "name";
 			var sqlOrder = "asc";
 		</script>
+
 	</head>
 	<body class="left-sidebar is-preload">
 		<div id="page-wrapper">
@@ -46,7 +47,7 @@
 						<nav id="nav">
 							<ul>
 								<li class="current"><a href="home.html"><strong>Home</strong></a></li>
-								<li>
+
 									<a href="books.html"><strong>Books</strong></a>
 									<ul>
 										<li><a href="#">Non-fiction</a></li>
@@ -194,7 +195,7 @@
 																	<header>
 																		<h2 style="margin: 0 0 -10px 0; color: #484d55;">'.$row["name"].'</h2>
 																	</header>
-																	<a href="'.$row["siteUrl"].'" class="button style1" style="margin-bottom: 20px;">More</a>
+																	<a href="'.$row["siteUrl"].'" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
 																</center>
 															</section>
 														</div>

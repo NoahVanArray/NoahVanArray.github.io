@@ -25,6 +25,11 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
 		<link rel="manifest" href="images/favicon_io/site.webmanifest">
 
+		<script type="text/javascript">
+			var sqlPriority = "name";
+			var sqlOrder = "asc";
+		</script>
+
 	</head>
 	<body class="left-sidebar is-preload">
 		<div id="page-wrapper">
@@ -124,10 +129,45 @@
 							</div>
 
 							<div class="col-8 col-12-medium imp-medium">
+								<nav id="nav">
+									
+									<a href="books.html"><strong>Books</strong></a>
+									<ul>
+										<li><a href="#">Non-fiction</a></li>
+										<li><a href="#">Education</a></li>
+										<li><a href="#">Fiction</a></li>
+										<li><a href="#">Literature</a></li>
+										<li><a href="#">Entertainments</a></li>
+										<li><a href="#">Philosophy</a></li>
+									</ul>
+
+								</nav>
+
+								<!-- Sorting -->
+								<script src="assets/js/toggleDisplay.js"></script>
+								<button value="sortTable" onclick="toggleDisplay(this.value)" style="color: #FFFFFF; margin-bottom: 24px;">Sort By</button>
 								
+								<ul id="sortTable" style="margin-bottom: 24px; display: none;">
+									<li>
+										<ul>
+											<li><h1 id="sortOrder">Order: Ascending</h1></li>
+											<li><button value="asc" onclick="printMessage(this.value)" style="color: #FFFFFF;">Ascending</button></li>
+											<li><button value="desc" onclick="printMessage(this.value)" style="color: #FFFFFF;">Descending</button></li>
+										</ul>
+									</li>
+									<li>
+										<ul>
+											<li><h1 id="sortPriority">Priority: Name</h1></li>
+											<li><button value="name" onclick="printMessage(this.value)" style="color: #FFFFFF;">Name</button></li>
+											<li><button value="id" onclick="printMessage(this.value)" style="color: #FFFFFF;">ID</button></li>
+											<li><button value="author" onclick="printMessage(this.value)" style="color: #FFFFFF;">Author</button></li>
+										</ul>
+									</li>
+								</ul>
+																
 								<!-- Search Bar -->
-									<form style="margin-bottom: 50px;" action="">
-										<input type="text" placeholder="Search Here" onfocus="showSuggest()" onblur="hideSuggest()" name="search" id="detail" onkeyup="showSearch(this.value)">
+									<form style="margin-bottom: 50px;">
+										<input type="text" placeholder="Search Here" name="search" id="searchBar" onkeyup="showSearch(this.value)">
 									</form>
 
 								<!-- Content -->
@@ -435,14 +475,15 @@
 		</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-			<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/sort.js"></script>
+		<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+		<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 	</body>
 </html>

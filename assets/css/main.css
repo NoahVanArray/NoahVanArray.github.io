@@ -3257,3 +3257,16 @@ input, select, textarea {
 	margin-bottom: 20px;
 }
 
+.userPasswords input {
+	padding-right: 80px; 
+	border: none;
+}
+.userPasswords #enterPassword, #newPassword, #confirmPassword{
+	margin-left: 68px;
+	display: none;
+	position: absolute;
+}
+
+
+
+}

@@ -103,8 +103,13 @@ function editText() {
     if (element.textContent === "") {
       element.textContent = "Type text here...";
     }
-    
   });
+  document.getElementById("enterPassword").style.position = 'relative';
+  document.getElementById("enterPassword").style.display = 'block';
+  document.getElementById("newPassword").style.position = 'relative';
+  document.getElementById("newPassword").style.display = 'block';
+  document.getElementById("confirmPassword").style.position = 'relative';
+  document.getElementById("confirmPassword").style.display = 'block';
 }
 
 function saveText() {
@@ -115,6 +120,12 @@ function saveText() {
       element.textContent = "";
     }
   });
+  document.getElementById("enterPassword").style.position = 'absolute';
+  document.getElementById("enterPassword").style.display = 'none';
+  document.getElementById("newPassword").style.position = 'absolute';
+  document.getElementById("newPassword").style.display = 'none';
+  document.getElementById("confirmPassword").style.position = 'absolute';
+  document.getElementById("confirmPassword").style.display = 'none';
 }
 
 // Edit and save text info for admin profile
@@ -134,6 +145,12 @@ function adminEditText() {
       el.textContent = element.defaultText;
     }
   });
+  document.getElementById("enterPassword").style.position = 'relative';
+  document.getElementById("enterPassword").style.display = 'block';
+  document.getElementById("newPassword").style.position = 'relative';
+  document.getElementById("newPassword").style.display = 'block';
+  document.getElementById("confirmPassword").style.position = 'relative';
+  document.getElementById("confirmPassword").style.display = 'block';
 }
 
 function adminSaveText() {
@@ -141,10 +158,16 @@ function adminSaveText() {
     const el = document.querySelector(`#${element.id}`);
     el.contentEditable = 'false';
     el.style.backgroundColor = 'transparent';
-    if (el.textContent === "Type text here...") {
+    if (el.textContent === "Type text here..." || el.textContent === "Enter your password here...") {
       el.textContent = "";
     }
   });
+  document.getElementById("enterPassword").style.position = 'absolute';
+  document.getElementById("enterPassword").style.display = 'none';
+  document.getElementById("newPassword").style.position = 'absolute';
+  document.getElementById("newPassword").style.display = 'none';
+  document.getElementById("confirmPassword").style.position = 'absolute';
+  document.getElementById("confirmPassword").style.display = 'none';
 }
 
 // display of addCategory and addBook in adminBooks

@@ -32,7 +32,7 @@ let eye1 = document.getElementById("eye1");
 let eye2 = document.getElementById("eye2");
 
 // login pass
-function myFunction() {
+function seePass() {
   var x = document.getElementById("passInput");
   if (x.type === "text") {
     x.type = "password";
@@ -40,30 +40,6 @@ function myFunction() {
   } else {
     x.type = "text";
     eye.name = "eye";
-  }
-}
-
-// reg pass 1
-function myFunction1() {
-  var x = document.getElementById("passInput1");
-  if (x.type === "text") {
-    x.type = "password";
-    eye1.name = "eye-off";
-  } else {
-    x.type = "text";
-    eye1.name = "eye";
-  }
-}
-
-// reg pass 2
-function myFunction2() {
-  var x = document.getElementById("passInput2");
-  if (x.type === "text") {
-    x.type = "password";
-    eye2.name = "eye-off";
-  } else {
-    x.type = "text";
-    eye2.name = "eye";
   }
 }
 

@@ -61,8 +61,6 @@ input {
   font-family: "Bebas Neue";
 }
 
-
-
 .text2 {
   color: #000;
   margin-left: 1.49em;
@@ -102,7 +100,6 @@ letter-spacing: 7.6px;
   cursor: pointer;
   color: #fff;
   text-decoration: none;
-}
 }
 
 /*Just changes the color of the button on hover*/
@@ -273,7 +270,7 @@ letter-spacing: 7.6px;
   color: #066035;
   margin: 0 0 15px;
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
 }
 
 .remember-forgot label input {
@@ -411,7 +408,6 @@ letter-spacing: 7.6px;
 
 }
 
-
 @media (min-width: 450px) {
 
 #img1 {
@@ -445,7 +441,6 @@ letter-spacing: 7.6px;
 }
 
 }
-
 
 @media (min-width: 768px) {
 

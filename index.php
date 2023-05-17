@@ -82,15 +82,15 @@
 
 					<div class="input-box">
 						<span class="icon">
-							<ion-icon name="eye-off" class="seePass" onclick="myFunction()" id="eye" autocomplete="off"></ion-icon>
+							<ion-icon name="eye-off" class="seePass" onclick="seePass()" id="eye"></ion-icon>
 						</span>
-						<input type="password" placeholder="Password" id="passInput" name="passwordvar" required>
+						<input type="password" placeholder="Password" id="passInput" name="passwordvar" required autocomplete="off">
 					</div>
 
 					<div class="remember-forgot">
-						<label>
+						<!-- <label>
 							<input type="checkbox">Remember me
-						</label>
+						</label> -->
 						<a href="forgot.html" target="_blank">Forgot Password?</a>
 					</div>
 
