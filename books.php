@@ -42,26 +42,18 @@
 
 					<!-- Logo -->
 						<div id="logo">
-<<<<<<< Updated upstream
-							<h1><span><a href="home.html">Yverdon Book Management System</a></span></h1>
-=======
+
 							<h1><span><a href="home.php">Yverdon Book Management System</a></span></h1>
->>>>>>> Stashed changes
 							<p><b>The online book management system for Yverdon de Pestalozzi School</b></p>
 						</div>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-<<<<<<< Updated upstream
-								<li class="current"><a href="home.html"><strong>Home</strong></a></li>
 
-									<a href="books.html"><strong>Books</strong></a>
-=======
 								<li class="current"><a href="home.php"><strong>Home</strong></a></li>
 								<li>
 									<a href="books.php"><strong>Books</strong></a>
->>>>>>> Stashed changes
 									<ul>
 										<li><a href="books.php">Non-fiction</a></li>
 										<li><a href="books.php">Education</a></li>
@@ -143,32 +135,31 @@
 
 							<div class="col-8 col-12-medium imp-medium">
 							
+								<!-- Search Bar -->
+									<form style="margin-bottom: 50px;">
+										<input type="text" placeholder="Search Here" name="search" id="searchBar" onkeyup="showSearch(this.value)" style="padding-right: 110px;">
+									</form>
+
 								<!-- Sorting -->
-								<script src="assets/js/toggleDisplay.js"></script>
-								<button value="sortTable" onclick="toggleDisplay(this.value)" style="color: #FFFFFF; margin-bottom: 24px;">Sort By</button>
+								<button id="sortByButton" value="sortTable" onclick="toggleDisplay(this.value)">Sort By</button>
 								
-								<ul id="sortTable" style="margin-bottom: 24px; display: none;">
-									<li>
+								<ul id="sortTable">
+									<li style="list-style-type: none;">
 										<ul>
 											<li><h1 id="sortOrder">Order: Ascending</h1></li>
-											<li><button value="asc" onclick="printMessage(this.value)" style="color: #FFFFFF;">Ascending</button></li>
-											<li><button value="desc" onclick="printMessage(this.value)" style="color: #FFFFFF;">Descending</button></li>
+											<li><button class="sortTableBtn" value="asc" onclick="printMessage(this.value)" style="float: left; margin-right: 20px;">Ascending</button></li>
+											<li><button class="sortTableBtn" value="desc" onclick="printMessage(this.value)">Descending</button></li>
 										</ul>
 									</li>
-									<li>
+									<li style="list-style-type: none;">
 										<ul>
 											<li><h1 id="sortPriority">Priority: Name</h1></li>
-											<li><button value="name" onclick="printMessage(this.value)" style="color: #FFFFFF;">Name</button></li>
-											<li><button value="id" onclick="printMessage(this.value)" style="color: #FFFFFF;">ID</button></li>
-											<li><button value="author" onclick="printMessage(this.value)" style="color: #FFFFFF;">Author</button></li>
+											<li><button class="sortTableBtn" value="name" onclick="printMessage(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">Name</button></li>
+											<li><button class="sortTableBtn" value="id" onclick="printMessage(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">ID</button></li>
+											<li><button class="sortTableBtn" value="author" onclick="printMessage(this.value)">Author</button></li>
 										</ul>
 									</li>
 								</ul>
-								
-								<!-- Search Bar -->
-									<form style="margin-bottom: 50px;">
-										<input type="text" placeholder="Search Here" name="search" id="searchBar" onkeyup="showSearch(this.value)">
-									</form>
 
 								<!-- Content -->
 									<div id="content">
@@ -322,6 +313,7 @@
 		<script src="assets/js/sort.js"></script>
 		<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 		<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+		<script src="assets/js/toggleDisplay.js"></script>
 
 	</body>
 </html>
