@@ -3261,12 +3261,77 @@ input, select, textarea {
 	padding-right: 80px; 
 	border: none;
 }
-.userPasswords #enterPassword, #newPassword, #confirmPassword{
+
+.userPasswords #enterPassword, #newPassword, #confirmPassword {
 	margin-left: 68px;
 	display: none;
 	position: absolute;
 }
 
 
-
+/* sorting buttons in */
+#sortByButton {
+	color: #FFFFFF; 
+	position: absolute; 
+	top: 45px; 
+	right: 23px; 
+	min-width: 0; 
+	width: 97px; 
+	height: 32px; 
+	line-height: 0;
 }
+
+#sortTable {
+	margin-bottom: 24px; 
+	display: none; 
+	padding: 0; 
+	margin-top: -30px;
+}
+
+#sortTable li ul{
+	list-style-type: none; 
+	padding: 0;
+}
+
+.sortTableBtn {
+	color: #FFFFFF; 
+	font-size: 0.7em; 
+	min-width: 0; 
+	width: 85px; 
+}
+
+@media (min-width: 737px) {
+	#sortByButton {
+		top: 62px;
+	    right: 55px;
+	}
+}
+
+@media (min-width: 1281px) {
+	#sortByButton {
+		position: relative;
+    	top: -88px;
+    	left: 620px;
+	}
+
+	#sortTable {
+		margin-top: -65px;
+	}
+}
+
+@media (min-width: 1681px) {
+	#sortByButton {
+		position: relative;
+    	top: -92px;
+    	left: 715px;
+	}
+
+	.sortTableBtn {
+		width: 110px;
+	}
+}
+
+
+
+
+
