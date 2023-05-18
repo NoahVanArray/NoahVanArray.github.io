@@ -1,8 +1,11 @@
+<?php session_start(); if(!isset($_SESSION["userEmail"])) { header('Refresh: 0; url=index.php'); } ?>
+
 <!DOCTYPE HTML>
 
 <!--
 	Author: 
 	Front-End: John Yohan J. Navarra
+	Back-End: Angelo Kurt B. Rosal
 -->
 
 <!--
@@ -35,29 +38,33 @@
 
 					<!-- Logo -->
 						<div id="logo">
+<<<<<<< Updated upstream:userProfile.html
 							<h1><span><a href="home.html">Yverdon Book Management System</a></span></h1>
+=======
+							<h1><span><a href="home.php">Yverdon Book Management System</a></span></h1>
+>>>>>>> Stashed changes:userProfile.php
 							<p><b>The online book management system for Yverdon de Pestalozzi School</b></p>
 						</div>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li class="current"><a href="home.html"><strong>Home</strong></a></li>
+								<li class="current"><a href="home.php"><strong>Home</strong></a></li>
 								<li>
-									<a href="books.html"><strong>Books</strong></a>
+									<a href="books.php"><strong>Books</strong></a>
 									<ul>
-										<li><a href="#">Non-fiction</a></li>
-										<li><a href="#">Education</a></li>
-										<li><a href="#">Fiction</a></li>
-										<li><a href="#">Literature</a></li>
-										<li><a href="#">Entertainments</a></li>
-										<li><a href="#">Philosophy</a></li>
+										<li><a href="books.php">Non-fiction</a></li>
+										<li><a href="books.php">Education</a></li>
+										<li><a href="books.php">Fiction</a></li>
+										<li><a href="books.php">Literature</a></li>
+										<li><a href="books.php">Entertainments</a></li>
+										<li><a href="books.php">Philosophy</a></li>
 									</ul>
 								</li>
-								<li><a href="userProfile.html"><strong>User Profile</strong></a></li>
+								<li><a href="userProfile.php"><strong>User Profile</strong></a></li>
 								
 								<!--Add logout link here-->
-								<li><a href=""><strong>Logout</strong></a></li>
+								<li><a href="index.php"><strong>Logout</strong></a></li>
 							</ul>
 						</nav>
 				</section>
@@ -73,10 +80,10 @@
 									<div id="content">
 										<article class="box post userProf">
 											<header class="style1" style="padding-bottom: 0;">
-												<h2>Welcome &lt;INSERT FIRSTNAME HERE&gt;! </h2>
+												<h3 id="displayName" value="fname">null</h3>
 											</header>
 
-											<img  class="image featured"src="images/pic01.jpg" alt="" style="width: 100%; height: 150px; border: none; margin-bottom: 2em;" />
+											<img class="image featured"src="images/pic01.jpg" alt="" style="width: 100%; height: 150px; border: none; margin-bottom: 2em;" />
 											
 											<div id="profile-container">
    												<image id="profileImage" src="http://lorempixel.com/100/100" />
@@ -84,6 +91,7 @@
 											<input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" capture>
 
 											<p><strong>Information</strong></p>
+<<<<<<< Updated upstream:userProfile.html
 											<p>Name: <span class="textHere" id="name" contenteditable="false"></span></p>
 											<p>School: <span class="textHere" id="school" contenteditable="false"></span></p>
 											<p>Academic Level: <span class="textHere" id="acadLvl" contenteditable="false"></span></p>
@@ -99,8 +107,20 @@
 											<p>Email: <span class="textHere" id="email" contenteditable="false"></span></p>
 
 
+=======
+											<p>First Name: <span class="textHere" id="fname" value="fname" contenteditable="false">null</span></p>
+											<p>Last Name: <span class="textHere" id="lname"  value="lname" contenteditable="false">null</span></p>
+											<p>Grade Level: <span class="textHere" id="grade" value="grade" contenteditable="false">null</span></p>
+											<p>Section: <span class="textHere" id="section" value="section" contenteditable="false">null</span></p>
+											<p>Email: <?php echo $_SESSION["userEmail"]; ?></p>
+											<p>Current Password: <span class="textHere" id="password" value="password" contenteditable="false">null</span></p>
+											<p id="nP" style="display: none;">New Password: <span class="textHere" id="newPassword" contenteditable="false" ></span></p><br />
+											<p id="cP" style="display: none;">Confirm Password: <span class="textHere" id="confirmPassword" contenteditable="false"></span></p><br />
+											
+>>>>>>> Stashed changes:userProfile.php
 											<button class="editInfo style3" style="display:inline-block;" onclick="editText()" id="textEdit">Edit</button>
-											<button class="editInfo style1" style="display:inline-block;" onclick="saveText()" id="textSave">Save</button>
+											<button class="editInfo style3" style="display:none;" onclick="cancelText()" id="textCancel">Cancel</button>
+											<button class="editInfo style1" style="display:none;" onclick="saveText()" id="textSave">Save</button>
 
 										</article>
 
@@ -205,27 +225,23 @@
 							<div class="col-6 col-12-medium">
 
 								<!-- Contact Form -->
-									<section>
-										<form method="post" action="#">
-											<div class="row gtr-50">
-												<div class="col-6 col-12-small">
-													<input type="text" name="name" id="contact-name" placeholder="Name" />
-												</div>
-												<div class="col-6 col-12-small">
-													<input type="text" name="email" id="contact-email" placeholder="Email" />
-												</div>
-												<div class="col-12">
-													<textarea style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4"></textarea>
-												</div>
-												<div class="col-12">
-													<ul class="actions">
-														<li><input type="submit" class="style1" value="Send" /></li>
-														<li><input type="reset" class="style2" value="Reset" /></li>
-													</ul>
-												</div>
+								<section>
+									<script src="assets/js/request.js"></script>
+									<form method="post">
+										<div class="row gtr-50">
+											<div class="col-12">
+												<textarea style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4" required></textarea>
 											</div>
-										</form>
-									</section>
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" class="style1" value="Send" onclick="return requestAccept('Feedback')" /></li>
+													<li><input type="reset" class="style2" value="Reset" style="color: #484d55;" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</section>
+								<p id="demo"></p>
 
 							</div>
 							<div class="col-6 col-12-medium">
@@ -246,7 +262,7 @@
 												<section>
 													<h3 class="icon solid fa-comment">Social</h3>
 													<p>
-														<a href="#">facebook.com/1997ydpsi</a>
+														<a href="https://www.facebook.com/1997ydpsi">facebook.com/1997ydpsi</a>
 													</p>
 												</section>
 											</div>
@@ -290,6 +306,12 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+<<<<<<< Updated upstream:userProfile.html
+=======
+			<script>
+				getProfileData();
+			</script>
+>>>>>>> Stashed changes:userProfile.php
 
 	</body>
 </html>

@@ -1,8 +1,11 @@
+<?php session_start(); if(!isset($_SESSION["userEmail"])) { header('Refresh: 0; url=index.php'); } ?>
+
 <!DOCTYPE HTML>
 
 <!--
 	Author: 
 	Front-End: John Yohan J. Navarra
+	Back-End: Angelo Kurt B. Rosal
 -->
 
 <!--
@@ -34,29 +37,33 @@
 
 					<!-- Logo -->
 						<div id="logo">
+<<<<<<< Updated upstream:about.html
 							<h1><span><a href="home.html">Yverdon Book Management System</a></span></h1>
+=======
+							<h1><span><a href="home.php">Yverdon Book Management System</a></span></h1>
+>>>>>>> Stashed changes:about.php
 							<p><b>The online book management system for Yverdon de Pestalozzi School</b></p>
 						</div>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li class="current"><a href="home.html"><strong>Home</strong></a></li>
+								<li class="current"><a href="home.php"><strong>Home</strong></a></li>
 								<li>
-									<a href="books.html"><strong>Books</strong></a>
+									<a href="books.php"><strong>Books</strong></a>
 									<ul>
-										<li><a href="#">Non-fiction</a></li>
-										<li><a href="#">Education</a></li>
-										<li><a href="#">Fiction</a></li>
-										<li><a href="#">Literature</a></li>
-										<li><a href="#">Entertainments</a></li>
-										<li><a href="#">Philosophy</a></li>
+										<li><a href="books.php">Non-fiction</a></li>
+										<li><a href="books.php">Education</a></li>
+										<li><a href="books.php">Fiction</a></li>
+										<li><a href="books.php">Literature</a></li>
+										<li><a href="books.php">Entertainments</a></li>
+										<li><a href="books.php">Philosophy</a></li>
 									</ul>
 								</li>
-								<li><a href="userProfile.html"><strong>User Profile</strong></a></li>
+								<li><a href="userProfile.php"><strong>User Profile</strong></a></li>
 								
 								<!--Add logout link here-->
-								<li><a href=""><strong>Logout</strong></a></li>
+								<li><a href="index.php"><strong>Logout</strong></a></li>
 							</ul>
 						</nav>
 				</section>
@@ -168,27 +175,23 @@
 							<div class="col-6 col-12-medium">
 
 								<!-- Contact Form -->
-									<section>
-										<form method="post" action="#">
-											<div class="row gtr-50">
-												<div class="col-6 col-12-small">
-													<input type="text" name="name" id="contact-name" placeholder="Name" />
-												</div>
-												<div class="col-6 col-12-small">
-													<input type="text" name="email" id="contact-email" placeholder="Email" />
-												</div>
-												<div class="col-12">
-													<textarea  style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4"></textarea>
-												</div>
-												<div class="col-12">
-													<ul class="actions">
-														<li><input type="submit" class="style1" value="Send" /></li>
-														<li><input type="reset" class="style2" value="Reset" /></li>
-													</ul>
-												</div>
+								<section>
+									<script src="assets/js/request.js"></script>
+									<form method="post">
+										<div class="row gtr-50">
+											<div class="col-12">
+												<textarea style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4" required></textarea>
 											</div>
-										</form>
-									</section>
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" class="style1" value="Send" onclick="return requestAccept('Feedback')" /></li>
+													<li><input type="reset" class="style2" value="Reset" style="color: #484d55;" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</section>
+								<p id="demo"></p>
 
 							</div>
 							<div class="col-6 col-12-medium">
@@ -209,7 +212,7 @@
 												<section>
 													<h3 class="icon solid fa-comment">Social</h3>
 													<p>
-														<a href="#">facebook.com/1997ydpsi</a>
+														<a href="https://www.facebook.com/1997ydpsi">facebook.com/1997ydpsi</a>
 													</p>
 												</section>
 											</div>

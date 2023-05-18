@@ -88,15 +88,44 @@ function myFavorite() {
 }
 
 // Edit and save text info for user profile
-const elements = [
-  "name",
-  "school",
-  "acadLvl",
-  "gradeSec",
-  "email"
-].map(id => document.getElementById(id));
+const elements = ["fname", "lname", "grade", "section", "newPassword", "confirmPassword"].map(id => document.getElementById(id));
+const elements2 = ["displayName", "fname", "lname", "grade", "section", "password"];
+
+function getProfileData() {
+	var xhr = [], i;
+	for (i = 0; i < elements2.length; i++) {
+		(function(i) {
+			xhr[i] = new XMLHttpRequest();
+			xhr[i].open("GET", "profilebackend.php?q=" + elements2[i] + "&s=1", true);
+			xhr[i].onreadystatechange = function(){
+				if (xhr[i].readyState === 4 && xhr[i].status === 200){
+					document.getElementById(elements2[i]).innerHTML =
+					this.responseText; 
+				}
+			};
+			xhr[i].send();
+		})(i);
+	}
+}
+
+function showEdit() {
+	document.getElementById("textEdit").style.display = "none";
+	document.getElementById("textCancel").style.display = "inline-block";
+	document.getElementById("textSave").style.display = "inline-block";
+	document.getElementById("nP").style.display = "inline-block"; document.getElementById("newPassword").style.display = "inline-block"; 
+	document.getElementById("cP").style.display = "inline-block"; document.getElementById("confirmPassword").style.display = "inline-block";
+}
+
+function hideEdit() {
+	document.getElementById("textEdit").style.display = "inline-block";
+	document.getElementById("textCancel").style.display = "none";
+	document.getElementById("textSave").style.display = "none";
+	document.getElementById("nP").style.display = "none"; document.getElementById("newPassword").style.display = "none";
+	document.getElementById("cP").style.display = "none"; document.getElementById("confirmPassword").style.display = "none";
+}
 
 function editText() {
+<<<<<<< Updated upstream
   elements.forEach(element => {
     element.contentEditable = "true";
     element.style.backgroundColor = "white";
@@ -126,6 +155,54 @@ function saveText() {
   document.getElementById("newPassword").style.display = 'none';
   document.getElementById("confirmPassword").style.position = 'absolute';
   document.getElementById("confirmPassword").style.display = 'none';
+=======
+	elements.forEach(element => {
+		element.contentEditable = "true";
+		element.style.backgroundColor = "white";
+		if (element.textContent === "") {
+			element.textContent = "null";
+		}
+	});
+	showEdit();
+}
+
+function cancelText() {
+	elements.forEach(element => {
+		element.contentEditable = "false";
+		element.style.backgroundColor = "transparent";
+		element.textContent = "";
+	});
+	getProfileData();
+	hideEdit();
+}
+
+function saveText() {
+	var xhr = [], i;
+	xhr.length = 0;
+	for (i = 0; i < elements2.length; i++) {
+		(function(i) {
+			if (elements2[i] == "password") {
+				if (document.getElementById("newPassword").innerHTML != document.getElementById("confirmPassword").innerHTML) { alert("Passwords are not matching"); return; }
+				if (document.getElementById("newPassword").innerHTML == "null") { return; }
+				xhr[i] = new XMLHttpRequest();
+				xhr[i].open("GET", "profilebackend.php?q=" + elements2[i] + "&r=" + document.getElementById("newPassword").innerHTML, true);
+				xhr[i].send();
+			}
+			else {
+				xhr[i] = new XMLHttpRequest();
+				xhr[i].open("GET", "profilebackend.php?q=" + elements2[i] + "&r=" + document.getElementById(elements2[i]).innerHTML, true);
+				xhr[i].send();
+			}
+		})(i);
+	}
+	elements.forEach(element => {
+		element.contentEditable = "false";
+		element.style.backgroundColor = "transparent";
+	});
+	alert("Your changes have been saved.");
+	getProfileData();
+	hideEdit();
+>>>>>>> Stashed changes
 }
 
 // Edit and save text info for admin profile

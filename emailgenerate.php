@@ -13,7 +13,11 @@
 		die("Connection Failed : ". $conn->connect_error);
 	}
 	else {
+<<<<<<< Updated upstream
 		$q = $_REQUEST["q"]; // password
+=======
+		$q = $_REQUEST["q"]; // password/feedback
+>>>>>>> Stashed changes
 		$r = $_REQUEST["r"]; // type
 		
 		// Account Creation
@@ -58,7 +62,10 @@
 			$stmt->execute();
 		}
 		if ($r == "Feedback") {
+<<<<<<< Updated upstream
 			echo "<script>alert('Feedback is sent successfully, thank you!');</script>";
+=======
+>>>>>>> Stashed changes
 			$mail = new PHPMailer(true);
 				
 			$mail->isSMTP();
