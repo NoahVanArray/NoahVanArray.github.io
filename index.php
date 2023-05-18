@@ -51,7 +51,7 @@
 				<br>
 				<button class="btnLogin-popup btnLogin">
 					Login
-				</button>	
+				</button>
 
 				<br>
 				
@@ -82,23 +82,20 @@
 
 					<div class="input-box">
 						<span class="icon">
-							<ion-icon name="eye-off" class="seePass" onclick="seePass()" id="eye"></ion-icon>
+							<ion-icon name="eye-off" class="seePass" onclick="myFunction()" id="eye" autocomplete="off"></ion-icon>
 						</span>
-						<input type="password" placeholder="Password" id="passInput" name="passwordvar" required autocomplete="off">
+						<input type="password" placeholder="Password" id="passInput" name="passwordvar" required>
 					</div>
 
 					<div class="remember-forgot">
-						<!-- <label>
-							<input type="checkbox">Remember me
-						</label> -->
-						<a href="forgot.html" target="_blank">Forgot Password?</a>
+						<label></label>
+						<a href="forgot.php" target="_blank">Forgot Password?</a>
 					</div>
 
 					<div>
 						<button type="submit" name="loginSubmit" value="submit" class="btn">Login</button>
 						<div class="login-register">
 							<p>Don't have an account? <a href="#" class="register-link">Register</a></p>
-							
 						</div>
 					</div>
 
@@ -110,7 +107,6 @@
 				<h2>Registration</h2>
 
 				<form action="indexcheck.php" method="post">
-
 					<div class="input-box input-half half">
 						<span class="icon">
 							<ion-icon name="person"></ion-icon>
@@ -155,7 +151,7 @@
 					<div>
 						<button type="submit" name="registerSubmit" value="submit" class="btn">Register</button>
 						<div class="login-register">
-							<p>Already have an account? <a href="#" class="login-link">Login</a></p>
+						<p>Already have an account? <a href="#" class="login-link">Login</a></p>
 						</div>
 					</div>
 				</form>
@@ -164,6 +160,7 @@
 		</center>
 		
 		<script src="assets/js/login.js"></script>
+		<script src="assets/js/request.js"></script>
 		<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 		<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
