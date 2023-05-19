@@ -32,7 +32,7 @@ let eye1 = document.getElementById("eye1");
 let eye2 = document.getElementById("eye2");
 
 // login pass
-function seePass() {
+function myFunction() {
   var x = document.getElementById("passInput");
   if (x.type === "text") {
     x.type = "password";

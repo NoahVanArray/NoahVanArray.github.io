@@ -38,11 +38,7 @@
 
 					<!-- Logo -->
 						<div id="logo">
-<<<<<<< Updated upstream:userProfile.html
-							<h1><span><a href="home.html">Yverdon Book Management System</a></span></h1>
-=======
 							<h1><span><a href="home.php">Yverdon Book Management System</a></span></h1>
->>>>>>> Stashed changes:userProfile.php
 							<p><b>The online book management system for Yverdon de Pestalozzi School</b></p>
 						</div>
 
@@ -91,23 +87,6 @@
 											<input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" capture>
 
 											<p><strong>Information</strong></p>
-<<<<<<< Updated upstream:userProfile.html
-											<p>Name: <span class="textHere" id="name" contenteditable="false"></span></p>
-											<p>School: <span class="textHere" id="school" contenteditable="false"></span></p>
-											<p>Academic Level: <span class="textHere" id="acadLvl" contenteditable="false"></span></p>
-											<p>Grade & Section: <span class="textHere" id="gradeSec" contenteditable="false"></span></p>
-											<div class="userPasswords">
-												<p>Password: </p>
-												<p><input id="enterPassword" type="password" placeholder="Enter your password..."></p>
-												<p><input id="newPassword" type="password" placeholder="Enter your new password..." required></p>
-												<p><input id="confirmPassword" type="password" placeholder="Confirm your password..." required></p>
-											</div>
-
-											<p class="contacts"><strong>Contacts</strong></p>
-											<p>Email: <span class="textHere" id="email" contenteditable="false"></span></p>
-
-
-=======
 											<p>First Name: <span class="textHere" id="fname" value="fname" contenteditable="false">null</span></p>
 											<p>Last Name: <span class="textHere" id="lname"  value="lname" contenteditable="false">null</span></p>
 											<p>Grade Level: <span class="textHere" id="grade" value="grade" contenteditable="false">null</span></p>
@@ -117,7 +96,6 @@
 											<p id="nP" style="display: none;">New Password: <span class="textHere" id="newPassword" contenteditable="false" ></span></p><br />
 											<p id="cP" style="display: none;">Confirm Password: <span class="textHere" id="confirmPassword" contenteditable="false"></span></p><br />
 											
->>>>>>> Stashed changes:userProfile.php
 											<button class="editInfo style3" style="display:inline-block;" onclick="editText()" id="textEdit">Edit</button>
 											<button class="editInfo style3" style="display:none;" onclick="cancelText()" id="textCancel">Cancel</button>
 											<button class="editInfo style1" style="display:none;" onclick="saveText()" id="textSave">Save</button>
@@ -306,12 +284,9 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-<<<<<<< Updated upstream:userProfile.html
-=======
 			<script>
 				getProfileData();
 			</script>
->>>>>>> Stashed changes:userProfile.php
 
 	</body>
 </html>

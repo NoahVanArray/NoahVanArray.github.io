@@ -125,37 +125,6 @@ function hideEdit() {
 }
 
 function editText() {
-<<<<<<< Updated upstream
-  elements.forEach(element => {
-    element.contentEditable = "true";
-    element.style.backgroundColor = "white";
-    if (element.textContent === "") {
-      element.textContent = "Type text here...";
-    }
-  });
-  document.getElementById("enterPassword").style.position = 'relative';
-  document.getElementById("enterPassword").style.display = 'block';
-  document.getElementById("newPassword").style.position = 'relative';
-  document.getElementById("newPassword").style.display = 'block';
-  document.getElementById("confirmPassword").style.position = 'relative';
-  document.getElementById("confirmPassword").style.display = 'block';
-}
-
-function saveText() {
-  elements.forEach(element => {
-    element.contentEditable = "false";
-    element.style.backgroundColor = "transparent";
-    if (element.textContent === "Type text here...") {
-      element.textContent = "";
-    }
-  });
-  document.getElementById("enterPassword").style.position = 'absolute';
-  document.getElementById("enterPassword").style.display = 'none';
-  document.getElementById("newPassword").style.position = 'absolute';
-  document.getElementById("newPassword").style.display = 'none';
-  document.getElementById("confirmPassword").style.position = 'absolute';
-  document.getElementById("confirmPassword").style.display = 'none';
-=======
 	elements.forEach(element => {
 		element.contentEditable = "true";
 		element.style.backgroundColor = "white";
@@ -182,8 +151,14 @@ function saveText() {
 	for (i = 0; i < elements2.length; i++) {
 		(function(i) {
 			if (elements2[i] == "password") {
-				if (document.getElementById("newPassword").innerHTML != document.getElementById("confirmPassword").innerHTML) { alert("Passwords are not matching"); return; }
-				if (document.getElementById("newPassword").innerHTML == "null") { return; }
+				if (document.getElementById("newPassword").innerHTML != document.getElementById("confirmPassword").innerHTML) { alert("Passwords are not matching");
+					elements.forEach(element => {element.textContent = "";});
+					return; 
+				}
+				if (document.getElementById("newPassword").innerHTML == "null") { 
+					elements.forEach(element => {element.textContent = "";});				
+					return; 
+				}
 				xhr[i] = new XMLHttpRequest();
 				xhr[i].open("GET", "profilebackend.php?q=" + elements2[i] + "&r=" + document.getElementById("newPassword").innerHTML, true);
 				xhr[i].send();
@@ -199,10 +174,8 @@ function saveText() {
 		element.contentEditable = "false";
 		element.style.backgroundColor = "transparent";
 	});
-	alert("Your changes have been saved.");
 	getProfileData();
 	hideEdit();
->>>>>>> Stashed changes
 }
 
 // Edit and save text info for admin profile
@@ -222,12 +195,6 @@ function adminEditText() {
       el.textContent = element.defaultText;
     }
   });
-  document.getElementById("enterPassword").style.position = 'relative';
-  document.getElementById("enterPassword").style.display = 'block';
-  document.getElementById("newPassword").style.position = 'relative';
-  document.getElementById("newPassword").style.display = 'block';
-  document.getElementById("confirmPassword").style.position = 'relative';
-  document.getElementById("confirmPassword").style.display = 'block';
 }
 
 function adminSaveText() {
@@ -235,16 +202,10 @@ function adminSaveText() {
     const el = document.querySelector(`#${element.id}`);
     el.contentEditable = 'false';
     el.style.backgroundColor = 'transparent';
-    if (el.textContent === "Type text here..." || el.textContent === "Enter your password here...") {
+    if (el.textContent === "Type text here...") {
       el.textContent = "";
     }
   });
-  document.getElementById("enterPassword").style.position = 'absolute';
-  document.getElementById("enterPassword").style.display = 'none';
-  document.getElementById("newPassword").style.position = 'absolute';
-  document.getElementById("newPassword").style.display = 'none';
-  document.getElementById("confirmPassword").style.position = 'absolute';
-  document.getElementById("confirmPassword").style.display = 'none';
 }
 
 // display of addCategory and addBook in adminBooks

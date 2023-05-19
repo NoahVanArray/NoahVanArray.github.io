@@ -37,11 +37,7 @@
 
 					<!-- Logo -->
 						<div id="logo">
-<<<<<<< Updated upstream:about.html
-							<h1><span><a href="home.html">Yverdon Book Management System</a></span></h1>
-=======
 							<h1><span><a href="home.php">Yverdon Book Management System</a></span></h1>
->>>>>>> Stashed changes:about.php
 							<p><b>The online book management system for Yverdon de Pestalozzi School</b></p>
 						</div>
 
