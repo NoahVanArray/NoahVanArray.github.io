@@ -93,8 +93,8 @@
 											<p>Section: <span class="textHere" id="section" value="section" contenteditable="false">null</span></p>
 											<p>Email: <?php echo $_SESSION["userEmail"]; ?></p>
 											<p>Current Password: <span class="textHere" id="password" value="password" contenteditable="false">null</span></p>
-											<p id="nP" style="display: none;">New Password: <span class="textHere" id="newPassword" contenteditable="false" ></span></p><br />
-											<p id="cP" style="display: none;">Confirm Password: <span class="textHere" id="confirmPassword" contenteditable="false"></span></p><br />
+											<p id="nP" style="display: none;">New Password: <span class="textHere" id="newPassword" contenteditable="false" style="margin-left: 0;"></span></p><br />
+											<p id="cP" style="display: none;">Confirm Password: <span class="textHere" id="confirmPassword" contenteditable="false" style="margin-left: 0;"></span></p><br />
 											
 											<button class="editInfo style3" style="display:inline-block;" onclick="editText()" id="textEdit">Edit</button>
 											<button class="editInfo style3" style="display:none;" onclick="cancelText()" id="textCancel">Cancel</button>
@@ -185,6 +185,7 @@
 												</section>
 											</div>
 										</div>
+                                                                  </div>
 						</div>
 					</div>
 				</section>
@@ -220,8 +221,8 @@
 									</form>
 								</section>
 								<p id="demo"></p>
-
 							</div>
+
 							<div class="col-6 col-12-medium">
 
 								<!-- Contact -->
@@ -268,7 +269,7 @@
 						</div>
 						<div id="copyright">
 							<ul>
-								<li>&copy; Das Kumarades LLC. EST. 2023. All rights reserved.</li><li><a href="about.html" style="text-decoration: none;">About us</a></li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								<li>&copy; Das Kumarades LLC. EST. 2023. All rights reserved.</li><li><a href="about.php" style="text-decoration: none;">About us</a></li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 							</ul>
 						</div>
 					</div>

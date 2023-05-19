@@ -118,7 +118,7 @@
 											echo "
 												<div class='col-4 col-12-medium'>
 													<section class='highlight'>
-														<a class='image featured'><img src='".$c[$x]."' alt='' style='margin-bottom: 25px; width: 100%;'/></a>
+														<a class='image featured' style='width: 100%;'><img src='".$c[$x]."' alt='' style='margin-bottom: 25px; width: 100%;'/></a>
 														<h3><a href='#'>".$a[$x]."</a></h3>
 														<p style='margin-bottom: -15px;'>".$b[$x]."</p>
 													<ul class='actions'>
@@ -268,7 +268,7 @@
 						</div>
 						<div id="copyright">
 							<ul>
-								<li>&copy; Das Kumarades LLC. EST. 2023. All rights reserved.</li><li><a href="about.html" style="text-decoration: none;">About us</a></li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								<li>&copy; Das Kumarades LLC. EST. 2023. All rights reserved.</li><li><a href="about.php" style="text-decoration: none;">About us</a></li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 							</ul>
 						</div>
 					</div>

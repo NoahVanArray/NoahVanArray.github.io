@@ -27,31 +27,6 @@
 				$stmt->bind_param("ssisss", $row["fname"], $row["lname"], $row["grade"], $row["section"], $row["email"], $q);
 				$stmt->execute();
 				echo "<script>alert('Request is successful');</script>";
-								
-				$mail = new PHPMailer(true);
-				
-				$mail->isSMTP();
-				$mail->Host = 'smtp.gmail.com';
-				$mail->SMTPAuth = true;
-				$mail->Username = 'officialyverdondepestalozzibms@gmail.com'; // gmail
-				$mail->Password = 'hjzhfkmrmgnjbpqz'; // gmail app password for officialyverdondepestalozzibms@gmail.com
-				$mail->SMTPSecure = 'ssl';
-				$mail->Port = 465;
-				
-				$mail->setFrom('officialyverdondepestalozzibms@gmail.com');
-				
-				$mail->addAddress($row["email"]);
-				
-				$mail->isHTML(true);
-				
-				$mail->Subject = 'Yverdon De Pestalozzi School - Book Management System - Account Creation';
-				$mail->Body = 'Your Temporary Password is: '.$q.
-				'<br><br>This password will not change until you change it manually.
-				<br>You can change your password via the website\'s User Profile tab, found on the navigation bar of the site.
-				<br>We thank you for your patience in registering and use of our Book Management System. Enjoy!
-				<br><br>Note: This email is auto-generated. Do not reply to this account. Do not click any links sent by this account (if any appear).';
-				
-				$mail->send();
 			}
 			$stmt = $conn->prepare("update requests set status = 'finished', result = 'accepted' where type = 'Account Creation' and status = 'ongoing' and email = ?");
 			$stmt -> bind_param("s", $row["email"]);

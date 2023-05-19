@@ -162,7 +162,7 @@
 								</ul>
 
 								<!-- Content -->
-									<div id="content">
+									<div id="content" style="clear: both;">
 									
 										<div class="row gtr-150" id="txtHint">
 											<?php
@@ -295,7 +295,7 @@
 						</div>
 						<div id="copyright">
 							<ul>
-								<li>&copy; Das Kumarades LLC. EST. 2023. All rights reserved.</li><li><a href="about.html" style="text-decoration: none;">About us</a></li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								<li>&copy; Das Kumarades LLC. EST. 2023. All rights reserved.</li><li><a href="about.php" style="text-decoration: none;">About us</a></li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 							</ul>
 						</div>
 					</div>
