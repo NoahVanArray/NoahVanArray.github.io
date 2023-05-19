@@ -28,7 +28,7 @@
 				echo '<script type="text/javascript">
 					alert("The email or password is incorrect.");
 				</script>';
-				header('Refresh: 0; url=index.php');
+				header('Refresh: 0; index.php');
 			}
 			$stmt->close();
 			$conn->close();
@@ -52,7 +52,7 @@
 		else {
 			if ($grade2 > 12 || $grade2 < 1) { 
 				echo '<script type="text/javascript"> alert("The grade level is invalid."); </script>';
-				header('Refresh: 0; url=index.php');
+				header('Refresh: 0; index.php');
 			}
 			$stmt = $conn->prepare("select email from users where email = ?"); 
 			$stmt->bind_param("s", $email2); 
@@ -60,7 +60,7 @@
 			$stmt_result = $stmt->get_result();
 			if ($stmt_result->num_rows > 0) { 
 				echo '<script type="text/javascript"> alert("Email is already used."); </script>';
-				header('Refresh: 0; url=index.php');
+				header('Refresh: 0; index.php');
 			}
 			$stmt = $conn->prepare("select lname from users where fname = ? and lname = ?");
 			$stmt->bind_param("ss", $fname2, $lname2); 
@@ -68,7 +68,7 @@
 			$stmt_result = $stmt->get_result();
 			if ($stmt_result->num_rows > 0) { 
 				echo '<script type="text/javascript"> alert("The combination of names are already used."); </script>';
-				header('Refresh: 0; url=index.php');
+				header('Refresh: 0; index.php');
 			}
 			$stmt = $conn->prepare("select email from requests where email = ? and type = 'Account Creation'");
 			$stmt->bind_param("s", $email2); 
@@ -76,7 +76,7 @@
 			$stmt_result = $stmt->get_result();
 			if ($stmt_result->num_rows > 0) { 
 				echo '<script type="text/javascript"> alert("A registration request from this email is already made."); </script>';
-				header('Refresh: 0; url=index.php');
+
 			}
 			else {
 				$stmt = $conn->prepare("insert into requests(fname, lname, grade, section, email, type, status) values(?, ?, ?, ?, ?, 'Account Creation', 'ongoing')");
@@ -85,7 +85,7 @@
 				echo '<script type="text/javascript">
 					alert("Request to register is successful. Check your email regularly for the one-time password to use in your login. You may change it within the main site once you have logged in. Please wait patiently!");
 				</script>';
-				header('Refresh: 0; url=index.php');
+				header('Refresh: 0; index.php');
 				$stmt->close();
 				$conn->close();
 				exit;
@@ -111,7 +111,7 @@
 				echo '<script type="text/javascript">
 					alert("A request with the email is already made.");
 				</script>';
-				header('Refresh: 0; url=index.php');
+				header('Refresh: 0; index.php');
 			}
 			else {
 				$stmt = $conn->prepare("insert into requests(type, email, status) values('Password Reset', ?, 'ongoing')");
