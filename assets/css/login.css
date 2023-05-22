@@ -438,7 +438,7 @@ letter-spacing: 0.8px;
 }
 
 .secondLine {
-  letter-spacing: 2.5px;
+  letter-spacing: -2.5px;
 }
 
 .thirdLine {
