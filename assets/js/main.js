@@ -127,7 +127,8 @@ function hideEdit() {
 function editText() {
 	elements.forEach(element => {
 		element.contentEditable = "true";
-		element.style.backgroundColor = "white";
+		element.style.backgroundColor = "black";
+		element.style.color = "white";
 		if (element.textContent === "") {
 			element.textContent = "null";
 		}
@@ -139,6 +140,7 @@ function cancelText() {
 	elements.forEach(element => {
 		element.contentEditable = "false";
 		element.style.backgroundColor = "transparent";
+		element.style.color = "inherit";
 		element.textContent = "";
 	});
 	getProfileData();
@@ -190,7 +192,8 @@ function adminEditText() {
   adminElements.forEach(element => {
     const el = document.querySelector(`#${element.id}`);
     el.contentEditable = 'true';
-    el.style.backgroundColor = 'white';
+    el.style.backgroundColor = 'black';
+    el.style.color = 'white';
     if (el.textContent === '') {
       el.textContent = element.defaultText;
     }
@@ -202,13 +205,14 @@ function adminSaveText() {
     const el = document.querySelector(`#${element.id}`);
     el.contentEditable = 'false';
     el.style.backgroundColor = 'transparent';
+    el.style.color = 'inherit';
     if (el.textContent === "Type text here...") {
       el.textContent = "";
     }
   });
 }
 
-// display of addCategory and addBook in adminBooks
+// display of addBook in adminBooks
 function openCateg() {
   document.getElementById("categContent").style.display = "block";
   document.getElementById("categContent").style.position = "relative";
