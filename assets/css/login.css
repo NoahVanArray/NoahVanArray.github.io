@@ -637,26 +637,26 @@ letter-spacing: 0.8px;
 
 @media (min-width: 1440px) {
 .main {
-  top: 26.5%;
+  top: 22.5%;
   margin-left: -90px;
 }
 
 #img1 {
-  margin-left: -193px;
-  width: 21.5em;
+  margin-left: -230px;
+  width: 23.5em;
 }
 
 .text {
   font-size: 3.5em;
-  margin-top: 23px;
+  margin-top: 35px;
   margin-left: 2.5em;
-  line-height: 50px;
+  line-height: 55px;
 }
 
 .text2 {
   font-size: 1.8em;
   margin-left: 4.89em;
-  margin-top: 5.6em;
+  margin-top: 6.4em;
   line-height: 25px;
   letter-spacing: 6.5px;
 }
@@ -666,7 +666,7 @@ letter-spacing: 0.8px;
   font-weight: 200;
   width: 13.2em;
   height: 1.5em;
-  margin-top: 8em;
+  margin-top: 9em;
   margin-left: 5.3em;
 }
 

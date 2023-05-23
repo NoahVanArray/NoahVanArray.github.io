@@ -3090,7 +3090,7 @@ input, select, textarea {
 .bookPage .bookImg {
 	width:250px; 
 	float: left; 
-	padding: 20.5px 20px 20px 20px;
+	padding: 20.5px 20px 0px 20px;
 }
 
 @media (min-width: 0px) {
