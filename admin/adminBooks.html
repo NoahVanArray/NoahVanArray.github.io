@@ -121,7 +121,21 @@
 												</li>
 											</ul>
 											
-											<a class="button style3" style="max-width: 100%; width: 100%; margin-top: 20px;" onclick="openBook()">Add Book</a>
+											
+										</section>
+									</div>
+
+							</div>
+
+							<div class="col-8 col-12-medium imp-medium">
+								
+								<!-- Search Bar -->
+									<form style="margin-bottom: 50px;" action="">
+										<input type="text" placeholder="Search Here" onfocus="showSuggest()" onblur="hideSuggest()" name="search" id="detail" onkeyup="showSearch(this.value)">
+									</form>
+
+								<!-- Add book -->
+								<a class="button style3" style="max-width: 100%; width: 50%; margin-top: 20px;" onclick="openBook()">Add Book</a>
 											<div class="row gtr-50">
 												<form method="post" action="#" style="max-width: 100%; width: 100%;">
 													<div class="row gtr-50 addBookContent" id="bookContent" style="margin-top: 0;">
@@ -147,226 +161,118 @@
 													</div>
 												</form>
 											</div>
-										</section>
-									</div>
-
-							</div>
-
-							<div class="col-8 col-12-medium imp-medium">
-								
-								<!-- Search Bar -->
-									<form style="margin-bottom: 50px;" action="">
-										<input type="text" placeholder="Search Here" onfocus="showSuggest()" onblur="hideSuggest()" name="search" id="detail" onkeyup="showSearch(this.value)">
-									</form>
 
 								<!-- Content -->
 									<div id="content">
-									
-										<!-- Debug -->
-										<p id="suggest">
-											Suggestions: <span id="txtHint"></span>
-										</p>
 
-										<div class="row gtr-150">
-											<div class="col-4 col-12-small">
-												<section class="box books">
-													<img src="../images/covers/art-of-war.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
-													<center>
-														<header>
-															<h2 style="margin: 0 0 -10px 0; color: #484d55;">The Art Of War</h2>
-														</header>
-														<a href="../books/art-of-war.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
-													</center>
-												</section>
+										<table>
+										  <tr>
+										    <th>Title</th>
+										    <th>Availability</th>
+										    <th>Author</th>
+										    <th>Genre</th>
+										    <th>Year Published</th>
+										    <th>Delete</th>
+										  </tr>
+										  <tr>
+										    <td>Title#1<a href="" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
+										    <td>Insert Availability</td>
+										    <td>Insert Author</td>
+										    <td>Insert Genre</td>
+										    <td>Insert Year Published</t>
+										    <th><span><ion-icon name="trash-outline" style="margin-left: 20px; cursor: pointer;"></ion-icon></span></th>
+										  </tr>
+										  <tr>
+										    <td>Title#2<a href="" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
+										    <td>Insert Availability</td>
+										    <td>Insert Author</td>
+										    <td>Insert Genre</td>
+										    <td>Insert Year Published</t>
+										    <th><span><ion-icon name="trash-outline" style="margin-left: 20px; cursor: pointer;"></ion-icon></span></th>
+										  </tr>
+										  <tr>
+										    <td>Title#3<a href="" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
+										    <td>Insert Availability</td>
+										    <td>Insert Author</td>
+										    <td>Insert Genre</td>
+										    <td>Insert Year Published</t>
+										    <th><span><ion-icon name="trash-outline" style="margin-left: 20px; cursor: pointer;"></ion-icon></span></th>
+										  </tr>
+										  <tr>
+										    <td>Title#4<a href="" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
+										    <td>Insert Availability</td>
+										    <td>Insert Author</td>
+										    <td>Insert Genre</td>
+										    <td>Insert Year Published</t>
+										    <th><span><ion-icon name="trash-outline" style="margin-left: 20px; cursor: pointer;"></ion-icon></span></th>
+										  </tr>
+										  <tr>
+										    <td>Title#5<a href="" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
+										    <td>Insert Availability</td>
+										    <td>Insert Author</td>
+										    <td>Insert Genre</td>
+										    <td>Insert Year Published</t>
+										    <th><span><ion-icon name="trash-outline" style="margin-left: 20px; cursor: pointer;"></ion-icon></span></th>
+										  </tr>
+										  <tr>
+										    <td>Title#6<a href="" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
+										    <td>Insert Availability</td>
+										    <td>Insert Author</td>
+										    <td>Insert Genre</td>
+										    <td>Insert Year Published</t>
+										    <th><span><ion-icon name="trash-outline" style="margin-left: 20px; cursor: pointer;"></ion-icon></span></th>
+										  </tr>
+										  <tr>
+										    <td>Title#7<a href="" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
+										    <td>Insert Availability</td>
+										    <td>Insert Author</td>
+										    <td>Insert Genre</td>
+										    <td>Insert Year Published</t>
+										    <th><span><ion-icon name="trash-outline" style="margin-left: 20px; cursor: pointer;"></ion-icon></span></th>
+										  </tr>
+										  <tr>
+										    <td>Title#8<a href="" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
+										    <td>Insert Availability</td>
+										    <td>Insert Author</td>
+										    <td>Insert Genre</td>
+										    <td>Insert Year Published</t>
+										    <th><span><ion-icon name="trash-outline" style="margin-left: 20px; cursor: pointer;"></ion-icon></span></th>
+										  </tr>
+										  <tr>
+										    <td>Title#9<a href="" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
+										    <td>Insert Availability</td>
+										    <td>Insert Author</td>
+										    <td>Insert Genre</td>
+										    <td>Insert Year Published</t>
+										    <th><span><ion-icon name="trash-outline" style="margin-left: 20px; cursor: pointer;"></ion-icon></span></th>
+										  </tr>
+										  <tr>
+										    <td>Title#10<a href="" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
+										    <td>Insert Availability</td>
+										    <td>Insert Author</td>
+										    <td>Insert Genre</td>
+										    <td>Insert Year Published</t>
+										    <th><span><ion-icon name="trash-outline" style="margin-left: 20px; cursor: pointer;"></ion-icon></span></th>
+										  </tr>
+										</table>
+										
+										<center>
+											<div class="alertPopup" style="display: none;">
+												
+												<div class="alertClose">
+													<ion-icon name="close-outline"></ion-icon>
+												</div>
+
+												<!-- Login -->
+												<div class="alertText">
+															<h2>Are you sure about the changes you have made?</h2>
+															<input type="submit" class="style1 alertBtn1" value="Yes" style="min-width: 0; display: inline;">
+															<input type="submit" class="style3 alertBtn2" value="No" style="min-width: 0; display: inline;">
+												</div>
+												
 											</div>
-											<div class="col-4 col-12-small">
-												<section class="box books">
-													<img src="../images/covers/leadership-&-self-deception.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
-													<center>
-														<header>
-															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Leadership & Self-Deception</h2>
-														</header>
-														<a href="../books/leadership-&-self-deception.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
-													</center>
-												</section>
-											</div>
-											<div class="col-4 col-12-small">
-												<section class="box books">
-													<img src="../images/covers/metro-2033.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
-													<center>
-														<header>
-															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Metro 2033</h2>
-														</header>
-														<a href="../books/metro-2033.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
-													</center>
-												</section>
-											</div>
-											<div class="col-4 col-12-small">
-												<section class="box books">
-													<img src="../images/covers/metro-2034.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
-													<center>
-														<header>
-															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Metro 2034</h2>
-														</header>
-														<a href="../books/metro-2034.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
-													</center>
-												</section>
-											</div>
-											<div class="col-4 col-12-small">
-												<section class="box books">
-													<img src="../images/covers/metro-2035.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
-													<center>
-														<header>
-															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Metro 2035</h2>
-														</header>
-														<a href="../books/metro-2035.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
-													</center>
-												</section>
-											</div>
-											<div class="col-4 col-12-small">
-												<section class="box books">
-													<img src="../images/covers/into-thin-air.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
-													<center>
-														<header>
-															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Into Thin Air</h2>
-														</header>
-														<a href="../books/into-thin-air.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
-													</center>
-												</section>
-											</div>
-											<div class="col-4 col-12-small">
-												<section class="box books">
-													<img src="../images/covers/heart-of-darkness.png" alt="" class="image featured" style="margin-bottom: 1em;" />
-													<center>
-														<header>
-															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Heart Of Darkness</h2>
-														</header>
-														<a href="../books/heart-of-darkness.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
-													</center>
-												</section>
-											</div>
-											<div class="col-4 col-12-small">
-												<section class="box books">
-													<img src="../images/covers/beyond-good-and-evil.png" alt="" class="image featured" style="margin-bottom: 1em;" />
-													<center>
-														<header>
-															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Beyond Good and Evil</h2>
-														</header>
-														<a href="../books/beyond-good-and-evil.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
-													</center>
-												</section>
-											</div>
-											<div class="col-4 col-12-small">
-												<section class="box books">
-													<img src="../images/covers/between-the-world-and-me.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
-													<center>
-														<header>
-															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Between The World And Me</h2>
-														</header>
-														<a href="../books/between-the-world-and-me.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
-													</center>
-												</section>
-											</div>
-											<div class="col-4 col-12-small">
-												<section class="box books">
-													<img src="../images/covers/a-brief-history-of-time.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
-													<center>
-														<header>
-															<h2 style="margin: 0 0 -10px 0; color: #484d55;">A Brief History Of Time</h2>
-														</header>
-														<a href="../books/a-brief-history-of-time.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
-													</center>
-												</section>
-											</div>
-											<div class="col-4 col-12-small">
-												<section class="box books">
-													<img src="../images/covers/sapiens-a-brief-history-of-humankind.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
-													<center>
-														<header>
-															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Sapiens: A Brief History Of Humankind</h2>
-														</header>
-														<a href="../books/sapiens-a-brief-history-of-humankind.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
-													</center>
-												</section>
-											</div>
-											<div class="col-4 col-12-small">
-												<section class="box books">
-													<img src="../images/covers/the-great-gatsby.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
-													<center>
-														<header>
-															<h2 style="margin: 0 0 -10px 0; color: #484d55;">The Great Gatsby</h2>
-														</header>
-														<a href="../books/the-great-gatsby.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
-													</center>
-												</section>
-											</div>
-											<div class="col-4 col-12-small">
-												<section class="box books">
-													<img src="../images/covers/thinking-fast-and-slow.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
-													<center>
-														<header>
-															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Thinking Fast And Slow</h2>
-														</header>
-														<a href="../books/thinking-fast-and-slow.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
-													</center>
-												</section>
-											</div>
-											<div class="col-4 col-12-small">
-												<section class="box books">
-													<img src="../images/covers/to-kill-a-mockingbird.png" alt="" class="image featured" style="margin-bottom: 1em;" />
-													<center>
-														<header>
-															<h2 style="margin: 0 0 -10px 0; color: #484d55;">To Kill A Mockingbird</h2>
-														</header>
-														<a href="../books/to-kill-a-mockingbird.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
-													</center>
-												</section>
-											</div>
-											<div class="col-4 col-12-small">
-												<section class="box books">
-													<img src="../images/covers/the-sixth-extinction.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
-													<center>
-														<header>
-															<h2 style="margin: 0 0 -10px 0; color: #484d55;">The Sixth Extinction: An Unnatural History</h2>
-														</header>
-														<a href="../books/the-sixth-extinction.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
-													</center>
-												</section>
-											</div>
-											<div class="col-4 col-12-small">
-												<section class="box books">
-													<img src="../images/covers/are-you-there-vodka-it's-me-chelsea.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
-													<center>
-														<header>
-															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Are You There Vodka? It's Me Chelsea</h2>
-														</header>
-														<a href="../books/are-you-there-vodka-it's-me-chelsea.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
-													</center>
-												</section>
-											</div>
-											<div class="col-4 col-12-small">
-												<section class="box books">
-													<img src="../images/covers/diary-of-a-wimpy-kid.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
-													<center>
-														<header>
-															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Diary Of A Wimpy Kid</h2>
-														</header>
-														<a href="../books/diary-of-a-wimpy-kid.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
-													</center>
-												</section>
-											</div>
-											<div class="col-4 col-12-small">
-												<section class="box books">
-													<img src="../images/covers/read-player-one.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
-													<center>
-														<header>
-															<h2 style="margin: 0 0 -10px 0; color: #484d55;">Ready Player One</h2>
-														</header>
-														<a href="../books/ready-player-one.html" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
-													</center>
-												</section>
-											</div>
-										</div>
+										</center>
+
 									</div>
 
 							</div>
