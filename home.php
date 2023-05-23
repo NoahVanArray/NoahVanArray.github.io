@@ -33,15 +33,15 @@
 					<!-- Logo -->
 						<div id="logo">
 							<h1><span><a href="home.php">Yverdon Book Management System</a></span></h1>
-							<p><b>The online book management system for Yverdon de Pestalozzi School</b></p>
+							<p style="font-weight: 700;">The online book management system for Yverdon de Pestalozzi School</p>
 						</div>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li class="current"><a href="home.php"><strong>Home</strong></a></li>
+								<li class="current"><a href="home.php"><strong style="color: #fff;">Home</strong></a></li>
 								<li>
-									<a href="books.php"><strong>Books</strong></a>
+									<a href="books.php"><strong style="color: #fff;">Books</strong></a>
 									<ul>
 										<li><a href="books.php">Non-fiction</a></li>
 										<li><a href="books.php">Education</a></li>
@@ -51,15 +51,15 @@
 										<li><a href="books.php">Philosophy</a></li>
 									</ul>
 								</li>
-								<li><a href="userProfile.php"><strong>User Profile</strong></a></li>
+								<li><a href="userProfile.php"><strong style="color: #fff;">User Profile</strong></a></li>
 								
 								<!--Add logout link here-->
-								<li><a href="index.php"><strong>Logout</strong></a></li>
+								<li><a href="index.php"><strong style="color: #fff;">Logout</strong></a></li>
 							</ul>
 						</nav>
 				</section>
-
-			<!-- Intro -->
+				
+			<!-- Intro -->			
 				<section id="intro" class="wrapper style1">
 					<div class="title">WELCOME!</div>
 					<div class="container">
@@ -84,7 +84,11 @@
 								<?php
 									$conn = mysqli_connect("fdb1028.awardspace.net", "4299657_ydpbmsdatabase", "Yv3rd0nD3P3st@l0zz1", "4299657_ydpbmsdatabase");
 									if ($conn->connect_error) {
-										echo "$conn->connect_error";
+										echo "
+											<script>
+												errorRedirect(".$conn->connect_error.");
+											</script>
+										";
 										die("Connection Failed : ". $conn->connect_error);
 									}
 									else {
@@ -104,9 +108,9 @@
 												$result = $stmt -> get_result();
 												$row = $result -> fetch_assoc();
 												$a[] = $row["name"];
-												$b[] = $row["description"];
+												$b[] = $row["author"];
 												$c[] = $row["imgUrl"];
-												$d[] = $row["siteUrl"];
+												$d[] = "more.php?select=" . $row["name"]; // more.php link
 											}
 											shuffle($row);
 										} else {
@@ -120,8 +124,8 @@
 													<section class='highlight'>
 														<a class='image featured' style='width: 100%;'><img src='".$c[$x]."' alt='' style='margin-bottom: 25px; width: 100%;'/></a>
 														<h3><a href='#'>".$a[$x]."</a></h3>
-														<p style='margin-bottom: -15px;'>".$b[$x]."</p>
-													<ul class='actions'>
+														<p style='margin-bottom: -15px;'>Author: ".$b[$x]."</p>
+														<ul class='actions'>
 															<li><a href='".$d[$x]."' class='button style1'>Learn More</a></li>
 														</ul>
 													</section>
@@ -277,12 +281,12 @@
 		</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
 
 	</body>
 </html>

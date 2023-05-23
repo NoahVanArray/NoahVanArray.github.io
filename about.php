@@ -38,15 +38,15 @@
 					<!-- Logo -->
 						<div id="logo">
 							<h1><span><a href="home.php">Yverdon Book Management System</a></span></h1>
-							<p><b>The online book management system for Yverdon de Pestalozzi School</b></p>
+							<p style="font-weight: 700;">The online book management system for Yverdon de Pestalozzi School</p>
 						</div>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li class="current"><a href="home.php"><strong>Home</strong></a></li>
+								<li class="current"><a href="home.php"><strong style="color: #fff;">Home</strong></a></li>
 								<li>
-									<a href="books.php"><strong>Books</strong></a>
+									<a href="books.php"><strong style="color: #fff;">Books</strong></a>
 									<ul>
 										<li><a href="books.php">Non-fiction</a></li>
 										<li><a href="books.php">Education</a></li>
@@ -56,10 +56,10 @@
 										<li><a href="books.php">Philosophy</a></li>
 									</ul>
 								</li>
-								<li><a href="userProfile.php"><strong>User Profile</strong></a></li>
+								<li><a href="userProfile.php"><strong style="color: #fff;">User Profile</strong></a></li>
 								
 								<!--Add logout link here-->
-								<li><a href="index.php"><strong>Logout</strong></a></li>
+								<li><a href="index.php"><strong style="color: #fff;">Logout</strong></a></li>
 							</ul>
 						</nav>
 				</section>
@@ -77,9 +77,9 @@
 										<p>The People Behind This Website</p>
 									</header>
 									
-									<p>Welcome to the <strong>Yverdon de Pestalozzi School Inc.</strong> book management website! We are a team of senior high school students who have worked hard to create a space where students can explore new worlds, expand their knowledge and discover a love for reading.</p>
-									<p>As a team, we believe that books have the power to shape our understanding of the world around us, spark our curiosity and inspire us to take action. That's why we have curated a diverse collection of books that reflect different perspectives, cultures, and experiences.</p>
-									<p>Our goal is to provide a welcoming and inclusive space where students can find books that resonate with them and inspire them to think critically and creatively. We are passionate about creating a love for reading in our community and hope that our library will serve as a place where students can connect with one another, share ideas and explore the world of literature together.</p>
+									<p>Welcome to the <strong>Yverdon de Pestalozzi School Inc.</strong> Book Management System! We are a team of Senior High School ICT students who have worked hard to create a space where the students of Yverdon can explore new worlds, expand their knowledge, and discover a love for reading from their very own library.</p>
+									<p>As a team, we believe that books have the power to shape our understanding of the world around us, spark our curiosity, and inspire us to take action. That's why we developed this very website, to curate all the diverse collections of books provided in their library that reflect different perspectives, cultures, and experiences.</p>
+									<p>Our goal is to provide a welcoming and inclusive space where students can find books that resonate with them and inspire them to think critically and creatively. We are passionate about creating a love for reading within our community and hope that our library will serve as a place where students can connect with one another, share ideas, and explore the world of written media together.</p>
 									<p>Thank you for visiting our website and we hope you find what you are looking for. Happy reading!</p>
 									
 								</article>
@@ -245,12 +245,12 @@
 		</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
 
 	</body>
 </html>

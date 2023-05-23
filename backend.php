@@ -33,11 +33,15 @@
 			if ($r == "name") { $stmt = $conn->prepare("select * from books where name like ? order by name desc"); }
 			if ($r == "id") { $stmt = $conn->prepare("select * from books where name like ? order by id desc"); }
 			if ($r == "author") { $stmt = $conn->prepare("select * from books where name like ? order by author desc"); }
+			if ($r == "publisher") { $stmt = $conn->prepare("select * from books where name like ? order by publisher desc"); }
+			if ($r == "year") { $stmt = $conn->prepare("select * from books where name like ? order by originyear desc"); }
 		}
 		else {
 			if ($r == "name") { $stmt = $conn->prepare("select * from books where name like ? order by name asc"); }
 			if ($r == "id") { $stmt = $conn->prepare("select * from books where name like ? order by id asc"); }
-			if ($r == "author") { $stmt = $conn->prepare("select * from books where name like ? order by author asc"); }			
+			if ($r == "author") { $stmt = $conn->prepare("select * from books where name like ? order by author asc"); }
+			if ($r == "publisher") { $stmt = $conn->prepare("select * from books where name like ? order by publisher asc"); }
+			if ($r == "year") { $stmt = $conn->prepare("select * from books where name like ? order by originyear asc"); }			
 		}
 		
 		$stmt->bind_param("s", $q);
@@ -54,7 +58,8 @@
 							<header>
 								<h2 style="margin: 0 0 -10px 0; color: #484d55;">'.$row["name"].'</h2>
 							</header>
-							<a href="'.$row["siteUrl"].'" class="button style1" style="margin-bottom: 20px;">More</a>
+							<p style="margin-top: -10%;">By '.$row["author"].'</p>
+							<a href="more.php?select='.$row["name"].'" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
 						</center>
 					</section>
 				</div>
@@ -69,8 +74,9 @@
 						<img src="images/pic06.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
 						<center>
 							<header>
-								<h2 style="margin: 0 0 -10px 0; color: #484d55;">No content here, sorry!</h2>
+								<h2 style="margin: 0 0 -10px 0; color: #484d55;">There is no content here.</h2>
 							</header>
+							<p style="margin-top: -10%;">Sorry!</p>
 						</center>
 					</section>
 				</div>
@@ -86,29 +92,34 @@
 			if ($r == "name") { $stmt = $conn->prepare("select * from books order by name desc"); }
 			if ($r == "id") { $stmt = $conn->prepare("select * from books order by id desc"); }
 			if ($r == "author") { $stmt = $conn->prepare("select * from books order by author desc"); }
+			if ($r == "publisher") { $stmt = $conn->prepare("select * from books order by publisher desc"); }
+			if ($r == "year") { $stmt = $conn->prepare("select * from books order by originyear desc"); }
 		}
 		else {
 			if ($r == "name") { $stmt = $conn->prepare("select * from books order by name asc"); }
 			if ($r == "id") { $stmt = $conn->prepare("select * from books order by id asc"); }
-			if ($r == "author") { $stmt = $conn->prepare("select * from books order by author asc"); }			
+			if ($r == "author") { $stmt = $conn->prepare("select * from books order by author asc"); }
+			if ($r == "publisher") { $stmt = $conn->prepare("select * from books order by publisher asc"); }
+			if ($r == "year") { $stmt = $conn->prepare("select * from books order by originyear asc"); }	
 		}
 		
 		$stmt->execute();
 		$stmt_result = $stmt->get_result();
 		while ($row = $stmt_result->fetch_assoc()) {
-				echo '
-					<div class="col-4 col-12-small">
-						<section class="box books">
-							<img src="'.$row["imgUrl"].'" alt="" class="image featured" style="margin-bottom: 1em;" />
-							<center>
-								<header>
-									<h2 style="margin: 0 0 -10px 0; color: #484d55;">'.$row["name"].'</h2>
-								</header>
-								<a href="'.$row["siteUrl"].'" class="button style1" style="margin-bottom: 20px;">More</a>
-							</center>
-						</section>
-					</div>
-				';
+			echo '
+				<div class="col-4 col-12-small">
+					<section class="box books">
+						<img src="'.$row["imgUrl"].'" alt="" class="image featured" style="margin-bottom: 1em;" />
+						<center>
+							<header>
+								<h2 style="margin: 0 0 -10px 0; color: #484d55;">'.$row["name"].'</h2>
+							</header>
+							<p style="margin-top: -10%;">By '.$row["author"].'</p>
+							<a href="more.php?select='.$row["name"].'" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+						</center>
+					</section>
+				</div>
+			';
 		}
 	}
 	

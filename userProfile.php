@@ -45,9 +45,9 @@
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li class="current"><a href="home.php"><strong>Home</strong></a></li>
+								<li class="current"><a href="home.php"><strong style="color: #fff;">Home</strong></a></li>
 								<li>
-									<a href="books.php"><strong>Books</strong></a>
+									<a href="books.php"><strong style="color: #fff;">Books</strong></a>
 									<ul>
 										<li><a href="books.php">Non-fiction</a></li>
 										<li><a href="books.php">Education</a></li>
@@ -57,10 +57,10 @@
 										<li><a href="books.php">Philosophy</a></li>
 									</ul>
 								</li>
-								<li><a href="userProfile.php"><strong>User Profile</strong></a></li>
+								<li><a href="userProfile.php"><strong style="color: #fff;">User Profile</strong></a></li>
 								
 								<!--Add logout link here-->
-								<li><a href="index.php"><strong>Logout</strong></a></li>
+								<li><a href="index.php"><strong style="color: #fff;">Logout</strong></a></li>
 							</ul>
 						</nav>
 				</section>
@@ -86,22 +86,35 @@
 											</div>
 											<input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" capture>
 
-											<p><strong>Information</strong></p>
+											<p style="font-weight: 700;">Information</p>
 											<p>First Name: <span class="textHere" id="fname" value="fname" contenteditable="false">null</span></p>
 											<p>Last Name: <span class="textHere" id="lname"  value="lname" contenteditable="false">null</span></p>
 											<p>Grade Level: <span class="textHere" id="grade" value="grade" contenteditable="false">null</span></p>
 											<p>Section: <span class="textHere" id="section" value="section" contenteditable="false">null</span></p>
-											<p>Email: <?php echo $_SESSION["userEmail"]; ?></p>
+											<p>Email: 
+												<?php 
+													$hiddenEmail = ""; 
+													$toggleHidden = 0;
+													for ($x = 0; $x < strlen($_SESSION["userEmail"]); $x++) {
+														if ($x > strpos($_SESSION["userEmail"], "@") || $x < 2) {
+															$hiddenEmail .= substr($_SESSION["userEmail"], $x, 1);
+														}
+														else {
+															$hiddenEmail .= "*";
+														}
+													}
+													echo $hiddenEmail;
+												?>
+											</p>
 											<p>Current Password: <span class="textHere" id="password" value="password" contenteditable="false">null</span></p>
-											<p id="nP" style="display: none;">New Password: <span class="textHere" id="newPassword" contenteditable="false" style="margin-left: 0;"></span></p><br />
-											<p id="cP" style="display: none;">Confirm Password: <span class="textHere" id="confirmPassword" contenteditable="false" style="margin-left: 0;"></span></p><br />
+											<p id="nP" style="display: none;">New Password: <span class="textHere" id="newPassword" contenteditable="false" style="margin-left: 0;">null</span></p><br />
+											<p id="cP" style="display: none;">Confirm Password: <span class="textHere" id="confirmPassword" contenteditable="false" style="margin-left: 0;">null</span></p><br />
 											
 											<button class="editInfo style3" style="display:inline-block;" onclick="editText()" id="textEdit">Edit</button>
 											<button class="editInfo style3" style="display:none;" onclick="cancelText()" id="textCancel">Cancel</button>
 											<button class="editInfo style1" style="display:none;" onclick="saveText()" id="textSave">Save</button>
 
 										</article>
-
 
 									</div>
 
@@ -116,7 +129,7 @@
 
 										<section class="box">
 											<header>
-												<h2>Recent</h2>
+												<h2>Currently Borrowed Books</h2>
 											</header>
 											<ul class="style2 recent">
 												<li style="border-top-color: transparent;">
@@ -147,45 +160,6 @@
 
 								</div>
 
-								<div class="favorites">
-									<h2 style="margin-bottom: 30px; padding-top: 70px;">My Favorites</h2>
-										
-										<div class="row gtr-150">
-											<div class="col-4 col-12-small" style="display: grid; justify-items: center;">
-												<section class="box" >
-													<img src="images/covers/metro-2033.jpg" alt="" class="image featured"/>
-													<center>
-														<header>
-															<h2>Metro 2033</h2>
-														</header>
-														<a href="books/.html" class="button style1">More</a>
-													</center>
-												</section>
-											</div>
-											<div class="col-4 col-12-small" style="display: grid; justify-items: center;">
-												<section class="box" >
-													<img src="images/covers/metro-2034.jpg" alt="" class="image featured"/>
-													<center>
-														<header>
-															<h2>Metro 2034</h2>
-														</header>
-														<a href="books/.html" class="button style1">More</a>
-													</center>
-												</section>
-											</div>
-											<div class="col-4 col-12-small" style="display: grid; justify-items: center;">
-												<section class="box" >
-													<img src="images/covers/metro-2035.jpg" alt="" class="image featured"/>
-													<center>
-														<header>
-															<h2>Metro 2035</h2>
-														</header>
-														<a href="books/.html" class="button style1">More</a>
-													</center>
-												</section>
-											</div>
-										</div>
-                                                                  </div>
 						</div>
 					</div>
 				</section>
@@ -278,16 +252,16 @@
 		</div>
 
 		<!-- Scripts -->
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script>
-				getProfileData();
-			</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+			getProfileData();
+		</script>
 
 	</body>
 </html>

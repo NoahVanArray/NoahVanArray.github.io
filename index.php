@@ -37,6 +37,7 @@
 	
 
 	<body>
+			
 		<div class="main">	
 			<center>
 				<img id="img1" src="images/logoNoBG.png">
@@ -57,7 +58,6 @@
 				
 			</center>
 		</div>
-
 		
 		<center>
 		<!-- Whole Login/Registration Form -->
@@ -77,7 +77,7 @@
 						<span class="icon">
 							<ion-icon name="mail"></ion-icon>
 						</span>
-						<input type="email" id="eMail" name="emailvar" placeholder="Email" required>
+						<input type="email" name="emailvar" placeholder="Email" required>
 					</div>
 
 					<div class="input-box">
@@ -139,16 +139,8 @@
 						<span class="icon">
 							<ion-icon name="mail"></ion-icon>
 						</span>
-						<input type="email" name="email2" id="eMail" placeholder="Email" required>
+						<input type="email" name="email2" placeholder="Email" required>
 					</div>
-					<!--
-					<div class="remember-forgot">
-						<label>
-							<input type="checkbox" required>I agree to the <a href="#">Terms & Conditions</a> of Yverdon De Pestalozzi School's Book Management System
-						</label>
-					</div>
-					-->
-					<div>
 						<button type="submit" name="registerSubmit" value="submit" class="btn">Register</button>
 						<div class="login-register">
 						<p>Already have an account? <a href="#" class="login-link">Login</a></p>

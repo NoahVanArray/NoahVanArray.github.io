@@ -42,18 +42,16 @@
 
 					<!-- Logo -->
 						<div id="logo">
-
 							<h1><span><a href="home.php">Yverdon Book Management System</a></span></h1>
-							<p><b>The online book management system for Yverdon de Pestalozzi School</b></p>
+							<p style="font-weight: 700;">The online book management system for Yverdon de Pestalozzi School</p>
 						</div>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-
-								<li class="current"><a href="home.php"><strong>Home</strong></a></li>
+								<li class="current"><a href="home.php"><strong style="color: #fff;">Home</strong></a></li>
 								<li>
-									<a href="books.php"><strong>Books</strong></a>
+									<a href="books.php"><strong style="color: #fff;">Books</strong></a>
 									<ul>
 										<li><a href="books.php">Non-fiction</a></li>
 										<li><a href="books.php">Education</a></li>
@@ -63,10 +61,10 @@
 										<li><a href="books.php">Philosophy</a></li>
 									</ul>
 								</li>
-								<li><a href="userProfile.php"><strong>User Profile</strong></a></li>
+								<li><a href="userProfile.php"><strong style="color: #fff;">User Profile</strong></a></li>
 								
 								<!--Add logout link here-->
-								<li><a href="index.php"><strong>Logout</strong></a></li>
+								<li><a href="index.php"><strong style="color: #fff;">Logout</strong></a></li>
 							</ul>
 						</nav>
 				</section>
@@ -143,7 +141,7 @@
 								<!-- Sorting -->
 								<button id="sortByButton" value="sortTable" onclick="toggleDisplay(this.value)">Sort By</button>
 								
-								<ul id="sortTable">
+								<ul id="sortTable" style="display: none;">
 									<li style="list-style-type: none;">
 										<ul>
 											<li><h1 id="sortOrder">Order: Ascending</h1></li>
@@ -156,7 +154,9 @@
 											<li><h1 id="sortPriority">Priority: Name</h1></li>
 											<li><button class="sortTableBtn" value="name" onclick="printMessage(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">Name</button></li>
 											<li><button class="sortTableBtn" value="id" onclick="printMessage(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">ID</button></li>
-											<li><button class="sortTableBtn" value="author" onclick="printMessage(this.value)">Author</button></li>
+											<li><button class="sortTableBtn" value="author" onclick="printMessage(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">Author</button></li>
+											<li><button class="sortTableBtn" value="publisher" onclick="printMessage(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">Publisher</button></li>
+											<li><button class="sortTableBtn" value="year" onclick="printMessage(this.value)">Year</button></li>
 										</ul>
 									</li>
 								</ul>
@@ -199,7 +199,8 @@
 																	<header>
 																		<h2 style="margin: 0 0 -10px 0; color: #484d55;">'.$row["name"].'</h2>
 																	</header>
-																	<a href="'.$row["siteUrl"].'" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+																	<p style="margin-top: -10%;">By '.$row["author"].'</p>
+																	<a href="more.php?select='.$row["name"].'" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
 																</center>
 															</section>
 														</div>

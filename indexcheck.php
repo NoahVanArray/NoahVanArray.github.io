@@ -26,7 +26,7 @@
 			}
 			else {
 				echo '<script type="text/javascript">
-					alert("The email or password is incorrect.");
+					errorRedirect("The email or password is incorrect.");
 				</script>';
 				header('Refresh: 0; index.php');
 			}
