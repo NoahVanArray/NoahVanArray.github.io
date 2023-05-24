@@ -143,14 +143,14 @@
 								
 								<ul id="sortTable" style="display: none;">
 									<li style="list-style-type: none;">
-										<ul>
+										<ul style="list-style-type: none;">
 											<li><h1 id="sortOrder">Order: Ascending</h1></li>
-											<li><button class="sortTableBtn" value="asc" onclick="printMessage(this.value)" style="float: left; margin-right: 20px;">Ascending</button></li>
+											<li><button class="sortTableBtn" value="asc" onclick="printMessage(this.value)" style="float: left; margin-right: 20px; position: relative; z-index: 50;">Ascending</button></li>
 											<li><button class="sortTableBtn" value="desc" onclick="printMessage(this.value)">Descending</button></li>
 										</ul>
 									</li>
 									<li style="list-style-type: none;">
-										<ul>
+										<ul style="list-style-type: none;">
 											<li><h1 id="sortPriority">Priority: Name</h1></li>
 											<li><button class="sortTableBtn" value="name" onclick="printMessage(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">Name</button></li>
 											<li><button class="sortTableBtn" value="id" onclick="printMessage(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">ID</button></li>

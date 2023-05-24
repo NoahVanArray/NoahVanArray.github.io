@@ -43,3 +43,15 @@ function myFunction() {
   }
 }
 
+// Popup stuff
+const alert = document.querySelector('.alertPopup');
+
+// To open the popup
+function openAlert() {
+  alert.style.transform= "scale(1)";
+}
+
+// To close the popup
+function closeAlert() {
+  alert.style.transform= "scale(0)";
+}

@@ -213,15 +213,15 @@ function adminSaveText() {
   });
 }
 
-// display of addBook in adminBooks
-function openCateg() {
-  document.getElementById("categContent").style.display = "block";
-  document.getElementById("categContent").style.position = "relative";
+// display of bookInfo & addBook in adminBooks, also shows the display of info in adminUsers
+function openInfo() {
+  document.getElementById("infoContent").style.display = "block";
+  document.getElementById("infoContent").style.position = "relative";
 }
 
-function closeCateg() {
-  document.getElementById("categContent").style.display = "none";
-  document.getElementById("categContent").style.position = "absolute";
+function closeInfo() {
+  document.getElementById("infoContent").style.display = "none";
+  document.getElementById("infoContent").style.position = "absolute";
 }
 
 function openBook() {

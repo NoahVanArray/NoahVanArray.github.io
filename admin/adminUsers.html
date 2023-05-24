@@ -65,7 +65,7 @@
 
 			<!-- Main -->
 				<section id="main" class="wrapper style3">
-					<div class="title">Books</div>
+					<div class="title">Users</div>
 					<div class="container">
 						<div class="row gtr-150">
 							<div class="col-4 col-12-medium">
@@ -74,7 +74,7 @@
 									<div id="sidebar">
 										<section class="box">
 											<header>
-												<h2>General Information</h2>
+												<h2 style="color: #2f333b;">General Information</h2>
 											</header>
 											<ul class="style2">
 												<li>
@@ -93,7 +93,33 @@
 													</article>
 												</li>
 											</ul>
-											<a href="#" class="button style3">Accept User</a>
+
+										<!-- Show table info -->
+											<div class="row gtr-50">
+												<form method="post" action="#" style="max-width: 100%; width: 100%;">
+													<div class="row gtr-50 addBookContent" id="infoContent" style="margin-top: 0; display: none;">
+														<header>
+															<h2 style="color: #2f333b; margin-bottom: -25px;">User Information</h2>
+														</header>
+											
+														<h3>Name: &lt;Insert value here&gt;</h3>
+											
+														<h3>Grade: &lt;Insert value here&gt;</h3>
+												
+														<h3>Section: &lt;Insert value here&gt;</h3>
+														
+														<h3 style="margin-right: 50px;">Email: &lt;Insert value here&gt;</h3>
+
+														<a class="button style1" style="min-width: 0; line-height: 2.5; height: 34px; width: 98px;margin: 0 5px 0 15px; padding: 0;">Update User</a>
+														<a class="button style3" style="min-width: 0; line-height: 2.5; height: 34px; width: 98px;margin: 0 0 0 10px; padding: 0;">Delete User</a>
+														<a class="button style2" style="min-width: 0; line-height: 2.5; height: 34px; width: 98px;margin: 0 5px 0 15px; padding: 0;" onclick="closeInfo()">Close</a>
+													</div>
+												</form>
+											</div>
+
+											<!-- <a class="button style1" style="min-width: 0; width: 120px;">Update</a>
+											<a class="button style3" style="min-width: 0; width: 120px;">Delete</a>
+											<a class="button style2" style="min-width: 0; width: 120px;">close</a> -->
 										</section>
 									</div>
 
@@ -102,9 +128,32 @@
 							<div class="col-8 col-12-medium imp-medium">
 								
 								<!-- Search Bar -->
-									<form style="margin-bottom: 50px;"> <!--  <form action="file.php"> -->
-										<input type="text" placeholder="Search.." name="search">
+									<form style="margin-bottom: 50px;">
+										<input type="text" placeholder="Search Here" name="search" id="searchBar" onkeyup="showSearch(this.value)" style="padding-right: 110px;">
 									</form>
+
+								<!-- Sorting -->
+								<button id="sortByButton" value="sortTableUsers" onclick="toggleDisplayUsers(this.value)">Sort By</button>
+								
+								<ul id="sortTableUsers" style="display: none;">
+									<li style="list-style-type: none;">
+										<ul>
+											<li><h1 id="sortOrder">Order: Ascending</h1></li>
+											<li><button class="sortTableBtn" value="asc" onclick="printMessage(this.value)" style="float: left; margin-right: 20px;">Ascending</button></li>
+											<li><button class="sortTableBtn" value="desc" onclick="printMessage(this.value)">Descending</button></li>
+										</ul>
+									</li>
+									<li style="list-style-type: none;">
+										<ul>
+											<li><h1 id="sortPriority">Priority: Name</h1></li>
+											<li><button class="sortTableBtn" value="name" onclick="printMessage(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">Name</button></li>
+											<li><button class="sortTableBtn" value="id" onclick="printMessage(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">ID</button></li>
+											<li><button class="sortTableBtn" value="author" onclick="printMessage(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">Author</button></li>
+											<li><button class="sortTableBtn" value="publisher" onclick="printMessage(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">Publisher</button></li>
+											<li><button class="sortTableBtn" value="year" onclick="printMessage(this.value)">Year</button></li>
+										</ul>
+									</li>
+								</ul>
 
 								<!-- Content -->
 									<div id="content">
@@ -115,77 +164,77 @@
 										    <th>Grade</th>
 										    <th>Section</th>
 										    <th>Email</th>
-										    <th>Delete?</th>
+										    <th>Select</th>
 										  </tr>
 										  <tr>
 										    <td>Person#1</td>
 										    <td>Insert Grade</td>
 										    <td>Insert Section</td>
 										    <td>Insert Email</td>
-										    <th><span><ion-icon name="trash-outline" style="margin-left: 23px; cursor: pointer;"></ion-icon></span></th>
+										    <th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
 										  </tr>
 										  <tr>
 										    <td>Person#2</td>
 										    <td>Insert Grade</td>
 										    <td>Insert Section</td>
 										    <td>Insert Email</td>
-										    <th><span><ion-icon name="trash-outline" style="margin-left: 23px; cursor: pointer;"></ion-icon></span></th>
+										    <th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
 										  </tr>
 										  <tr>
 										    <td>Person#3</td>
 										    <td>Insert Grade</td>
 										    <td>Insert Section</td>
 										    <td>Insert Email</td>
-										    <th><span><ion-icon name="trash-outline" style="margin-left: 23px; cursor: pointer;"></ion-icon></span></th>
+										    <th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
 										  </tr>
 										  <tr>
 										    <td>Person#4</td>
 										    <td>Insert Grade</td>
 										    <td>Insert Section</td>
 										    <td>Insert Email</td>
-										    <th><span><ion-icon name="trash-outline" style="margin-left: 23px; cursor: pointer;"></ion-icon></span></th>
+										    <th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
 										  </tr>
 										  <tr>
 										    <td>Person#5</td>
 										    <td>Insert Grade</td>
 										    <td>Insert Section</td>
 										    <td>Insert Email</td>
-										    <th><span><ion-icon name="trash-outline" style="margin-left: 23px; cursor: pointer;"></ion-icon></span></th>
+										    <th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
 										  </tr>
 										  <tr>
 										    <td>Person#6</td>
 										    <td>Insert Grade</td>
 										    <td>Insert Section</td>
 										    <td>Insert Email</td>
-										    <th><span><ion-icon name="trash-outline" style="margin-left: 23px; cursor: pointer;"></ion-icon></span></th>
+										    <th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
 										  </tr>
 										  <tr>
 										    <td>Person#7</td>
 										    <td>Insert Grade</td>
 										    <td>Insert Section</td>
 										    <td>Insert Email</td>
-										    <th><span><ion-icon name="trash-outline" style="margin-left: 23px; cursor: pointer;"></ion-icon></span></th>
+										    <th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
 										  </tr>
 										  <tr>
 										    <td>Person#8</td>
 										    <td>Insert Grade</td>
 										    <td>Insert Section</td>
 										    <td>Insert Email</td>
-										    <th><span><ion-icon name="trash-outline" style="margin-left: 23px; cursor: pointer;"></ion-icon></span></th>
+										    <th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
 										  </tr>
 										  <tr>
 										    <td>Person#9</td>
 										    <td>Insert Grade</td>
 										    <td>Insert Section</td>
 										    <td>Insert Email</td>
-										    <th><span><ion-icon name="trash-outline" style="margin-left: 23px; cursor: pointer;"></ion-icon></span></th>
+										    <th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
 										  </tr>
 										  <tr>
 										    <td>Person#10</td>
 										    <td>Insert Grade</td>
 										    <td>Insert Section</td>
 										    <td>Insert Email</td>
-										    <th><span><ion-icon name="trash-outline" style="margin-left: 23px; cursor: pointer;"></ion-icon></span></th>
+										    <th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
 										  </tr>
 										</table>
 										
