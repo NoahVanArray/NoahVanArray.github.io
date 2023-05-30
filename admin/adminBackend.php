@@ -53,7 +53,7 @@
 			echo '
 				<div class="col-4 col-12-small">
 					<section class="box books">
-						<img src="'.$row["imgUrl"].'" alt="" class="image featured" style="margin-bottom: 1em;" />
+						<img src="../'.$row["imgUrl"].'" alt="" class="image featured" style="margin-bottom: 1em;" />
 						<center>
 							<header>
 								<h2 style="margin: 0 0 -10px 0; color: #484d55;">'.$row["name"].'</h2>

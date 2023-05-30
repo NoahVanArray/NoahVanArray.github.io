@@ -17,7 +17,7 @@
 		<title>Yverdon Book Management System</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
 
 		<!--The icon beside the title on the website's tab on the browser, change directory accordingly.-->
 		<link rel="apple-touch-icon" sizes="180x180" href="../images/favicon_io/apple-touch-icon.png">
@@ -41,22 +41,21 @@
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li class="current"><a href="home.php"><strong style="color: #fff;">Home</strong></a></li>
+								<li class="current"><a href="adminHome.php"><strong style="color: #fff;">Home</strong></a></li>
 								<li>
-									<a href="books.php"><strong style="color: #fff;">Books</strong></a>
+									<a href="adminBooks.php"><strong style="color: #fff;">Editing</strong></a>
 									<ul>
-										<li><a href="books.php">Non-fiction</a></li>
-										<li><a href="books.php">Education</a></li>
-										<li><a href="books.php">Fiction</a></li>
-										<li><a href="books.php">Literature</a></li>
-										<li><a href="books.php">Entertainments</a></li>
-										<li><a href="books.php">Philosophy</a></li>
+										<li><a href="adminBooks.php">Books</a></li>
+										<li><a href="adminUsers.php">Users</a></li>
+										<li><a href="adminRequests.php">Requests</a></li>
+										<li><a href="adminFeedback.php">Feedback</a></li>
+										<li><a href="adminLogs.php">Logs</a></li>
 									</ul>
 								</li>
-								<li><a href="userProfile.php"><strong style="color: #fff;">User Profile</strong></a></li>
+								<li><a href="adminProfile.php"><strong style="color: #fff;">User Profile</strong></a></li>
 								
 								<!--Add logout link here-->
-								<li><a href="index.php"><strong style="color: #fff;">Logout</strong></a></li>
+								<li><a href="../index.php"><strong style="color: #fff;">Logout</strong></a></li>
 							</ul>
 						</nav>
 				</section>
@@ -94,7 +93,7 @@
 															}
 															echo '
 																<center>
-																	<img class="bookImg" src="'.$row["imgUrl"].'" alt="" class="image featured insta1"/>
+																	<img class="bookImg" src="../'.$row["imgUrl"].'" alt="" class="image featured insta1"/>
 																</center>
 																<div class="bookContent">
 																	<header>
@@ -112,10 +111,7 @@
 														?>
 														
 													</section>
-												<button class="btnBack style1"><a href="books.php">Back</a></button>	
-
-												<!-- Make an alert dialog showing that borrow request is sent, show book to librarian for confirmation. -->
-												<button type="button" onclick="return requestAccept('Borrow Book')" class="btnBorrow style3">Borrow</button>
+												<button class="btnBack style1"><a href="adminBooks.php">Back</a></button>
 
 											</div>
 
@@ -212,12 +208,12 @@
 		</div>
 
 		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.dropotron.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/jquery.dropotron.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
 		<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 		<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 

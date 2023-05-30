@@ -7,7 +7,7 @@
 	require 'phpmailer/src/PHPMailer.php';
 	require 'phpmailer/src/SMTP.php';
 	
-	$conn = mysqli_connect("fdb1028.awardspace.net", "4299657_ydpbmsdatabase", "Yv3rd0nD3P3st@l0zz1", "4299657_ydpbmsdatabase");
+	$conn = mysqli_connect("localhost", "root", "", "ydpbms");
 	if ($conn->connect_error) {
 		echo "$conn->connect_error";
 		die("Connection Failed : ". $conn->connect_error);
