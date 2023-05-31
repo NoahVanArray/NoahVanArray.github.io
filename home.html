@@ -1,30 +1,21 @@
-<?php session_start(); if(!isset($_SESSION["userEmail"])) { header('Refresh: 0; url=index.php'); } ?>
-
-<!DOCTYPE HTML>
-
-<!--
-	Author: 
-	Front-End: John Yohan J. Navarra
-	Back-End: Angelo Kurt B. Rosal
--->
-
-<html>
-	<head>
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Yverdon Book Management System</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="./home_files/main.css">
 
 		<!--The icon beside the title on the website's tab on the browser, change directory accordingly.-->
-		<link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
-		<link rel="manifest" href="images/favicon_io/site.webmanifest">
+		<link rel="apple-touch-icon" sizes="180x180" href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/images/favicon_io/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/images/favicon_io/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/images/favicon_io/favicon-16x16.png">
+		<link rel="manifest" href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/images/favicon_io/site.webmanifest">
 
 
 	</head>
 	
-	<body class="homepage is-preload">
+	<body class="homepage">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -32,29 +23,29 @@
 
 					<!-- Logo -->
 						<div id="logo">
-							<h1><span><a href="home.php">Yverdon Book Management System</a></span></h1>
+							<h1><span><a href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/home.php">Yverdon Book Management System</a></span></h1>
 							<p style="font-weight: 700;">The online book management system for Yverdon de Pestalozzi School</p>
 						</div>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li class="current"><a href="home.php"><strong style="color: #fff;">Home</strong></a></li>
-								<li>
-									<a href="books.php"><strong style="color: #fff;">Books</strong></a>
-									<ul>
-										<li><a href="books.php">Non-fiction</a></li>
-										<li><a href="books.php">Education</a></li>
-										<li><a href="books.php">Fiction</a></li>
-										<li><a href="books.php">Literature</a></li>
-										<li><a href="books.php">Entertainments</a></li>
-										<li><a href="books.php">Philosophy</a></li>
+								<li class="current" style="white-space: nowrap;"><a href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/home.php"><strong style="color: #fff;">Home</strong></a></li>
+								<li class="opener" style="user-select: none; cursor: pointer; white-space: nowrap;">
+									<a href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/books.php"><strong style="color: #fff;">Books</strong></a>
+									<ul class="dropotron level-0" style="user-select: none; display: none; position: absolute; z-index: 1000;">
+										<li style="white-space: nowrap;"><a href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/books.php" style="display: block;">Non-fiction</a></li>
+										<li style="white-space: nowrap;"><a href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/books.php" style="display: block;">Education</a></li>
+										<li style="white-space: nowrap;"><a href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/books.php" style="display: block;">Fiction</a></li>
+										<li style="white-space: nowrap;"><a href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/books.php" style="display: block;">Literature</a></li>
+										<li style="white-space: nowrap;"><a href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/books.php" style="display: block;">Entertainments</a></li>
+										<li style="white-space: nowrap;"><a href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/books.php" style="display: block;">Philosophy</a></li>
 									</ul>
 								</li>
-								<li><a href="userProfile.php"><strong style="color: #fff;">User Profile</strong></a></li>
+								<li style="white-space: nowrap;"><a href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/userProfile.php"><strong style="color: #fff;">User Profile</strong></a></li>
 								
 								<!--Add logout link here-->
-								<li><a href="index.php"><strong style="color: #fff;">Logout</strong></a></li>
+								<li style="white-space: nowrap;"><a href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/index.php"><strong style="color: #fff;">Logout</strong></a></li>
 							</ul>
 						</nav>
 				</section>
@@ -65,13 +56,13 @@
 					<div class="container">
 						<p class="style1">Are you interested in books?</p>
 						<p class="style2">
-							Well you're in luck!<br class="mobile-hide" />
+							Well you're in luck!<br class="mobile-hide">
 						</p>
 						<p class="style1">
 							This website is created for the library of Yverdon de Pestalozzi School, Inc. for your convenience in discovering books.
 						</p>
 						<ul class="actions">
-							<li><a href="books.php" class="button style3 large">Proceed</a></li> 
+							<li><a href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/books.php" class="button style3 large">Proceed</a></li> 
 						</ul>
 					</div>
 				</section>
@@ -81,32 +72,32 @@
 					<div class="title">Random Features</div>
 						<div class="container">
 							<div class="row aln-center">
-								<?php
+								<!--?php
 									$conn = mysqli_connect("fdb1028.awardspace.net", "4299657_ydpbmsdatabase", "Yv3rd0nD3P3st@l0zz1", "4299657_ydpbmsdatabase");
-									if ($conn->connect_error) {
+									if ($conn--->connect_error) {
 										echo "
 											<script>
 												errorRedirect(".$conn->connect_error.");
 											</script>
 										";
-										die("Connection Failed : ". $conn->connect_error);
+										die("Connection Failed : ". $conn-&gt;connect_error);
 									}
 									else {
 										$a = array(); $b = array(); $c = array(); $d = array(); $e = array();
 										
 										$sql = "select * from books";
-										$result = $conn -> query($sql);
-										if ($result -> num_rows > 0) {
-											while ($row = $result -> fetch_assoc()) {
+										$result = $conn -&gt; query($sql);
+										if ($result -&gt; num_rows &gt; 0) {
+											while ($row = $result -&gt; fetch_assoc()) {
 												$e[] = $row["name"]; // $row must have a specified identifier to avoid nested array/system error
 											}
 											shuffle($e);
 											foreach ($e as $shuffledrow) {
-												$stmt = $conn->prepare("select * from books where name = ?");
-												$stmt -> bind_param("s", $shuffledrow);
-												$stmt -> execute();
-												$result = $stmt -> get_result();
-												$row = $result -> fetch_assoc();
+												$stmt = $conn-&gt;prepare("select * from books where name = ?");
+												$stmt -&gt; bind_param("s", $shuffledrow);
+												$stmt -&gt; execute();
+												$result = $stmt -&gt; get_result();
+												$row = $result -&gt; fetch_assoc();
 												$a[] = $row["name"];
 												$b[] = $row["author"];
 												$c[] = $row["imgUrl"];
@@ -116,30 +107,30 @@
 										} else {
 											exit;
 										}
-										for ($x = 0; $x < 3; $x++) {
-											$num = range(1, ($result -> num_rows) - 1); // to make unique randomizer, create and then shuffle array with every book number.
+										for ($x = 0; $x &lt; 3; $x++) {
+											$num = range(1, ($result -&gt; num_rows) - 1); // to make unique randomizer, create and then shuffle array with every book number.
 											shuffle($num);
 											echo "
-												<div class='col-4 col-12-medium'>
-													<section class='highlight'>
-														<a class='image featured' style='width: 100%;'><img src='".$c[$x]."' alt='' style='margin-bottom: 25px; width: 100%;'/></a>
-														<h3><a href='#'>".$a[$x]."</a></h3>
-														<p style='margin-bottom: -15px;'>Author: ".$b[$x]."</p>
-														<ul class='actions'>
-															<li><a href='".$d[$x]."' class='button style1'>Learn More</a></li>
+												<div class="col-4 col-12-medium">
+													<section class="highlight">
+														<a class="image featured" style="width: 100%;"><img src="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/%22.$c[$x].%22" alt="" style="margin-bottom: 25px; width: 100%;"></a>
+														<h3><a href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/home.html#">".$a[$x]."</a></h3>
+														<p style="margin-bottom: -15px;">Author: ".$b[$x]."</p>
+														<ul class="actions">
+															<li><a href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/%22.$d[$x].%22" class="button style1">Learn More</a></li>
 														</ul>
 													</section>
 												</div>
 											";
 										}
 									}
-								?>
+								?&gt;
 						</div>
 					</div>
 				</section>
 
 			<!-- Categories -->
-<section id="main" class="wrapper style3">
+				<section id="main" class="wrapper style3">
 					<div class="title">Categories</div>
 					<div class="container">
 
@@ -154,13 +145,13 @@
 									<div class="row">
 										<div class="col-6 col-12-medium">
 											<section>
-												<h3 class="icon"><a><span><img src="images/nonfic.png" style="width: 45px; height: auto;"></span>Non-fiction</a></h3>
+												<h3 class="icon"><a><span><img src="./home_files/nonfic.png" style="width: 45px; height: auto;"></span>Non-fiction</a></h3>
 												<p>Based on factual information and real events, providing readers with an opportunity to learn and expand their knowledge on various topics.</p>
 											</section>
 										</div>
 										<div class="col-6 col-12-medium">
 											<section>
-												<h3 class="icon"><a><span><img src="images/fic.png" style="width: 45px; height: auto;"></span>Fiction</a></h3>
+												<h3 class="icon"><a><span><img src="./home_files/fic.png" style="width: 45px; height: auto;"></span>Fiction</a></h3>
 												<p>These books are works of the imagination, taking readers on a journey to new worlds, introducing them to new characters and telling them stories that entertain, inspire and move.</p>
 											</section>
 										</div>
@@ -174,33 +165,42 @@
 																				
 										<div class="col-6 col-12-medium">
 											<section>
-												<h3 class="icon"><a><span><img src="images/edu.png" style="width: 45px; height: auto;"></span>Education</a></h3>
+												<h3 class="icon"><a><span><img src="./home_files/edu.png" style="width: 45px; height: auto;"></span>Education</a></h3>
 												<p>Designed to help readers acquire new knowledge and skills, and to improve their understanding of specific subjects.</p>
 											</section>
 										</div>
 										<div class="col-6 col-12-medium">
 											<section>
-												<h3 class="icon solid"><a><span><img src="images/literature.png" style="width: 45px; height: auto;"></span>Literature</a></h3>
+												<h3 class="icon solid"><a><span><img src="./home_files/literature.png" style="width: 45px; height: auto;"></span>Literature</a></h3>
 												<p>Recognized for literary value, cultural importance, and complex themes, challenging readers to think deeply and critically.</p>
 											</section>
 										</div>
 										<div class="col-6 col-12-medium">
 											<section>
-												<h3 class="icon solid"><a><span><img src="images/entert.png" style="width: 45px; height: auto;"></span>Entertainment</a></h3>
+												<h3 class="icon solid"><a><span><img src="./home_files/entert.png" style="width: 45px; height: auto;"></span>Entertainment</a></h3>
 												<p>Provides readers with enjoyment and amusement, makes them laugh or feel entertained, and offer an escape from reality.</p>
 											</section>
 										</div>
 										<div class="col-6 col-12-medium">
 											<section>
-												<h3 class="icon solid"><a><span><img src="images/philo.png" style="width: 45px; height: auto;"></span>Philosophy</a></h3>
+												<h3 class="icon solid"><a><span><img src="./home_files/philo.png" style="width: 45px; height: auto;"></span>Philosophy</a></h3>
 												<p>Explore fundamental questions about existence, reality, and values, insights into the human condition, moral and ethical dilemmas, and the nature of knowledge and truth.</p>
 											</section>
 										</div>
 										
 									</div>
 								</div>
+										
+										
+										
+										
+									
+								
+							
+
 					</div>
 				</section>
+
 			<!-- Footer -->
 				<section id="footer" class="wrapper">
 					<div class="title">Want to know more?</div>
@@ -215,16 +215,16 @@
 
 								<!-- Contact Form -->
 								<section>
-									<script src="assets/js/request.js"></script>
+									<script src="./home_files/request.js.download"></script>
 									<form method="post">
 										<div class="row gtr-50">
 											<div class="col-12">
-												<textarea style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4" required></textarea>
+												<textarea style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4" required=""></textarea>
 											</div>
 											<div class="col-12">
 												<ul class="actions">
-													<li><input type="submit" class="style1" value="Send" onclick="return requestAccept('Feedback')" /></li>
-													<li><input type="reset" class="style2" value="Reset" style="color: #484d55;" /></li>
+													<li><input type="submit" class="style1" value="Send" onclick="return requestAccept(&#39;Feedback&#39;)"></li>
+													<li><input type="reset" class="style2" value="Reset" style="color: #484d55;"></li>
 												</ul>
 											</div>
 										</div>
@@ -242,7 +242,7 @@
 												<section>
 													<h3 class="icon solid fa-home">Address</h3>
 													<p>
-														Official Yverdon de Pestalozzi School, Inc.<br />
+														Official Yverdon de Pestalozzi School, Inc.<br>
 														Igay Rd., Sto. Cristo, SJDM
 													</p>
 												</section>
@@ -259,7 +259,7 @@
 												<section>
 													<h3 class="icon solid fa-envelope">Email</h3>
 													<p>
-														<a href="#">ydpsedu@ymail.com</a>
+														<a href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/home.html#">ydpsedu@ymail.com</a>
 													</p>
 												</section>
 											</div>
@@ -279,21 +279,22 @@
 						</div>
 						<div id="copyright">
 							<ul>
-								<li>&copy; Das Kumarades LLC. EST. 2023. All rights reserved.</li><li><a href="about.php" style="text-decoration: none;">About us</a></li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								<li>© Das Kumarades LLC. EST. 2023. All rights reserved.</li><li><a href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/about.php" style="text-decoration: none;">About us</a></li><li>Design: <a href="http://html5up.net/">HTML5 UP</a></li>
 							</ul>
-						</div>
+						
+</div>
 					</div>
 				</section>
 
 		</div>
 
 		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.dropotron.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
+		<script src="./home_files/jquery.min.js.download"></script>
+		<script src="./home_files/jquery.dropotron.min.js.download"></script>
+		<script src="./home_files/browser.min.js.download"></script>
+		<script src="./home_files/breakpoints.min.js.download"></script>
+		<script src="./home_files/util.js.download"></script>
+		<script src="./home_files/main.js.download"></script><div id="titleBar"><a href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/home.html#navPanel" class="toggle"></a><span class="title"><span><a href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/home.php">Yverdon Book Management System</a></span></span></div><div id="navPanel"><nav><a class="link depth-0" href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/home.php" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="indent-0"></span>Home</a><a class="link depth-0" href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/books.php" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="indent-0"></span>Books</a><a class="link depth-1" href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/books.php" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="indent-1"></span>Non-fiction</a><a class="link depth-1" href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/books.php" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="indent-1"></span>Education</a><a class="link depth-1" href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/books.php" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="indent-1"></span>Fiction</a><a class="link depth-1" href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/books.php" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="indent-1"></span>Literature</a><a class="link depth-1" href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/books.php" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="indent-1"></span>Entertainments</a><a class="link depth-1" href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/books.php" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="indent-1"></span>Philosophy</a><a class="link depth-0" href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/userProfile.php" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="indent-0"></span>User Profile</a><a class="link depth-0" href="file:///C:/Users/LIBRARY%207/Downloads/YBMS-Main-main/index.php" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="indent-0"></span>Logout</a></nav></div>
 
-	</body>
-</html>
+	
+</body></html>
