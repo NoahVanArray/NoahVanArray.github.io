@@ -1,15 +1,9 @@
+<?php session_start(); if(!isset($_SESSION["userEmail"]) || !isset($_SESSION["isAdmin"])) { header('Refresh: 0; url=../index.php'); } ?>
 <!DOCTYPE HTML>
 
 <!--
 	Author: 
 	Front-End: John Yohan J. Navarra
--->
-
-<!--
-	NOTE!!
-
-	This part of the website includes the book section, specifically the categories, supposedly with a search bar for easier searching of books.
-	
 -->
 
 <html>
@@ -18,16 +12,15 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
-		<link rel="stylesheet" href="../assets/css/users.css" />
 
 		<!--The icon beside the title on the website's tab on the browser, change directory accordingly.-->
 		<link rel="apple-touch-icon" sizes="180x180" href="../images/favicon_io/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon_io/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon_io/favicon-16x16.png">
 		<link rel="manifest" href="../images/favicon_io/site.webmanifest">
-
 	</head>
-	<body class="left-sidebar is-preload">
+	
+	<body class="homepage is-preload" onload="loginCheck()">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -36,7 +29,7 @@
 					<!-- Logo -->
 						<div id="logo">
 							<h1><span><a href="adminHome.php">Yverdon Book Management System</a></span></h1>
-							<p><b>The online book management system for Yverdon de Pestalozzi School</b></p>
+							<p style="font-weight: 700;">The online book management system for Yverdon de Pestalozzi School</p>
 						</div>
 
 					<!-- Nav -->
@@ -44,21 +37,19 @@
 							<ul>
 								<li class="current"><a href="adminHome.php"><strong style="color: #fff;">Home</strong></a></li>
 								<li>
-									<a href="adminBooks.php"><strong style="color: #fff;">Books</strong></a>
+									<a href="adminBooks.php"><strong style="color: #fff;">Editing</strong></a>
 									<ul>
-										<li><a href="adminBooks.php" onclick="">Non-fiction</a></li>
-										<li><a href="adminBooks.php">Education</a></li>
-										<li><a href="adminBooks.php">Fiction</a></li>
-										<li><a href="adminBooks.php">Literature</a></li>
-										<li><a href="adminBooks.php">Entertainments</a></li>
-										<li><a href="adminBooks.php">Philosophy</a></li>
+										<li><a href="adminBooks.php">Books</a></li>
+										<li><a href="adminUsers.php">Users</a></li>
+										<li><a href="adminRequests.php">Requests</a></li>
+										<li><a href="adminFeedback.php">Feedback</a></li>
+										<li><a href="adminLogs.php">Logs</a></li>
 									</ul>
 								</li>
-								<li><a href="adminUsers.php"><strong style="color: #fff;">Users</strong></a></li>
-								<li><a href="userProfile.html"><strong style="color: #fff;">User Profile</strong></a></li>
+								<li><a href="adminProfile.php"><strong style="color: #fff;">User Profile</strong></a></li>
 								
 								<!--Add logout link here-->
-								<li><a href=""><strong style="color: #fff;">Logout</strong></a></li>
+								<li><a href="../index.php"><strong style="color: #fff;">Logout</strong></a></li>
 							</ul>
 						</nav>
 				</section>
