@@ -176,7 +176,7 @@
 									<form method="post">
 										<div class="row gtr-50">
 											<div class="col-12">
-												<textarea style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4" required></textarea>
+												<textarea maxlength="400" style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4" required></textarea>
 											</div>
 											<div class="col-12">
 												<ul class="actions">

@@ -1,11 +1,9 @@
-<?php session_start(); if(!isset($_SESSION["userEmail"])) { header('Refresh: 0; url=index.php'); } ?>
-
+<?php session_start(); if(!isset($_SESSION["userEmail"]) || !isset($_SESSION["isAdmin"])) { header('Refresh: 0; url=../index.php'); } ?>
 <!DOCTYPE HTML>
 
 <!--
 	Author: 
 	Front-End: John Yohan J. Navarra
-	Back-End: Angelo Kurt B. Rosal
 -->
 
 <html>
@@ -13,18 +11,16 @@
 		<title>Yverdon Book Management System</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
 
 		<!--The icon beside the title on the website's tab on the browser, change directory accordingly.-->
-		<link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
-		<link rel="manifest" href="images/favicon_io/site.webmanifest">
-
-
+		<link rel="apple-touch-icon" sizes="180x180" href="../images/favicon_io/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon_io/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon_io/favicon-16x16.png">
+		<link rel="manifest" href="../images/favicon_io/site.webmanifest">
 	</head>
 	
-	<body class="homepage is-preload">
+	<body class="homepage is-preload" onload="loginCheck()">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -32,34 +28,33 @@
 
 					<!-- Logo -->
 						<div id="logo">
-							<h1><span><a href="home.php">Yverdon Book Management System</a></span></h1>
+							<h1><span><a href="adminHome.php">Yverdon Book Management System</a></span></h1>
 							<p style="font-weight: 700;">The online book management system for Yverdon de Pestalozzi School</p>
 						</div>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li class="current"><a href="home.php"><strong style="color: #fff;">Home</strong></a></li>
+								<li class="current"><a href="adminHome.php"><strong style="color: #fff;">Home</strong></a></li>
 								<li>
-									<a href="books.php"><strong style="color: #fff;">Books</strong></a>
+									<a href="adminBooks.php"><strong style="color: #fff;">Editing</strong></a>
 									<ul>
-										<li><a href="books.php">Non-fiction</a></li>
-										<li><a href="books.php">Education</a></li>
-										<li><a href="books.php">Fiction</a></li>
-										<li><a href="books.php">Literature</a></li>
-										<li><a href="books.php">Entertainments</a></li>
-										<li><a href="books.php">Philosophy</a></li>
+										<li><a href="adminBooks.php">Books</a></li>
+										<li><a href="adminUsers.php">Users</a></li>
+										<li><a href="adminRequests.php">Requests</a></li>
+										<li><a href="adminFeedback.php">Feedback</a></li>
+										<li><a href="adminLogs.php">Logs</a></li>
 									</ul>
 								</li>
-								<li><a href="userProfile.php"><strong style="color: #fff;">User Profile</strong></a></li>
+								<li><a href="adminProfile.php"><strong style="color: #fff;">User Profile</strong></a></li>
 								
 								<!--Add logout link here-->
-								<li><a href="index.php"><strong style="color: #fff;">Logout</strong></a></li>
+								<li><a href="../index.php"><strong style="color: #fff;">Logout</strong></a></li>
 							</ul>
 						</nav>
 				</section>
-				
-			<!-- Intro -->			
+
+			<!-- Intro -->
 				<section id="intro" class="wrapper style1">
 					<div class="title">WELCOME!</div>
 					<div class="container">
@@ -71,7 +66,7 @@
 							This website is created for the library of Yverdon de Pestalozzi School, Inc. for your convenience in discovering books.
 						</p>
 						<ul class="actions">
-							<li><a href="books.php" class="button style3 large">Proceed</a></li> 
+							<li><a href="adminBooks.php" class="button style3 large">Proceed</a></li> 
 						</ul>
 					</div>
 				</section>
@@ -82,13 +77,8 @@
 						<div class="container">
 							<div class="row aln-center">
 								<?php
-									$conn = mysqli_connect("fdb1028.awardspace.net", "4299657_ydpbmsdatabase", "Yv3rd0nD3P3st@l0zz1", "4299657_ydpbmsdatabase");
+									$conn = mysqli_connect("localhost", "root", "", "ydpbms");
 									if ($conn->connect_error) {
-										echo "
-											<script>
-												errorRedirect(".$conn->connect_error.");
-											</script>
-										";
 										die("Connection Failed : ". $conn->connect_error);
 									}
 									else {
@@ -110,7 +100,7 @@
 												$a[] = $row["name"];
 												$b[] = $row["author"];
 												$c[] = $row["imgUrl"];
-												$d[] = "more.php?select=" . $row["name"]; // more.php link
+												$d[] = "adminMore.php?select=" . $row["name"]; // more.php link
 											}
 											shuffle($row);
 										} else {
@@ -122,7 +112,7 @@
 											echo "
 												<div class='col-4 col-12-medium'>
 													<section class='highlight'>
-														<a class='image featured' style='width: 100%;'><img src='".$c[$x]."' alt='' style='margin-bottom: 25px; width: 100%;'/></a>
+														<a class='image featured' style='width: 100%;'><img src='../".$c[$x]."' alt='' style='margin-bottom: 25px; width: 100%;'/></a>
 														<h3><a href='#'>".$a[$x]."</a></h3>
 														<p style='margin-bottom: -15px;'>Author: ".$b[$x]."</p>
 														<ul class='actions'>
@@ -136,7 +126,7 @@
 								?>
 						</div>
 					</div>
-				</section>
+				</section> 
 
 			<!-- Categories -->
 				<section id="main" class="wrapper style3">
@@ -149,58 +139,51 @@
 									<h2>Are you looking for your next great read?</h2>
 									<p>Discover a world of possibilities in our book categories! From fiction and literature to science and history, we have something for every reader. Browse our extensive collection and find your next favorite book!</p>
 								</header>
-								<h3 style="text-align: center; font-size: 2em; margin-bottom: 40px;">Categories</h3>
 								<div class="feature-list">
 									<div class="row">
 										<div class="col-6 col-12-medium">
 											<section>
-												<h3 class="icon"><a><span><img src="images/nonfic.png" style="width: 45px; height: auto;"></span>Non-fiction</a></h3>
+												<h3 class="icon"><a href="adminBooks.php"><span ><img src="images/nonfic.png" style="width: 45px; height: auto;"></span>Non-fiction</h3></a>
 												<p>Based on factual information and real events, providing readers with an opportunity to learn and expand their knowledge on various topics.</p>
 											</section>
 										</div>
 										<div class="col-6 col-12-medium">
 											<section>
-												<h3 class="icon"><a><span><img src="images/fic.png" style="width: 45px; height: auto;"></span>Fiction</a></h3>
-												<p>These books are works of the imagination, taking readers on a journey to new worlds, introducing them to new characters and telling them stories that entertain, inspire and move.</p>
-											</section>
-										</div>
-									</div>
-								</div>
-							</section>
-    <h3 style="text-align: center;font-size: 2em;margin-top: 50px;margin-bottom: 40px;">Genres</h3>
-<div class="feature-list">
-									<div class="row">
-																				
-																				
-										<div class="col-6 col-12-medium">
-											<section>
-												<h3 class="icon"><a><span><img src="images/edu.png" style="width: 45px; height: auto;"></span>Education</a></h3>
+												<h3 class="icon"><a href="adminBooks.php"><span ><img src="images/edu.png" style="width: 45px; height: auto;"></span>Education</h3></a>
 												<p>Designed to help readers acquire new knowledge and skills, and to improve their understanding of specific subjects.</p>
 											</section>
 										</div>
 										<div class="col-6 col-12-medium">
 											<section>
-												<h3 class="icon solid"><a><span><img src="images/literature.png" style="width: 45px; height: auto;"></span>Literature</a></h3>
+												<h3 class="icon"><a href="adminBooks.php"><span ><img src="images/fic.png" style="width: 45px; height: auto;"></span>Fiction</h3></a>
+												<p>These books are works of the imagination, taking readers on a journey to new worlds, introducing them to new characters and telling them stories that entertain, inspire and move.</p>
+											</section>
+										</div>
+										<div class="col-6 col-12-medium">
+											<section>
+												<h3 class="icon solid"><a href="adminBooks.php"><span ><img src="images/literature.png" style="width: 45px; height: auto;"></span>Literature</h3></a>
 												<p>Recognized for literary value, cultural importance, and complex themes, challenging readers to think deeply and critically.</p>
 											</section>
 										</div>
 										<div class="col-6 col-12-medium">
 											<section>
-												<h3 class="icon solid"><a><span><img src="images/entert.png" style="width: 45px; height: auto;"></span>Entertainment</a></h3>
+												<h3 class="icon solid"><a href="adminBooks.php"><span ><img src="images/entert.png" style="width: 45px; height: auto;"></span>Entertainment</h3></a>
 												<p>Provides readers with enjoyment and amusement, makes them laugh or feel entertained, and offer an escape from reality.</p>
 											</section>
 										</div>
 										<div class="col-6 col-12-medium">
 											<section>
-												<h3 class="icon solid"><a><span><img src="images/philo.png" style="width: 45px; height: auto;"></span>Philosophy</a></h3>
+												<h3 class="icon solid"><a href="adminBooks.php"><span ><img src="images/philo.png" style="width: 45px; height: auto;"></span>Philosophy</h3></a>
 												<p>Explore fundamental questions about existence, reality, and values, insights into the human condition, moral and ethical dilemmas, and the nature of knowledge and truth.</p>
 											</section>
 										</div>
-										
 									</div>
 								</div>
+							</section>
+
 					</div>
 				</section>
+
 			<!-- Footer -->
 				<section id="footer" class="wrapper">
 					<div class="title">Want to know more?</div>
@@ -219,7 +202,7 @@
 									<form method="post">
 										<div class="row gtr-50">
 											<div class="col-12">
-												<textarea style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4" required></textarea>
+												<textarea maxlength="400" style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4" required></textarea>
 											</div>
 											<div class="col-12">
 												<ul class="actions">
@@ -288,12 +271,14 @@
 		</div>
 
 		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.dropotron.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.dropotron.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+			<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 	</body>
 </html>

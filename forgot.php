@@ -1,4 +1,4 @@
-<?php session_start(); session_unset(); ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 
 <!--
@@ -20,7 +20,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap" rel="stylesheet">
 		
-		<!--The icon beside the title on the website's tab on the browser, change directory accordingly.-->
+		<!-- The icon beside the title on the website's tab on the browser, change directory accordingly.-->
 		<link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
@@ -37,6 +37,7 @@
 	
 
 	<body>
+		
 		<center>
 			<img src="images/logoNoBG.png" class="forgot-img">
 
@@ -58,9 +59,11 @@
 					</div>
 
 				</form>
+				<p>Already have an account? <a href="index.php" class="login-link">Login</a></p>
 			</div>
 		</center>
-
+		
+		<!-- Popup does not work here, I do not have the time to fix this. -->
 		
 		<script src="assets/js/login.js"></script>
 		<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

@@ -82,7 +82,7 @@
 						<div class="container">
 							<div class="row aln-center">
 								<?php
-									$conn = mysqli_connect("fdb1028.awardspace.net", "4299657_ydpbmsdatabase", "Yv3rd0nD3P3st@l0zz1", "4299657_ydpbmsdatabase");
+									$conn = mysqli_connect("localhost", "root", "", "ydpbms");
 									if ($conn->connect_error) {
 										echo "
 											<script>
@@ -167,40 +167,41 @@
 									</div>
 								</div>
 							</section>
-    <h3 style="text-align: center;font-size: 2em;margin-top: 50px;margin-bottom: 40px;">Genres</h3>
-<div class="feature-list">
-									<div class="row">
-																				
-																				
-										<div class="col-6 col-12-medium">
-											<section>
-												<h3 class="icon"><a><span><img src="images/edu.png" style="width: 45px; height: auto;"></span>Education</a></h3>
-												<p>Designed to help readers acquire new knowledge and skills, and to improve their understanding of specific subjects.</p>
-											</section>
-										</div>
-										<div class="col-6 col-12-medium">
-											<section>
-												<h3 class="icon solid"><a><span><img src="images/literature.png" style="width: 45px; height: auto;"></span>Literature</a></h3>
-												<p>Recognized for literary value, cultural importance, and complex themes, challenging readers to think deeply and critically.</p>
-											</section>
-										</div>
-										<div class="col-6 col-12-medium">
-											<section>
-												<h3 class="icon solid"><a><span><img src="images/entert.png" style="width: 45px; height: auto;"></span>Entertainment</a></h3>
-												<p>Provides readers with enjoyment and amusement, makes them laugh or feel entertained, and offer an escape from reality.</p>
-											</section>
-										</div>
-										<div class="col-6 col-12-medium">
-											<section>
-												<h3 class="icon solid"><a><span><img src="images/philo.png" style="width: 45px; height: auto;"></span>Philosophy</a></h3>
-												<p>Explore fundamental questions about existence, reality, and values, insights into the human condition, moral and ethical dilemmas, and the nature of knowledge and truth.</p>
-											</section>
-										</div>
-										
+							<h3 style="text-align: center;font-size: 2em;margin-top: 50px;margin-bottom: 40px;">Genres</h3>
+							<div class="feature-list">
+								<div class="row">
+																			
+																			
+									<div class="col-6 col-12-medium">
+										<section>
+											<h3 class="icon"><a><span><img src="images/edu.png" style="width: 45px; height: auto;"></span>Education</a></h3>
+											<p>Designed to help readers acquire new knowledge and skills, and to improve their understanding of specific subjects.</p>
+										</section>
 									</div>
+									<div class="col-6 col-12-medium">
+										<section>
+											<h3 class="icon solid"><a><span><img src="images/literature.png" style="width: 45px; height: auto;"></span>Literature</a></h3>
+											<p>Recognized for literary value, cultural importance, and complex themes, challenging readers to think deeply and critically.</p>
+										</section>
+									</div>
+									<div class="col-6 col-12-medium">
+										<section>
+											<h3 class="icon solid"><a><span><img src="images/entert.png" style="width: 45px; height: auto;"></span>Entertainment</a></h3>
+											<p>Provides readers with enjoyment and amusement, makes them laugh or feel entertained, and offer an escape from reality.</p>
+										</section>
+									</div>
+									<div class="col-6 col-12-medium">
+										<section>
+											<h3 class="icon solid"><a><span><img src="images/philo.png" style="width: 45px; height: auto;"></span>Philosophy</a></h3>
+											<p>Explore fundamental questions about existence, reality, and values, insights into the human condition, moral and ethical dilemmas, and the nature of knowledge and truth.</p>
+										</section>
+									</div>
+									
 								</div>
+							</div>
 					</div>
 				</section>
+
 			<!-- Footer -->
 				<section id="footer" class="wrapper">
 					<div class="title">Want to know more?</div>
@@ -219,7 +220,7 @@
 									<form method="post">
 										<div class="row gtr-50">
 											<div class="col-12">
-												<textarea style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4" required></textarea>
+												<textarea maxlength="400" style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4" required></textarea>
 											</div>
 											<div class="col-12">
 												<ul class="actions">

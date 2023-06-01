@@ -8,10 +8,12 @@ function toggleDisplay(id) {
 	else { a.style.display = "none"; }
 }
 
-function toggleDisplayUsers(id) {
-	var b = document.getElementById(id);
-	if(b.style.display == "none") { 
-		b.style.display = "block"; 
-	}
-	else { b.style.display = "none"; }
+function onDisplay(id) {
+	var a = document.getElementById(id);
+	a.style.display = "block";
+}
+
+function offDisplay(id) {
+	var a = document.getElementById(id);
+	a.style.display = "none";
 }

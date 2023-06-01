@@ -213,34 +213,13 @@ function adminSaveText() {
   });
 }
 
-// display of bookInfo & addBook in adminBooks, also shows the display of info in adminUsers
-function openInfo() {
-  document.getElementById("infoContent").style.display = "block";
-  document.getElementById("infoContent").style.position = "relative";
-}
-
-function closeInfo() {
-  document.getElementById("infoContent").style.display = "none";
-  document.getElementById("infoContent").style.position = "absolute";
-}
-
-function openBook() {
-  document.getElementById("bookContent").style.display = "block";
-  document.getElementById("bookContent").style.position = "relative";
-}
-
-function closeBook() {
-  document.getElementById("bookContent").style.display = "none";
-  document.getElementById("bookContent").style.position = "absolute";
-}
-
 // display of year datepicker
  function pickYear() {
 
   let dateDropdown = document.getElementById('date-dropdown'); 
        
   let currentYear = new Date().getFullYear();    
-  let earliestYear = 1000;     
+  let earliestYear = 0;     
   while (currentYear >= earliestYear) {      
     let dateOption = document.createElement('option');          
     dateOption.text = currentYear;      
@@ -249,4 +228,26 @@ function closeBook() {
     currentYear -= 1;    
   }
 
+}
+
+let x = 2;
+
+ function pickCategory() {
+
+  let categoryDropdown = document.getElementById('category-dropdown'); 
+  
+  while (x > 0) {      
+    let categoryOption = document.createElement('option');
+	if (x == 1)	{
+	  categoryOption.text = "Non-Fiction";      
+      categoryOption.value = "Non-Fiction";       
+	}
+	else if (x == 2) {
+	  categoryOption.text = "Fiction";      
+      categoryOption.value = "Fiction";       
+	}
+    categoryDropdown.add(categoryOption);      
+    x -= 1;    
+  }
+  
 }

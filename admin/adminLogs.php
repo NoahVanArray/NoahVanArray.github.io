@@ -94,10 +94,15 @@
 														</header>
 											
 														<h3>Title: null</h3>
+											
 														<h3>Availability: null</h3>
+												
 														<h3>Author: null</h3>
+														
 														<h3>Genre: null</h3>
+
 														<h3>Publisher: null</h3>
+
 														<h3>Year Published: null</h3>
 
 														<div class="col-12">
@@ -185,62 +190,105 @@
 								<div id="content">
 
 									<table id="tableContent">
-										<tr>
-											<th width="30%">Title</th>
-											<th>Stock</th>
-											<th width="20%">Author</th>
-											<th width="20%">Publisher</th>
-											<th width="15%">Category</th>
-											<th width="15%">Genre/s</th>
-											<th>Year</th>
-											<th>Select</th>
-										</tr>
-										<div id="tableContent">
-											<?php
-												// Books.html Search Tool
-
-													// Array with names
-													$a = array();
-													$conn = mysqli_connect("localhost", "root", "", "ydpbms");
-													if ($conn -> connect_error) {
-														die("Connection failed:". $conn -> connect_error);
-													}
-													$sql = "select name from books";
-													$result = $conn -> query($sql);
-													if ($result -> num_rows > 0) {
-														while ($row = $result -> fetch_assoc()) {
-															$a[] = $row["name"]; // $row must have a specified identifier to avoid nested array/system error
-														}
-													} else {
-														exit;
-													}
-													
-													// default display
-													$x = "";
-													$stmt = $conn->prepare("select * from books order by name asc limit 10");
-													$stmt->execute();
-													$stmt_result = $stmt->get_result();
-													
-													while ($row = $stmt_result->fetch_assoc()) {
-														if ($row["stock"] < 1) { $x = "red; color: white"; }
-														else { $x = "lime"; }
-														echo '
-															<tr>
-																<td>'.$row["name"].'<a href="adminMore.php?select='.$row["name"].'" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
-																<td style="background-color: '.$x.';">'.$row["stock"].'</td>
-																<td>'.$row["author"].'</td>
-																<th>'.$row["publisher"].'</th>
-																<td>'.$row["category"].'</td>
-																<td>'.$row["genre"].'</td>
-																<td>'.$row["originyear"].'</t>
-																<th><button class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" value="bookInfo" onclick="onDisplay(this.value)">Select</button></th>
-															</tr>
-														';
-													}
-												
-												$conn -> close();	
-											?>
-										</div>
+									  <tr>
+										<th>Title</th>
+										<th>Availability</th>
+										<th>Author</th>
+										<th>Genre</th>
+										<th>Publisher</th>
+										<th>Year Published</th>
+										<th>Select</th>
+									  </tr>
+									  <tr>
+										<td>Title#1<a href="" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
+										<td>Insert Availability</td>
+										<td>Insert Author</td>
+										<td>Insert Genre</td>
+										<th>Insert Publisher</th>
+										<td>Insert Year Published</t>
+										<th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
+									  </tr>
+									  <tr>
+										<td>Title#2<a href="" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
+										<td>Insert Availability</td>
+										<td>Insert Author</td>
+										<td>Insert Genre</td>
+										<th>Insert Publisher</th>
+										<td>Insert Year Published</t>
+										<th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
+									  </tr>
+									  <tr>
+										<td>Title#3<a href="" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
+										<td>Insert Availability</td>
+										<td>Insert Author</td>
+										<td>Insert Genre</td>
+										<th>Insert Publisher</th>
+										<td>Insert Year Published</t>
+										<th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
+									  </tr>
+									  <tr>
+										<td>Title#4<a href="" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
+										<td>Insert Availability</td>
+										<td>Insert Author</td>
+										<td>Insert Genre</td>
+										<th>Insert Publisher</th>
+										<td>Insert Year Published</t>
+										<th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
+									  </tr>
+									  <tr>
+										<td>Title#5<a href="" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
+										<td>Insert Availability</td>
+										<td>Insert Author</td>
+										<td>Insert Genre</td>
+										<th>Insert Publisher</th>
+										<td>Insert Year Published</t>
+										<th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
+									  </tr>
+									  <tr>
+										<td>Title#6<a href="" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
+										<td>Insert Availability</td>
+										<td>Insert Author</td>
+										<td>Insert Genre</td>
+										<th>Insert Publisher</th>
+										<td>Insert Year Published</t>
+										<th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
+									  </tr>
+									  <tr>
+										<td>Title#7<a href="" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
+										<td>Insert Availability</td>
+										<td>Insert Author</td>
+										<td>Insert Genre</td>
+										<th>Insert Publisher</th>
+										<td>Insert Year Published</t>
+										<th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
+									  </tr>
+									  <tr>
+										<td>Title#8<a href="" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
+										<td>Insert Availability</td>
+										<td>Insert Author</td>
+										<td>Insert Genre</td>
+										<th>Insert Publisher</th>
+										<td>Insert Year Published</t>
+										<th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
+									  </tr>
+									  <tr>
+										<td>Title#9<a href="" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
+										<td>Insert Availability</td>
+										<td>Insert Author</td>
+										<td>Insert Genre</td>
+										<th>Insert Publisher</th>
+										<td>Insert Year Published</t>
+										<th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
+									  </tr>
+									  <tr>
+										<td>Title#10<a href="" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
+										<td>Insert Availability</td>
+										<td>Insert Author</td>
+										<td>Insert Genre</td>
+										<th>Insert Publisher</th>
+										<td>Insert Year Published</t>
+										<th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
+									  </tr>
 									</table>
 									
 									<center>
@@ -279,27 +327,23 @@
 							<div class="col-6 col-12-medium">
 
 								<!-- Contact Form -->
-									<section>
-										<form method="post" action="#">
-											<div class="row gtr-50">
-												<div class="col-6 col-12-small">
-													<input type="text" name="name" id="contact-name" placeholder="Name" />
-												</div>
-												<div class="col-6 col-12-small">
-													<input type="text" name="email" id="contact-email" placeholder="Email" />
-												</div>
-												<div class="col-12">
-													<textarea style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4"></textarea>
-												</div>
-												<div class="col-12">
-													<ul class="actions">
-														<li><input type="submit" class="style1" value="Send" /></li>
-														<li><input type="reset" class="style2" value="Reset" /></li>
-													</ul>
-												</div>
+								<section>
+									<script src="assets/js/request.js"></script>
+									<form method="post">
+										<div class="row gtr-50">
+											<div class="col-12">
+												<textarea maxlength="400" style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4" required></textarea>
 											</div>
-										</form>
-									</section>
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" class="style1" value="Send" onclick="return requestAccept('Feedback')" /></li>
+													<li><input type="reset" class="style2" value="Reset" style="color: #484d55;" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</section>
+								<p id="demo"></p>
 
 							</div>
 							<div class="col-6 col-12-medium">

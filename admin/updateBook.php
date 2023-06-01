@@ -22,28 +22,6 @@
 			$stmt_result = $stmt -> get_result();
 			$row = $stmt_result -> fetch_assoc();
 			if ($stmt_result->num_rows == 1) {
-				// create/add to log query
-				$date = date("Y/m/d");
-				$stmt = $conn -> prepare("select * from logs where date = ?");
-				$stmt -> bind_param("s", $date);
-				$stmt -> execute();
-				$result = $stmt -> get_result();
-				if ($result->num_rows < 1) { 
-					$stmt = $conn -> prepare("select sum(stock) as totalsum from books");
-					$stmt -> execute();
-					$result = $stmt -> get_result();
-					$row = $result -> fetch_assoc(); 
-					$sum = $row['totalsum'];
-					$stmt = $conn -> prepare("insert into logs (visits, stockDiff, bookStock, adminComment) VALUES (1, 0, ?, NULL)");
-					$stmt -> bind_param("i", $sum);
-					$stmt -> execute();
-				}
-				else { 
-					$stmt = $conn -> prepare("update logs set visits = (visits + 1) where date = ?");
-					$stmt -> bind_param("s", $date);
-					$stmt -> execute();
-				}
-				
 				$_SESSION["userEmail"] = $email1;
 				// create a select * from logs where date = getdate(), and if no num_rows, create a new row with that date set
 				if ($row["isAdmin"] == "1") {
@@ -55,7 +33,9 @@
 				}
 			}
 			else {
-				$_SESSION["error"] = "The email or password is incorrect.";
+				echo '<script type="text/javascript">
+					errorRedirect("The email or password is incorrect.");
+				</script>';
 				header('Refresh: 0; index.php');
 			}
 			$stmt->close();
@@ -79,44 +59,41 @@
 		}
 		else {
 			if ($grade2 > 12 || $grade2 < 1) { 
-				$_SESSION["error"] = "The grade level is invalid.";
+				echo '<script type="text/javascript"> alert("The grade level is invalid."); </script>';
 				header('Refresh: 0; index.php');
-				exit;
 			}
 			$stmt = $conn->prepare("select email from users where email = ?"); 
 			$stmt->bind_param("s", $email2); 
 			$stmt->execute(); 
 			$stmt_result = $stmt->get_result();
 			if ($stmt_result->num_rows > 0) { 
-				$_SESSION["error"] = "Email is already used.";
+				echo '<script type="text/javascript"> alert("Email is already used."); </script>';
 				header('Refresh: 0; index.php');
-				exit;
 			}
 			$stmt = $conn->prepare("select lname from users where fname = ? and lname = ?");
 			$stmt->bind_param("ss", $fname2, $lname2); 
 			$stmt->execute(); 
 			$stmt_result = $stmt->get_result();
 			if ($stmt_result->num_rows > 0) { 
-				$_SESSION["error"] = "The combination of names are already used.";
+				echo '<script type="text/javascript"> alert("The combination of names are already used."); </script>';
 				header('Refresh: 0; index.php');
-				exit;
 			}
 			$stmt = $conn->prepare("select email from requests where email = ? and type = 'Account Creation'");
 			$stmt->bind_param("s", $email2); 
 			$stmt->execute(); 
 			$stmt_result = $stmt->get_result();
 			if ($stmt_result->num_rows > 0) { 
-				$_SESSION["error"] = "A registration request from this email is already made.";
-				header('Refresh: 0; index.php');
-				exit;
+				echo '<script type="text/javascript"> alert("A registration request from this email is already made."); </script>';
+
 			}
 			else {
 				$stmt = $conn->prepare("insert into requests(fname, lname, grade, section, email, type, status) values(?, ?, ?, ?, ?, 'Account Creation', 'ongoing')");
 				$stmt->bind_param("ssiss", $fname2, $lname2, $grade2, $section2, $email2);
 				$stmt->execute();
-				$_SESSION["error"] = "Request to register is successful. Check your email regularly for the one-time password to use in your login. You may change it within the main site once you have logged in.";
+				echo '<script type="text/javascript">
+					alert("Request to register is successful. Check your email regularly for the one-time password to use in your login. You may change it within the main site once you have logged in. Please wait patiently!");
+				</script>';
 				header('Refresh: 0; index.php');
-				$_SESSION["success"] = 1;
 				$stmt->close();
 				$conn->close();
 				exit;
@@ -134,32 +111,27 @@
 			die("Connection Failed : ". $conn->connect_error);
 		}
 		else {
-			$stmt = $conn->prepare("select * from users where email = ?"); 
-			$stmt->bind_param("s", $email3); 
-			$stmt->execute(); 
-			$stmt_result = $stmt->get_result();
-			if ($stmt_result->num_rows == 0) { 
-				echo '<script>alert("There is no such email in the system.");</script>';
-				header('Refresh: 0; forgot.php');
-				exit;
-			}
 			$stmt = $conn->prepare("select * from requests where email = ? and type = 'Password Reset'");
 			$stmt->bind_param("s", $email3);
 			$stmt->execute();
 			$stmt_result = $stmt->get_result();
 			if ($stmt_result->num_rows > 0) {
-				echo '<script>alert("A request with the email is already made.");</script>';
-				header('Refresh: 0; forgot.php');
-				exit;
+				echo '<script type="text/javascript">
+					alert("A request with the email is already made.");
+				</script>';
+				header('Refresh: 0; index.php');
 			}
 			else {
 				$stmt = $conn->prepare("insert into requests(type, email, status) values('Password Reset', ?, 'ongoing')");
 				$stmt->bind_param("s", $email3);
 				$stmt->execute();
 				$stmt_result = $stmt->get_result();
-				$_SESSION["error"] = "A password reset request has been successfully created. Once the request is recognized and accepted, a one-time password will be sent to your email.";
-				$_SESSION["success"] = 1;
-				header('Refresh: 0; index.php');
+				echo '<script type="text/javascript">
+					alert("A password reset request has been successfully created. Once the request is recognized and accepted, a one-time password will be sent to your email. Please wait patiently!");
+				</script>';
+				echo '<script type="text/javascript">
+					alert("Note: You will not be redirected back to the main page.");
+				</script>';
 			}
 			$stmt->close();
 			$conn->close();

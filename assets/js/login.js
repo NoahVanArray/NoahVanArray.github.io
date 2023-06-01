@@ -48,7 +48,12 @@ const alert = document.querySelector('.alertPopup');
 
 // To open the popup
 function openAlert() {
-  alert.style.transform= "scale(1)";
+  var v = document.getElementById("alertValue").innerHTML;
+  if (v.length > 0) {
+    document.getElementById("alertMessage").innerHTML = document.getElementById("alertValue").innerHTML;
+	document.getElementById("alertSubtitle").innerHTML = document.getElementById("alertSubValue").innerHTML;
+	alert.style.transform = "scale(1)";
+  }
 }
 
 // To close the popup

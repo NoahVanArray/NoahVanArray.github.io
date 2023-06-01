@@ -56,7 +56,7 @@
 
 			<!-- Main -->
 				<section id="main" class="wrapper style3">
-					<div class="title">Books</div>
+					<div class="title">Users</div>
 					<div class="container">
 						<div class="row gtr-150">
 							<div class="col-4 col-12-medium">
@@ -65,7 +65,7 @@
 									<div id="sidebar">
 										<section class="box">
 											<header>
-												<h2 >General Information</h2>
+												<h2 style="color: #2f333b;">General Information</h2>
 											</header>
 											<ul class="style2">
 												<li>
@@ -86,28 +86,24 @@
 											</ul>
 
 										<!-- Show table info -->
-											<div class="row gtr-50" id="bookInfo" style="display: none;">
+											<div class="row gtr-50">
 												<form method="post" action="#" style="max-width: 100%; width: 100%;">
-													<div class="row gtr-50 addBookContent" id="infoContent" style="margin-top: 0;">
+													<div class="row gtr-50 addBookContent" id="infoContent" style="margin-top: 0; display: none;">
 														<header>
-															<h2 style="color: #2f333b; margin-bottom: -25px;">Book Information</h2>
+															<h2 style="color: #2f333b; margin-bottom: -25px;">User Information</h2>
 														</header>
 											
-														<h3>Title: null</h3>
-														<h3>Availability: null</h3>
-														<h3>Author: null</h3>
-														<h3>Genre: null</h3>
-														<h3>Publisher: null</h3>
-														<h3>Year Published: null</h3>
+														<h3>Name: &lt;Insert value here&gt;</h3>
+											
+														<h3>Grade: &lt;Insert value here&gt;</h3>
+												
+														<h3>Section: &lt;Insert value here&gt;</h3>
+														
+														<h3 style="margin-right: 50px;">Email: &lt;Insert value here&gt;</h3>
 
-														<div class="col-12">
-															<ul class="actions">
-																<li><input type="submit" class="style1" value="Edit" style="min-width: 0; width: 75px; margin-left: -10px;"/></li>
-																<li><input type="submit" class="style1" value="Save" style="min-width: 0; width: 75px; margin-left: -10px;"/></li>
-																<li><input type="submit" class="style3" value="Delete" style="min-width: 0; width: 75px; margin-left: -10px;" onclick="" /></li>
-																<li><input type="reset" class="style2" value="Close" style="min-width: 0; width: 75px; margin-left: -10px;" onclick="closeInfo()" /></li>
-															</ul>
-														</div>
+														<a class="button style1" style="min-width: 0; line-height: 2.5; height: 34px; width: 98px;margin: 0 5px 0 15px; padding: 0;">Update User</a>
+														<a class="button style3" style="min-width: 0; line-height: 2.5; height: 34px; width: 98px;margin: 0 0 0 10px; padding: 0;">Delete User</a>
+														<a class="button style2" style="min-width: 0; line-height: 2.5; height: 34px; width: 98px;margin: 0 5px 0 15px; padding: 0;" onclick="closeInfo()">Close</a>
 													</div>
 												</form>
 											</div>
@@ -128,19 +124,18 @@
 									</form>
 
 								<!-- Sorting -->
-								<button id="sortByButton" value="sortTable" onclick="toggleDisplay(this.value)">Sort By</button>
-								<button id="addBookButton" value="addBookTable" onclick="toggleDisplay(this.value)">Add Book</button>
+								<button id="sortByButton" value="sortTableUsers" onclick="toggleDisplayUsers(this.value)">Sort By</button>
 								
-								<ul id="sortTable" style="display: none;">
+								<ul id="sortTableUsers" style="display: none;">
 									<li style="list-style-type: none;">
-										<ul style="list-style-type: none;">
+										<ul>
 											<li><h1 id="sortOrder">Order: Ascending</h1></li>
-											<li><button class="sortTableBtn" value="asc" onclick="printMessage(this.value)" style="float: left; margin-right: 20px; position: relative; z-index: 50;">Ascending</button></li>
+											<li><button class="sortTableBtn" value="asc" onclick="printMessage(this.value)" style="float: left; margin-right: 20px;">Ascending</button></li>
 											<li><button class="sortTableBtn" value="desc" onclick="printMessage(this.value)">Descending</button></li>
 										</ul>
 									</li>
 									<li style="list-style-type: none;">
-										<ul style="list-style-type: none;">
+										<ul>
 											<li><h1 id="sortPriority">Priority: Name</h1></li>
 											<li><button class="sortTableBtn" value="name" onclick="printMessage(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">Name</button></li>
 											<li><button class="sortTableBtn" value="id" onclick="printMessage(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">ID</button></li>
@@ -151,116 +146,90 @@
 									</li>
 								</ul>
 
-								<!-- Add book -->
-								<div class="row gtr-50" id="addBookTable" style=" display: none;">
-									<h1>Fill up the form below with the proper information</h1>
-									<form method="post" action="addBook.php" style="max-width: 100%; width: 100%;">
-										<div class="row gtr-50 addBookContent" id="bookContent" style="margin-top: 0;">
-											<div class="col-6 col-12-small">
-												<input type="text" name="name" id="" placeholder="Title" style="margin-bottom: 1em;" required />
-												<input type="text" name="author" id="" placeholder="Author" style="margin-bottom: 1em;" required />
-												<input type="text" name="publisher" id="" placeholder="Publisher" style="margin-bottom: 1em;" required />
-												<input type="text" name="genre" id="" placeholder="Genre" required />
-											</div>
-											<div class="col-6 col-12-small">
-												<p style="margin-bottom: 1em;">Book Cover: <input type="file" name="image" id="" placeholder="Book Cover" accept=".jpg, .jpeg, .p, .png" required /></p>
-												<p>Year Published: <select id='date-dropdown' placeholder="Year Published" onclick="pickYear()" style="margin-bottom: -1em;" required ></select></p>
-												<p>Category: <select id='category-dropdown' placeholder="Category" onclick="pickCategory()" style="margin-bottom: -2em;" required ></select></p>
-												
-											</div>
-											<div class="col-12">
-												<textarea style="max-width: 100%;" name="message" id="" placeholder="Description (optional)" rows="6"></textarea>
-											</div>
-											<div class="col-12">
-												<ul class="actions">
-													<li><input type="submit" class="style1" value="Save" style="min-width: 0; width: 85px;"/></li>
-													<li><input type="reset" class="style2" value="Reset" style="min-width: 0; width: 85px;" /></li>
-												</ul>
-											</div>
-										</div>
-									</form>
-								</div>
-
 								<!-- Content -->
-								<div id="content">
+									<div id="content">
 
-									<table id="tableContent">
-										<tr>
-											<th width="30%">Title</th>
-											<th>Stock</th>
-											<th width="20%">Author</th>
-											<th width="20%">Publisher</th>
-											<th width="15%">Category</th>
-											<th width="15%">Genre/s</th>
-											<th>Year</th>
-											<th>Select</th>
-										</tr>
-										<div id="tableContent">
-											<?php
-												// Books.html Search Tool
-
-													// Array with names
-													$a = array();
-													$conn = mysqli_connect("localhost", "root", "", "ydpbms");
-													if ($conn -> connect_error) {
-														die("Connection failed:". $conn -> connect_error);
-													}
-													$sql = "select name from books";
-													$result = $conn -> query($sql);
-													if ($result -> num_rows > 0) {
-														while ($row = $result -> fetch_assoc()) {
-															$a[] = $row["name"]; // $row must have a specified identifier to avoid nested array/system error
-														}
-													} else {
-														exit;
-													}
-													
-													// default display
-													$x = "";
-													$stmt = $conn->prepare("select * from books order by name asc limit 10");
-													$stmt->execute();
-													$stmt_result = $stmt->get_result();
-													
-													while ($row = $stmt_result->fetch_assoc()) {
-														if ($row["stock"] < 1) { $x = "red; color: white"; }
-														else { $x = "lime"; }
-														echo '
-															<tr>
-																<td>'.$row["name"].'<a href="adminMore.php?select='.$row["name"].'" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
-																<td style="background-color: '.$x.';">'.$row["stock"].'</td>
-																<td>'.$row["author"].'</td>
-																<th>'.$row["publisher"].'</th>
-																<td>'.$row["category"].'</td>
-																<td>'.$row["genre"].'</td>
-																<td>'.$row["originyear"].'</t>
-																<th><button class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" value="bookInfo" onclick="onDisplay(this.value)">Select</button></th>
-															</tr>
-														';
-													}
-												
-												$conn -> close();	
-											?>
-										</div>
-									</table>
-									
-									<center>
-										<div class="alertPopup" style="display: none;">
-											
-											<div class="alertClose">
-												<ion-icon name="close-outline"></ion-icon>
-											</div>
-
-											<!-- Login -->
-											<div class="alertText">
-														<h2>Are you sure about the changes you have made?</h2>
-														<input type="submit" class="style1 alertBtn1" value="Yes" style="min-width: 0; display: inline;">
-														<input type="submit" class="style3 alertBtn2" value="No" style="min-width: 0; display: inline;">
-											</div>
-											
-										</div>
-									</center>
-
-								</div>
+										<table>
+										  <tr>
+										    <th>Name</th>
+										    <th>Grade</th>
+										    <th>Section</th>
+										    <th>Email</th>
+										    <th>Select</th>
+										  </tr>
+										  <tr>
+										    <td>Person#1</td>
+										    <td>Insert Grade</td>
+										    <td>Insert Section</td>
+										    <td>Insert Email</td>
+										    <th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
+										  </tr>
+										  <tr>
+										    <td>Person#2</td>
+										    <td>Insert Grade</td>
+										    <td>Insert Section</td>
+										    <td>Insert Email</td>
+										    <th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
+										  </tr>
+										  <tr>
+										    <td>Person#3</td>
+										    <td>Insert Grade</td>
+										    <td>Insert Section</td>
+										    <td>Insert Email</td>
+										    <th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
+										  </tr>
+										  <tr>
+										    <td>Person#4</td>
+										    <td>Insert Grade</td>
+										    <td>Insert Section</td>
+										    <td>Insert Email</td>
+										    <th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
+										  </tr>
+										  <tr>
+										    <td>Person#5</td>
+										    <td>Insert Grade</td>
+										    <td>Insert Section</td>
+										    <td>Insert Email</td>
+										    <th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
+										  </tr>
+										  <tr>
+										    <td>Person#6</td>
+										    <td>Insert Grade</td>
+										    <td>Insert Section</td>
+										    <td>Insert Email</td>
+										    <th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
+										  </tr>
+										  <tr>
+										    <td>Person#7</td>
+										    <td>Insert Grade</td>
+										    <td>Insert Section</td>
+										    <td>Insert Email</td>
+										    <th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
+										  </tr>
+										  <tr>
+										    <td>Person#8</td>
+										    <td>Insert Grade</td>
+										    <td>Insert Section</td>
+										    <td>Insert Email</td>
+										    <th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
+										  </tr>
+										  <tr>
+										    <td>Person#9</td>
+										    <td>Insert Grade</td>
+										    <td>Insert Section</td>
+										    <td>Insert Email</td>
+										    <th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
+										  </tr>
+										  <tr>
+										    <td>Person#10</td>
+										    <td>Insert Grade</td>
+										    <td>Insert Section</td>
+										    <td>Insert Email</td>
+										    <th><a class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" onclick="openInfo()">Select</a></th>
+										  </tr>
+										</table>
+										
+									</div>
 
 							</div>
 						</div>
@@ -279,27 +248,23 @@
 							<div class="col-6 col-12-medium">
 
 								<!-- Contact Form -->
-									<section>
-										<form method="post" action="#">
-											<div class="row gtr-50">
-												<div class="col-6 col-12-small">
-													<input type="text" name="name" id="contact-name" placeholder="Name" />
-												</div>
-												<div class="col-6 col-12-small">
-													<input type="text" name="email" id="contact-email" placeholder="Email" />
-												</div>
-												<div class="col-12">
-													<textarea style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4"></textarea>
-												</div>
-												<div class="col-12">
-													<ul class="actions">
-														<li><input type="submit" class="style1" value="Send" /></li>
-														<li><input type="reset" class="style2" value="Reset" /></li>
-													</ul>
-												</div>
+								<section>
+									<script src="assets/js/request.js"></script>
+									<form method="post">
+										<div class="row gtr-50">
+											<div class="col-12">
+												<textarea maxlength="400" style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4" required></textarea>
 											</div>
-										</form>
-									</section>
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" class="style1" value="Send" onclick="return requestAccept('Feedback')" /></li>
+													<li><input type="reset" class="style2" value="Reset" style="color: #484d55;" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</section>
+								<p id="demo"></p>
 
 							</div>
 							<div class="col-6 col-12-medium">
@@ -363,11 +328,9 @@
 			<script src="../assets/js/breakpoints.min.js"></script>
 			<script src="../assets/js/util.js"></script>
 			<script src="../assets/js/main.js"></script>
-			<script src="../assets/js/sort.js"></script>
-			<script src="../assets/js/toggleDisplay.js"></script>
 			<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 			<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
+			
 	</body>
 </html>
 

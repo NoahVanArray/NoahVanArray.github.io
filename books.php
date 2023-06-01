@@ -92,21 +92,16 @@
 												</li>
 												<li>
 													<article class="box post-excerpt">
-														<a href="#" class="image left"><img src="images/fic.png" alt="" style="border:none;"/></a>
-														<h3><a href="#">Fiction</a></h3>
-														<p>books are works of the imagination, taking readers on a journey to new worlds, introducing them to new characters and telling them stories that entertain, inspire and move.</p>
-													</article>
-												</li>
-											</ul>
-											<header>
-												<h2>Genres</h2>
-											</header>
-											<ul class="style2">
-												<li>
-													<article class="box post-excerpt">
 														<a href="#" class="image left"><img src="images/edu.png" alt="" style="border:none;"/></a>
 														<h3><a href="#">Education</a></h3>
 														<p>Designed to help readers acquire new knowledge and skills, and to improve their understanding of specific subjects. </p>
+													</article>
+												</li>
+												<li>
+													<article class="box post-excerpt">
+														<a href="#" class="image left"><img src="images/fic.png" alt="" style="border:none;"/></a>
+														<h3><a href="#">Fiction</a></h3>
+														<p>books are works of the imagination, taking readers on a journey to new worlds, introducing them to new characters and telling them stories that entertain, inspire and move.</p>
 													</article>
 												</li>
 												<li>
@@ -176,7 +171,7 @@
 
 												// Array with names
 												$a = array();
-												$conn = mysqli_connect("fdb1028.awardspace.net", "4299657_ydpbmsdatabase", "Yv3rd0nD3P3st@l0zz1", "4299657_ydpbmsdatabase");
+												$conn = mysqli_connect("localhost", "root", "", "ydpbms");
 												if ($conn -> connect_error) {
 													die("Connection failed:". $conn -> connect_error);
 												}
@@ -241,7 +236,7 @@
 									<form method="post">
 										<div class="row gtr-50">
 											<div class="col-12">
-												<textarea style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4" required></textarea>
+												<textarea maxlength="400" style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4" required></textarea>
 											</div>
 											<div class="col-12">
 												<ul class="actions">
