@@ -18,17 +18,9 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon_io/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon_io/favicon-16x16.png">
 		<link rel="manifest" href="../images/favicon_io/site.webmanifest">
-		
-		<script type="text/javascript">
-			var sqlPriority = "name";
-			var sqlOrder = "asc";
-			var page = 1;
-			var type = "first"
-			var table = "books";
-		</script>
 	</head>
 	
-	<body class="homepage is-preload">
+	<body class="homepage is-preload" onload="loginCheck()">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -76,9 +68,6 @@
 												<h2 >General Information</h2>
 											</header>
 											<ul class="style2">
-												<?php
-													// should insert code to auto-generate logs here (create new daily log if none exist, collect data from all logs and current logs)
-												?>
 												<li>
 													<article class="box">
 														<h3>Active users: &lt;Insert value here&gt;</h3>
@@ -86,12 +75,12 @@
 												</li>
 												<li>
 													<article class="box">
-														<h3>Total Number of Site Visits: &lt;Insert value here&gt;</h3>
+														<h3>Total number of visits: &lt;Insert value here&gt;</h3>
 													</article>
 												</li>
 												<li>
 													<article class="box">
-														<h3>Currently Borrowed Books: &lt;Insert value here&gt;</h3>
+														<h3>Number of borrowed books: &lt;Insert value here&gt;</h3>
 													</article>
 												</li>
 											</ul>
@@ -113,10 +102,10 @@
 
 														<div class="col-12">
 															<ul class="actions">
-																<li><input type="submit" class="style1" value="Edit" onclick="onDisplay('')" style="min-width: 0; width: 75px; margin-left: -10px;"/></li>
-																<li><input type="submit" id="save" class="style1" value="Save" style="min-width: 0; width: 75px; margin-left: -10px;"/></li>
-																<li><input type="submit" id="delete" class="style3" value="Delete" style="min-width: 0; width: 75px; margin-left: -10px;" onclick="" /></li>
-																<li><input type="reset" class="style2" value="Close" style="min-width: 0; width: 75px; margin-left: -10px;" onclick="offDisplay('bookInfo')" /></li>
+																<li><input type="submit" class="style1" value="Edit" style="min-width: 0; width: 75px; margin-left: -10px;"/></li>
+																<li><input type="submit" class="style1" value="Save" style="min-width: 0; width: 75px; margin-left: -10px;"/></li>
+																<li><input type="submit" class="style3" value="Delete" style="min-width: 0; width: 75px; margin-left: -10px;" onclick="" /></li>
+																<li><input type="reset" class="style2" value="Close" style="min-width: 0; width: 75px; margin-left: -10px;" onclick="closeInfo()" /></li>
 															</ul>
 														</div>
 													</div>
@@ -139,26 +128,25 @@
 									</form>
 
 								<!-- Sorting -->
-								<button id="sortByButton" value="sortTable" onclick="toggleDisplay(this.value); offDisplay('addBookTable')">Sort By</button>
-								<button id="addBookButton" value="addBookTable" onclick="toggleDisplay(this.value); offDisplay('sortTable')">Add Book</button>
+								<button id="sortByButton" value="sortTable" onclick="toggleDisplay(this.value)">Sort By</button>
+								<button id="addBookButton" value="addBookTable" onclick="toggleDisplay(this.value)">Add Book</button>
 								
 								<ul id="sortTable" style="display: none;">
 									<li style="list-style-type: none;">
 										<ul style="list-style-type: none;">
 											<li><h1 id="sortOrder">Order: Ascending</h1></li>
-											<li><button class="sortTableBtn" value="asc" onclick="sortBook(this.value)" style="float: left; margin-right: 20px; position: relative; z-index: 50;">Ascending</button></li>
-											<li><button class="sortTableBtn" value="desc" onclick="sortBook(this.value)">Descending</button></li>
+											<li><button class="sortTableBtn" value="asc" onclick="printMessage(this.value)" style="float: left; margin-right: 20px; position: relative; z-index: 50;">Ascending</button></li>
+											<li><button class="sortTableBtn" value="desc" onclick="printMessage(this.value)">Descending</button></li>
 										</ul>
 									</li>
 									<li style="list-style-type: none;">
 										<ul style="list-style-type: none;">
 											<li><h1 id="sortPriority">Priority: Name</h1></li>
-											<li><button class="sortTableBtn" value="id" onclick="sortBook(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">ID</button></li>
-											<li><button class="sortTableBtn" value="name" onclick="sortBook(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">Name</button></li>
-											<li><button class="sortTableBtn" value="stock" onclick="sortBook(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">Stock</button></li>
-											<li><button class="sortTableBtn" value="author" onclick="sortBook(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">Author</button></li>
-											<li><button class="sortTableBtn" value="publisher" onclick="sortBook(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">Publisher</button></li>
-											<li><button class="sortTableBtn" value="year" onclick="sortBook(this.value)">Year</button></li>
+											<li><button class="sortTableBtn" value="name" onclick="printMessage(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">Name</button></li>
+											<li><button class="sortTableBtn" value="id" onclick="printMessage(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">ID</button></li>
+											<li><button class="sortTableBtn" value="author" onclick="printMessage(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">Author</button></li>
+											<li><button class="sortTableBtn" value="publisher" onclick="printMessage(this.value)" style="float: left; margin-right: 20px; margin-bottom: 5px;">Publisher</button></li>
+											<li><button class="sortTableBtn" value="year" onclick="printMessage(this.value)">Year</button></li>
 										</ul>
 									</li>
 								</ul>
@@ -166,26 +154,26 @@
 								<!-- Add book -->
 								<div class="row gtr-50" id="addBookTable" style=" display: none;">
 									<h1>Fill up the form below with the proper information</h1>
-									<form method="post" action="addBook.php" style="max-width: 100%; width: 100%;" enctype="multipart/form-data">
+									<form method="post" action="addBook.php" style="max-width: 100%; width: 100%;">
 										<div class="row gtr-50 addBookContent" id="bookContent" style="margin-top: 0;">
 											<div class="col-6 col-12-small">
-												<input type="text" name="name" placeholder="Title" style="margin-bottom: 1em;" required />
-												<input type="text" name="author" placeholder="Author" style="margin-bottom: 1em;" required />
-												<input type="text" name="publisher" placeholder="Publisher" style="margin-bottom: 1em;" required />
-												<input type="text" name="genre" placeholder="Genre" required />
+												<input type="text" name="name" id="" placeholder="Title" style="margin-bottom: 1em;" required />
+												<input type="text" name="author" id="" placeholder="Author" style="margin-bottom: 1em;" required />
+												<input type="text" name="publisher" id="" placeholder="Publisher" style="margin-bottom: 1em;" required />
+												<input type="text" name="genre" id="" placeholder="Genre" required />
 											</div>
 											<div class="col-6 col-12-small">
-												<p style="margin-bottom: 1em;">Book Cover: <input type="file" name="image" placeholder="Book Cover" accept=".jpg, .jpeg, .p, .png" required /></p>
-												<p>Year Published: <select id='date-dropdown' name="year" placeholder="Year Published" onclick="pickYear()" style="margin-bottom: -2em;" required ></select></p>
-												<p>Category: <select id='category-dropdown' name="category" placeholder="Category" onclick="pickCategory()" style="margin-bottom: -1em;" required ></select></p>
-												<input type="number" placeholder="Stock" name="stock" required />
+												<p style="margin-bottom: 1em;">Book Cover: <input type="file" name="image" id="" placeholder="Book Cover" accept=".jpg, .jpeg, .p, .png" required /></p>
+												<p>Year Published: <select id='date-dropdown' placeholder="Year Published" onclick="pickYear()" style="margin-bottom: -1em;" required ></select></p>
+												<p>Category: <select id='category-dropdown' placeholder="Category" onclick="pickCategory()" style="margin-bottom: -2em;" required ></select></p>
+												
 											</div>
 											<div class="col-12">
-												<textarea style="max-width: 100%;" name="desc" id="" placeholder="Description (optional)" rows="6"></textarea>
+												<textarea style="max-width: 100%;" name="message" id="" placeholder="Description (optional)" rows="6"></textarea>
 											</div>
 											<div class="col-12">
 												<ul class="actions">
-													<li><input name="upload" type="submit" class="style1" value="Upload" style="min-width: 0; width: 85px;"/></li>
+													<li><input type="submit" class="style1" value="Save" style="min-width: 0; width: 85px;"/></li>
 													<li><input type="reset" class="style2" value="Reset" style="min-width: 0; width: 85px;" /></li>
 												</ul>
 											</div>
@@ -196,21 +184,8 @@
 								<!-- Content -->
 								<div id="content">
 
-									<form>
-										<button type="button" class="button style3" style="height: 25px; line-height: 2; min-width: 0; width: 62px; font-size: 0.7em;" onclick="pageFlip(0, 'first')">|&lt;</button>
-										<button type="button" class="button style3" style="height: 25px; line-height: 2; min-width: 0; width: 62px; font-size: 0.7em;" onclick="pageFlip(-10, 'change')">&lt;&lt;</button>
-										<button type="button" class="button style3" style="height: 25px; line-height: 2; min-width: 0; width: 62px; font-size: 0.7em;" onclick="pageFlip(-1, 'change')">&lt;</button>
-										<input type="number" placeholder="#" value="1" min="1" id="pageNumTop" onkeyup="pageFlip(this.value, 'set')" onchange="pageFlip(this.value, 'set')" style="width: 50px;">
-										<button type="button" class="button style3" style="height: 25px; line-height: 2; min-width: 0; width: 62px; font-size: 0.7em;" onclick="pageFlip(1, 'change')">&gt;</button>
-										<button type="button" class="button style3" style="height: 25px; line-height: 2; min-width: 0; width: 62px; font-size: 0.7em;" onclick="pageFlip(10, 'change')">&gt;&gt;</button>
-										<button type="button" class="button style3" style="height: 25px; line-height: 2; min-width: 0; width: 62px; font-size: 0.7em;" onclick="pageFlip(0, 'last')">&gt;|</button>
-									</form>
 									<table id="tableContent">
 										<tr>
-											<th colspan="9">Current Query Display will show here</th>
-										</tr>
-										<tr>
-											<th>ID</th>
 											<th width="30%">Title</th>
 											<th>Stock</th>
 											<th width="20%">Author</th>
@@ -220,61 +195,53 @@
 											<th>Year</th>
 											<th>Select</th>
 										</tr>
-										<?php
-											// Books.html Search Tool
+										<div id="tableContent">
+											<?php
+												// Books.html Search Tool
 
-												// Array with names
-												$a = array();
-												$conn = mysqli_connect("localhost", "root", "", "ydpbms");
-												if ($conn -> connect_error) {
-													die("Connection failed:". $conn -> connect_error);
-												}
-												$sql = "select name from books";
-												$result = $conn -> query($sql);
-												if ($result -> num_rows > 0) {
-													while ($row = $result -> fetch_assoc()) {
-														$a[] = $row["name"]; // $row must have a specified identifier to avoid nested array/system error
+													// Array with names
+													$a = array();
+													$conn = mysqli_connect("localhost", "root", "", "ydpbms");
+													if ($conn -> connect_error) {
+														die("Connection failed:". $conn -> connect_error);
 													}
-												} else {
-													exit;
-												}
+													$sql = "select name from books";
+													$result = $conn -> query($sql);
+													if ($result -> num_rows > 0) {
+														while ($row = $result -> fetch_assoc()) {
+															$a[] = $row["name"]; // $row must have a specified identifier to avoid nested array/system error
+														}
+													} else {
+														exit;
+													}
+													
+													// default display
+													$x = "";
+													$stmt = $conn->prepare("select * from books order by name asc limit 10");
+													$stmt->execute();
+													$stmt_result = $stmt->get_result();
+													
+													while ($row = $stmt_result->fetch_assoc()) {
+														if ($row["stock"] < 1) { $x = "red; color: white"; }
+														else { $x = "lime"; }
+														echo '
+															<tr>
+																<td>'.$row["name"].'<a href="adminMore.php?select='.$row["name"].'" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
+																<td style="background-color: '.$x.';">'.$row["stock"].'</td>
+																<td>'.$row["author"].'</td>
+																<th>'.$row["publisher"].'</th>
+																<td>'.$row["category"].'</td>
+																<td>'.$row["genre"].'</td>
+																<td>'.$row["originyear"].'</t>
+																<th><button class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" value="bookInfo" onclick="onDisplay(this.value)">Select</button></th>
+															</tr>
+														';
+													}
 												
-												// default display
-												$x = "";
-												$stmt = $conn->prepare("select * from books order by name asc limit 10");
-												$stmt->execute();
-												$stmt_result = $stmt->get_result();
-												
-												while ($row = $stmt_result->fetch_assoc()) {
-													if ($row["stock"] < 1) { $x = "red; color: white"; }
-													else { $x = "lime"; }
-													echo '
-														<tr>
-															<td>'.$row["id"].'</td>
-															<td>'.$row["name"].'<a href="adminMore.php?select='.$row["name"].'" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
-															<td style="background-color: '.$x.';">'.$row["stock"].'</td>
-															<td>'.$row["author"].'</td>
-															<td>'.$row["publisher"].'</td>
-															<td>'.$row["category"].'</td>
-															<td>'.$row["genre"].'</td>
-															<td>'.$row["originyear"].'</td>
-															<td><button class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" value="bookInfo" onclick="onDisplay(this.value)">Select</button></td>
-														</tr>
-													';
-												}
-											
-											$conn -> close();	
-										?>
+												$conn -> close();	
+											?>
+										</div>
 									</table>
-									<form>
-										<button type="button" class="button style3" style="height: 25px; line-height: 2; min-width: 0; width: 62px; font-size: 0.7em;" onclick="pageFlip(0, 'first')">|&lt;</button>
-										<button type="button" class="button style3" style="height: 25px; line-height: 2; min-width: 0; width: 62px; font-size: 0.7em;" onclick="pageFlip(-10, 'change')">&lt;&lt;</button>
-										<button type="button" class="button style3" style="height: 25px; line-height: 2; min-width: 0; width: 62px; font-size: 0.7em;" onclick="pageFlip(-1, 'change')">&lt;</button>
-										<input type="number" placeholder="#" value="1" min="1" id="pageNumBot" onkeyup="pageFlip(this.value, 'set')" onchange="pageFlip(this.value, 'set')" style="width: 50px;">
-										<button type="button" class="button style3" style="height: 25px; line-height: 2; min-width: 0; width: 62px; font-size: 0.7em;" onclick="pageFlip(1, 'change')">&gt;</button>
-										<button type="button" class="button style3" style="height: 25px; line-height: 2; min-width: 0; width: 62px; font-size: 0.7em;" onclick="pageFlip(10, 'change')">&gt;&gt;</button>
-										<button type="button" class="button style3" style="height: 25px; line-height: 2; min-width: 0; width: 62px; font-size: 0.7em;" onclick="pageFlip(0, 'last')">&gt;|</button>
-									</form>
 									
 									<center>
 										<div class="alertPopup" style="display: none;">
@@ -285,9 +252,9 @@
 
 											<!-- Login -->
 											<div class="alertText">
-												<h2>Are you sure about the changes you have made?</h2>
-												<input type="submit" class="style1 alertBtn1" value="Yes" style="min-width: 0; display: inline;">
-												<input type="submit" class="style3 alertBtn2" value="No" style="min-width: 0; display: inline;">
+														<h2>Are you sure about the changes you have made?</h2>
+														<input type="submit" class="style1 alertBtn1" value="Yes" style="min-width: 0; display: inline;">
+														<input type="submit" class="style3 alertBtn2" value="No" style="min-width: 0; display: inline;">
 											</div>
 											
 										</div>
@@ -312,23 +279,27 @@
 							<div class="col-6 col-12-medium">
 
 								<!-- Contact Form -->
-								<section>
-									<script src="assets/js/request.js"></script>
-									<form method="post">
-										<div class="row gtr-50">
-											<div class="col-12">
-												<textarea maxlength="400" style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4" required></textarea>
+									<section>
+										<form method="post" action="#">
+											<div class="row gtr-50">
+												<div class="col-6 col-12-small">
+													<input type="text" name="name" id="contact-name" placeholder="Name" />
+												</div>
+												<div class="col-6 col-12-small">
+													<input type="text" name="email" id="contact-email" placeholder="Email" />
+												</div>
+												<div class="col-12">
+													<textarea style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4"></textarea>
+												</div>
+												<div class="col-12">
+													<ul class="actions">
+														<li><input type="submit" class="style1" value="Send" /></li>
+														<li><input type="reset" class="style2" value="Reset" /></li>
+													</ul>
+												</div>
 											</div>
-											<div class="col-12">
-												<ul class="actions">
-													<li><input type="submit" class="style1" value="Send" onclick="return requestAccept('Feedback')" /></li>
-													<li><input type="reset" class="style2" value="Reset" style="color: #484d55;" /></li>
-												</ul>
-											</div>
-										</div>
-									</form>
-								</section>
-								<p id="demo"></p>
+										</form>
+									</section>
 
 							</div>
 							<div class="col-6 col-12-medium">
@@ -392,7 +363,7 @@
 			<script src="../assets/js/breakpoints.min.js"></script>
 			<script src="../assets/js/util.js"></script>
 			<script src="../assets/js/main.js"></script>
-			<script src="../assets/js/adminSort.js"></script>
+			<script src="../assets/js/sort.js"></script>
 			<script src="../assets/js/toggleDisplay.js"></script>
 			<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 			<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

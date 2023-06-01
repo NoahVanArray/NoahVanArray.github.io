@@ -248,23 +248,27 @@
 							<div class="col-6 col-12-medium">
 
 								<!-- Contact Form -->
-								<section>
-									<script src="assets/js/request.js"></script>
-									<form method="post">
-										<div class="row gtr-50">
-											<div class="col-12">
-												<textarea maxlength="400" style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4" required></textarea>
+									<section>
+										<form method="post" action="#">
+											<div class="row gtr-50">
+												<div class="col-6 col-12-small">
+													<input type="text" name="name" id="contact-name" placeholder="Name" />
+												</div>
+												<div class="col-6 col-12-small">
+													<input type="text" name="email" id="contact-email" placeholder="Email" />
+												</div>
+												<div class="col-12">
+													<textarea style="max-width: 100%;" name="message" id="contact-message" placeholder="Message" rows="4"></textarea>
+												</div>
+												<div class="col-12">
+													<ul class="actions">
+														<li><input type="submit" class="style1" value="Send" /></li>
+														<li><input type="reset" class="style2" value="Reset" /></li>
+													</ul>
+												</div>
 											</div>
-											<div class="col-12">
-												<ul class="actions">
-													<li><input type="submit" class="style1" value="Send" onclick="return requestAccept('Feedback')" /></li>
-													<li><input type="reset" class="style2" value="Reset" style="color: #484d55;" /></li>
-												</ul>
-											</div>
-										</div>
-									</form>
-								</section>
-								<p id="demo"></p>
+										</form>
+									</section>
 
 							</div>
 							<div class="col-6 col-12-medium">

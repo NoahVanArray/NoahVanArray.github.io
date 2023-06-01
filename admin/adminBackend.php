@@ -1,17 +1,6 @@
 <?php
-	
-	session_start();
 
-	// Admin Search and Sort Tool
-
-	// get the q & r parameters from URL
-	$q = $_REQUEST["q"]; // search bar value
-	$r = $_REQUEST["r"]; // priority
-	$s = $_REQUEST["s"]; // order
-	$t = (int)$_REQUEST["t"]; // page offset
-	$u = $_REQUEST["u"]; // page offset type (first, change, last, set)
-	$v = $_REQUEST["v"]; // table
-	$page = (int)$_REQUEST["page"] - 1; // page
+	// Books.html Search Tool
 
 	// Array with names
 	$a = array();
@@ -19,94 +8,78 @@
 	if ($conn -> connect_error) {
 		die("Connection failed:". $conn -> connect_error);
 	}
-	$sql = "select * from ".$v;
+	$sql = "select name from books";
 	$result = $conn -> query($sql);
 	if ($result -> num_rows > 0) {
 		while ($row = $result -> fetch_assoc()) {
-			$a[] = $row["id"]; // $row must have a specified identifier to avoid nested array/system error
+			$a[] = $row["name"]; // $row must have a specified identifier to avoid nested array/system error
 		}
-	}
-	else {
+	} else {
 		exit;
 	}
-	
-	if ($u == "first") { $page = 0; }
-	else if ($u == "last") { $page = $result -> num_rows - 1; }
-	else if ($u == "change") { $page += $t; if ($page > ($result -> num_rows - 1) || $page < 0) { $page -= $t; } }
-	else if ($u == "set") { $page = $t - 1; }
-	else if (!isset($u)) { $page = 0; }
 
-	$x = "";
-	
-	
-	// lookup all hints from array if $q is different from "" 
-	// if there is searching
-	
+	// get the q & r parameters from URL
+	$q = $_REQUEST["q"];
+	$r = $_REQUEST["r"];
+	$s = $_REQUEST["s"];
+
+	// lookup all hints from array if $q is different from ""
 	if ($q !== "") {
-		$q = "'%".strtolower($q)."%'";
+		$q = "%".strtolower($q)."%";
 		$matchcheck = false;
 		
-		$query = "select * from ".$v." where name like ".$q." order by ".$r." ".$s." limit 10 offset ".$page;
-		$query2 = "select * from ".$v." where name like ".$q;
-		$result = $conn -> query($query);
-		$result2 = $conn -> query($query2);
+		// decipher sorting variables (no better woraround than nested if statements due to PHP limitations, I've checked)
+		if ($s == "desc") {
+			if ($r == "name") { $stmt = $conn->prepare("select * from books where name like ? order by name desc"); }
+			if ($r == "id") { $stmt = $conn->prepare("select * from books where name like ? order by id desc"); }
+			if ($r == "author") { $stmt = $conn->prepare("select * from books where name like ? order by author desc"); }
+			if ($r == "publisher") { $stmt = $conn->prepare("select * from books where name like ? order by publisher desc"); }
+			if ($r == "year") { $stmt = $conn->prepare("select * from books where name like ? order by originyear desc"); }
+		}
+		else {
+			if ($r == "name") { $stmt = $conn->prepare("select * from books where name like ? order by name asc"); }
+			if ($r == "id") { $stmt = $conn->prepare("select * from books where name like ? order by id asc"); }
+			if ($r == "author") { $stmt = $conn->prepare("select * from books where name like ? order by author asc"); }
+			if ($r == "publisher") { $stmt = $conn->prepare("select * from books where name like ? order by publisher asc"); }
+			if ($r == "year") { $stmt = $conn->prepare("select * from books where name like ? order by originyear asc"); }			
+		}
 		
-		$page1 = $page + 1;
-		$page10 = $page + 11;
-		$limit = $result2 -> num_rows;
-		if ($page10 > $limit) { $page10 = $limit; }
-		if ($page > ($result2 -> num_rows - 1) || $page < 0 || $page1 >= $limit) { $page = 0; $page1 = $page + 1; }
-		$queue = '<span style="display: inline;">Displaying '.$page1.' to '.$page10.' of '.$limit.' queries</span>';
-		echo '
-			<tr>
-				<th colspan="9">'.$queue.'</th>
-			</tr>
-			<tr>
-				<th>ID</th>
-				<th width="30%">Title</th>
-				<th>Stock</th>
-				<th width="20%">Author</th>
-				<th width="20%">Publisher</th>
-				<th width="15%">Category</th>
-				<th width="15%">Genre/s</th>
-				<th>Year</th>
-				<th>Select</th>
-			</tr>
-		';
+		$stmt->bind_param("s", $q);
+		$stmt->execute();
+		$stmt_result = $stmt->get_result();
 		
-		while ($row = $result->fetch_assoc()) {
+		while ($row = $stmt_result->fetch_assoc()) {
 			$matchcheck = true;
-			if ($row["stock"] < 1) { $x = "red; color: white"; }
-			else { $x = "lime"; }
 			echo '
-				<tr>
-					<td>'.$row["id"].'</td>
-					<td>'.$row["name"].'<a href="adminMore.php?select='.$row["name"].'" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
-					<td style="background-color: '.$x.';">'.$row["stock"].'</td>
-					<td>'.$row["author"].'</td>
-					<td>'.$row["publisher"].'</td>
-					<td>'.$row["category"].'</td>
-					<td>'.$row["genre"].'</td>
-					<td>'.$row["originyear"].'</td>
-					<td><button class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" value="bookInfo" onclick="onDisplay(this.value)">Select</button></td>
-				</tr>
+				<div class="col-4 col-12-small">
+					<section class="box books">
+						<img src="../'.$row["imgUrl"].'" alt="" class="image featured" style="margin-bottom: 1em;" />
+						<center>
+							<header>
+								<h2 style="margin: 0 0 -10px 0; color: #484d55;">'.$row["name"].'</h2>
+							</header>
+							<p style="margin-top: -10%;">By '.$row["author"].'</p>
+							<a href="more.php?select='.$row["name"].'" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+						</center>
+					</section>
+				</div>
 			';
 		}
 		
 		if($matchcheck == false) {
 			// if nothing matches
 			echo '
-				<tr>
-					<td>_</td>
-					<td>Unfortunately, there is no content here.</td>
-					<td>_</td>
-					<td>_</td>
-					<td>_</td>
-					<td>_</td>
-					<td>_</td>
-					<td>_</td>
-					<td>_</td>
-				</tr>
+				<div class="col-4 col-12-small">
+					<section class="box books">
+						<img src="images/pic06.jpg" alt="" class="image featured" style="margin-bottom: 1em;" />
+						<center>
+							<header>
+								<h2 style="margin: 0 0 -10px 0; color: #484d55;">There is no content here.</h2>
+							</header>
+							<p style="margin-top: -10%;">Sorry!</p>
+						</center>
+					</section>
+				</div>
 			';
 		}
 		
@@ -114,53 +87,42 @@
 	else {
 		// default display
 		
-		$page1 = $page + 1;
-		$page10 = $page + 11;
-		$limit = $result -> num_rows;
-		if ($page10 > $limit) { $page10 = $limit; }
-		if ($page > ($result -> num_rows - 1) || $page < 0) { $page = 0; $page1 = $page + 1; }
-		$queue = '<span style="display: inline;">Displaying '.$page1.' to '.$page10.' of '.$limit.' queries</span>';
+		// decipher sorting variables (no better woraround than nested if statements due to PHP limitations, I've checked extensively)
+		if ($s == "desc") {
+			if ($r == "name") { $stmt = $conn->prepare("select * from books order by name desc"); }
+			if ($r == "id") { $stmt = $conn->prepare("select * from books order by id desc"); }
+			if ($r == "author") { $stmt = $conn->prepare("select * from books order by author desc"); }
+			if ($r == "publisher") { $stmt = $conn->prepare("select * from books order by publisher desc"); }
+			if ($r == "year") { $stmt = $conn->prepare("select * from books order by originyear desc"); }
+		}
+		else {
+			if ($r == "name") { $stmt = $conn->prepare("select * from books order by name asc"); }
+			if ($r == "id") { $stmt = $conn->prepare("select * from books order by id asc"); }
+			if ($r == "author") { $stmt = $conn->prepare("select * from books order by author asc"); }
+			if ($r == "publisher") { $stmt = $conn->prepare("select * from books order by publisher asc"); }
+			if ($r == "year") { $stmt = $conn->prepare("select * from books order by originyear asc"); }	
+		}
 		
-		echo '
-			<tr>
-				<th colspan="9">'.$queue.'</th>
-			</tr>
-			<tr>
-				<th>ID</th>
-				<th width="30%">Title</th>
-				<th>Stock</th>
-				<th width="20%">Author</th>
-				<th width="20%">Publisher</th>
-				<th width="15%">Category</th>
-				<th width="15%">Genre/s</th>
-				<th>Year</th>
-				<th>Select</th>
-			</tr>
-		';
-		
-		$query = "select * from ".$v." order by ".$r." ".$s." limit 10 offset ".$page;
-		$result = $conn -> query($query);
-		while ($row = $result->fetch_assoc()) {
-			if ($row["stock"] < 1) { $x = "red; color: white"; }
-			else { $x = "lime"; }
+		$stmt->execute();
+		$stmt_result = $stmt->get_result();
+		while ($row = $stmt_result->fetch_assoc()) {
 			echo '
-				<tr>
-					<td>'.$row["id"].'</td>
-					<td>'.$row["name"].'<a href="adminMore.php?select='.$row["name"].'" style="text-decoration: none;"><ion-icon name="link-outline"></ion-icon></a></td>
-					<td style="background-color: '.$x.';">'.$row["stock"].'</td>
-					<td>'.$row["author"].'</td>
-					<td>'.$row["publisher"].'</td>
-					<td>'.$row["category"].'</td>
-					<td>'.$row["genre"].'</td>
-					<td>'.$row["originyear"].'</td>
-					<td><button class="button style3" style="height: 25px; line-height: 2.5; min-width: 0; width: 62px; font-size: 0.7em;" value="bookInfo" onclick="onDisplay(this.value)">Select</button></td>
-				</tr>
+				<div class="col-4 col-12-small">
+					<section class="box books">
+						<img src="'.$row["imgUrl"].'" alt="" class="image featured" style="margin-bottom: 1em;" />
+						<center>
+							<header>
+								<h2 style="margin: 0 0 -10px 0; color: #484d55;">'.$row["name"].'</h2>
+							</header>
+							<p style="margin-top: -10%;">By '.$row["author"].'</p>
+							<a href="more.php?select='.$row["name"].'" class="button style1" style="min-width: 0px; width: 100px; height: 30px; line-height: 30px; margin-bottom: 20px;">More</a>
+						</center>
+					</section>
+				</div>
 			';
 		}
 	}
 	
-	$page += 1;
-	echo '<p style="display: none;" id="pageNew">'.$page.'</p>';
-	
 	$conn -> close();	
+	
 ?>

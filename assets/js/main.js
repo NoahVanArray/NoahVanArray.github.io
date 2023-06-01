@@ -230,12 +230,11 @@ function adminSaveText() {
 
 }
 
-let x = 2;
-
  function pickCategory() {
 
   let categoryDropdown = document.getElementById('category-dropdown'); 
-  
+       
+  let x = 2;
   while (x > 0) {      
     let categoryOption = document.createElement('option');
 	if (x == 1)	{

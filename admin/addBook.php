@@ -1,40 +1,141 @@
 <?php
 
-	session_start();
+	// Session Storage
 
-	// Add Book
+	session_start();
+	session_unset();
+
+	// Login
 	
-	if (isset($_POST['upload'])) { 
-		$name = $_POST['name'];
-		$author = $_POST['author'];
-		$publisher = $_POST['publisher'];
-		$genre = $_POST['genre'];
-		$stock = $_POST['stock'];
-		$year = $_POST['year'];
-		$category = $_POST['category'];
-		$desc = $_POST['desc'];
-		
-		$image = $_FILES['image']['name'];
-		$tmp_name = $_FILES['image']['tmp_name'];
-		$folder = "../images/covers/".$image;
-		move_uploaded_file($tmp_name, $folder);
-		$folder = "images/covers/".$image;
-		
+	if (isset($_POST['loginSubmit'])) { 
+		$email1 = $_POST['emailvar'];
+		$password1 = $_POST['passwordvar'];
 		$conn = mysqli_connect("localhost", "root", "", "ydpbms");
 		if ($conn->connect_error) {
 			echo "$conn->connect_error";
 			die("Connection Failed : ". $conn -> connect_error);
 		}
 		else {
-			$sql = "insert into books (name, category, genre, stock, author, publisher, description, originyear, imgUrl) values ('".$name."', '".$category."', '".$genre."', ".$stock.", '".$author."', '".$publisher."', '".$desc."', '".$year."', '".$folder."')";
-			if($conn -> query($sql)) {
-				echo "Data inserted";
+			$stmt = $conn->prepare("select * from users where email = ? and password = ?");
+			$stmt->bind_param("ss", $email1, $password1);
+			$stmt->execute();
+			$stmt_result = $stmt -> get_result();
+			$row = $stmt_result -> fetch_assoc();
+			if ($stmt_result->num_rows == 1) {
+				$_SESSION["userEmail"] = $email1;
+				// create a select * from logs where date = getdate(), and if no num_rows, create a new row with that date set
+				if ($row["isAdmin"] == "1") {
+					$_SESSION["isAdmin"] = $row["isAdmin"];
+					header('Refresh: 0; url=admin/adminHome.php');
+				}
+				else {
+					header('Refresh: 0; url=home.php');
+				}
 			}
 			else {
-				echo "Data failed to insert";
+				echo '<script type="text/javascript">
+					errorRedirect("The email or password is incorrect.");
+				</script>';
+				header('Refresh: 0; index.php');
 			}
+			$stmt->close();
+			$conn->close();
 			exit;
 		}
 	}
 
+	// Registration
+
+	if (isset($_POST['registerSubmit'])) {
+		$fname2 = $_POST['fname2'];
+		$lname2 = $_POST['lname2'];
+		$grade2 = $_POST['grade2'];
+		$section2 = $_POST['section2'];
+		$email2 = $_POST['email2'];
+		$conn = mysqli_connect("localhost", "root", "", "ydpbms");
+		if ($conn->connect_error) {
+			echo "$conn->connect_error";
+			die("Connection Failed : ". $conn->connect_error);
+		}
+		else {
+			if ($grade2 > 12 || $grade2 < 1) { 
+				echo '<script type="text/javascript"> alert("The grade level is invalid."); </script>';
+				header('Refresh: 0; index.php');
+			}
+			$stmt = $conn->prepare("select email from users where email = ?"); 
+			$stmt->bind_param("s", $email2); 
+			$stmt->execute(); 
+			$stmt_result = $stmt->get_result();
+			if ($stmt_result->num_rows > 0) { 
+				echo '<script type="text/javascript"> alert("Email is already used."); </script>';
+				header('Refresh: 0; index.php');
+			}
+			$stmt = $conn->prepare("select lname from users where fname = ? and lname = ?");
+			$stmt->bind_param("ss", $fname2, $lname2); 
+			$stmt->execute(); 
+			$stmt_result = $stmt->get_result();
+			if ($stmt_result->num_rows > 0) { 
+				echo '<script type="text/javascript"> alert("The combination of names are already used."); </script>';
+				header('Refresh: 0; index.php');
+			}
+			$stmt = $conn->prepare("select email from requests where email = ? and type = 'Account Creation'");
+			$stmt->bind_param("s", $email2); 
+			$stmt->execute(); 
+			$stmt_result = $stmt->get_result();
+			if ($stmt_result->num_rows > 0) { 
+				echo '<script type="text/javascript"> alert("A registration request from this email is already made."); </script>';
+
+			}
+			else {
+				$stmt = $conn->prepare("insert into requests(fname, lname, grade, section, email, type, status) values(?, ?, ?, ?, ?, 'Account Creation', 'ongoing')");
+				$stmt->bind_param("ssiss", $fname2, $lname2, $grade2, $section2, $email2);
+				$stmt->execute();
+				echo '<script type="text/javascript">
+					alert("Request to register is successful. Check your email regularly for the one-time password to use in your login. You may change it within the main site once you have logged in. Please wait patiently!");
+				</script>';
+				header('Refresh: 0; index.php');
+				$stmt->close();
+				$conn->close();
+				exit;
+			}
+		}
+	}
+
+	// Forgot Password
+	
+	else if (isset($_POST['forgotSubmit'])) { 
+		$email3 = $_POST['email3'];
+		$conn = mysqli_connect("localhost", "root", "", "ydpbms");
+		if ($conn->connect_error) {
+			echo "$conn->connect_error";
+			die("Connection Failed : ". $conn->connect_error);
+		}
+		else {
+			$stmt = $conn->prepare("select * from requests where email = ? and type = 'Password Reset'");
+			$stmt->bind_param("s", $email3);
+			$stmt->execute();
+			$stmt_result = $stmt->get_result();
+			if ($stmt_result->num_rows > 0) {
+				echo '<script type="text/javascript">
+					alert("A request with the email is already made.");
+				</script>';
+				header('Refresh: 0; index.php');
+			}
+			else {
+				$stmt = $conn->prepare("insert into requests(type, email, status) values('Password Reset', ?, 'ongoing')");
+				$stmt->bind_param("s", $email3);
+				$stmt->execute();
+				$stmt_result = $stmt->get_result();
+				echo '<script type="text/javascript">
+					alert("A password reset request has been successfully created. Once the request is recognized and accepted, a one-time password will be sent to your email. Please wait patiently!");
+				</script>';
+				echo '<script type="text/javascript">
+					alert("Note: You will not be redirected back to the main page.");
+				</script>';
+			}
+			$stmt->close();
+			$conn->close();
+			exit;
+		}
+	}
 ?>

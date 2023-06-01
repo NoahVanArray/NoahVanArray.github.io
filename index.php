@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start(); session_unset(); ?>
 <!DOCTYPE html>
 
 <!--
@@ -32,6 +32,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@600&display=swap" rel="stylesheet">
 
 		<link rel="stylesheet" href="assets/css/login.css" />
+
 	</head>
 	
 
@@ -88,7 +89,7 @@
 
 					<div class="remember-forgot">
 						<label></label>
-						<a href="forgot.php">Forgot Password?</a>
+						<a href="forgot.php" target="_blank">Forgot Password?</a>
 					</div>
 
 					<div>
@@ -150,12 +151,15 @@
 		</div>
 		</center>
 
-	<!-- Popup -->
 		<center>
 			<div class="alertPopup">
+															
+		
+			
+			<!-- Popup -->
 				<div class="alertText">
-					<h2 id="alertMessage">User doesn't exist!</h2>
-					<p id="alertSubtitle">Please try again.</p>
+					<h2>User doesn't exist!</h2>
+					<p>Please try again.</p>
 					<input type="submit" class="alertBtn1" value="Close" style="min-width: 0;" onclick="closeAlert()">
 				</div>												
 			</div>
@@ -165,16 +169,6 @@
 		<script src="assets/js/request.js"></script>
 		<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 		<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-		
-		<?php
-			if (isset($_SESSION["error"])) { echo '<p style="display: none;" id="alertValue">'.$_SESSION["error"].'</p>'; }
-			if (isset($_SESSION["forgot"])) { echo '<p style="display: none;" id="alertSubValue">Please wait patiently.</p>'; }
-			if (isset($_SESSION["success"])) { echo '<p style="display: none;" id="alertSubValue">Please wait patiently, thank you!</p>'; }
-			else if (!isset($_SESSION["success"])) { echo '<p style="display: none;" id="alertSubValue">Please try again.</p>'; }
-			session_unset(); 
-		?>
-		
-		<script> openAlert(); </script>
 
 	</body>
 
